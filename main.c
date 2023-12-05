@@ -51,21 +51,10 @@ bool textBox_active = false;
 bool graph = false;
 bool start = true;
 
-Texture2D multiplty = "resources/operators/multiply_button.png";
-Texture2D divide = "resources/operators/division_button.png";
-Texture2D subtract = "resources/operators/subtraction_button.png";
-Texture2D addition = "resources/operators/addition_button.png";
-
-Texture2D zero = "resources/int/zero_button.png";
-Texture2D one = "resources/int/one_button.png";
-Texture2D two = "resources/int/two_button.png";
-Texture2D three = "resources/int/three_button.png";
-Texture2D four = "resources/int/four_button.png";
-Texture2D five = "resources/int/five_button.png";
-Texture2D six = "resources/int/six_button.png";
-Texture2D seven = "resources/int/seven_button.png";
-Texture2D eight = "resources/int/eight_button.png";
-Texture2D nine = "resources/int/nine_button.png";
+Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
+Texture2D division = LoadTexture("resources/operators/division_button.png");
+Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
+Texture2D addition = LoadTexture("resources/operators/addition_button.png");
 
 int main(Camera2D camera, Rectangle textbox) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
