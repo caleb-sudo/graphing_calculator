@@ -51,6 +51,22 @@ bool textBox_active = false;
 bool graph = false;
 bool start = true;
 
+Texture2D multiplty = "resources/operators/multiply_button.png";
+Texture2D divide = "resources/operators/division_button.png";
+Texture2D subtract = "resources/operators/subtraction_button.png";
+Texture2D addition = "resources/operators/addition_button.png";
+
+Texture2D zero = "resources/int/zero_button.png";
+Texture2D one = "resources/int/one_button.png";
+Texture2D two = "resources/int/two_button.png";
+Texture2D three = "resources/int/three_button.png";
+Texture2D four = "resources/int/four_button.png";
+Texture2D five = "resources/int/five_button.png";
+Texture2D six = "resources/int/six_button.png";
+Texture2D seven = "resources/int/seven_button.png";
+Texture2D eight = "resources/int/eight_button.png";
+Texture2D nine = "resources/int/nine_button.png";
+
 int main(Camera2D camera, Rectangle textbox) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
 	Init();
@@ -186,4 +202,19 @@ bool IsAnyKeyPressed() {
 }
 
 static void Unload(void) {
+	UnloadTexture(multiply);
+	UnloadTexture(division);
+	UnloadTexture(subtraction);
+	UnloadTexture(addition);
+
+	UnloadTexture(zero);
+	UnloadTexture(one);
+	UnloadTexture(two);
+	UnloadTexture(three);
+	UnloadTexture(four);
+	UnloadTexture(five);
+	UnloadTexture(six);
+	UnloadTexture(seven);
+	UnloadTexture(eight);
+	UnloadTexture(nine);
 }
