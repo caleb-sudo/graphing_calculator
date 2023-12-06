@@ -42,14 +42,14 @@ int framesCounter = 0;
 char name[max_chars+1] = "\0";
 
 static void Init();
-static void Update(Camera2D camera, Rectangle textbox);
-static void Draw(Camera2D camera, Rectangle textbox);
-static void UpdateDrawFrame(Camera2D camera, Rectangle textbox);
+static void Update(Camera2D camera);
+static void Draw(Camera2D camera);
+static void UpdateDrawFrame(Camera2D camera);
 static void Unload();
 
 bool textBox_active = false;
 bool graph = false;
-bool start = true;
+
 
 Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
 Texture2D division = LoadTexture("resources/operators/division_button.png");
@@ -74,11 +74,11 @@ Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
 Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
 Texture2D squared = LoadTexture("resource/others/squared_button.png");
 
-int main(Camera2D camera, Rectangle textbox) {
+int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
 	Init();
 	while(!WindowShouldClose()) {
-		UpdateDrawFrame(camera, textbox);
+		UpdateDrawFrame(camera);
 	}
 	Unload();
 	CloseWindow();
@@ -88,8 +88,6 @@ int main(Camera2D camera, Rectangle textbox) {
 static void Init(void) {
 	Camera2D camera;
 	camera.zoom = 1.0f;
-
-	Rectangle textbox = { screenWidth/2.0f - 100, 180, 225, 50 };
 	
 	for (int i = 0; i < max_lines; i++) {
 		lines[i].position = (Vector2) { 0, y-int };
@@ -105,7 +103,7 @@ static void Init(void) {
 	graph_pos.speed = (Vector2) { 0, 0 };
 }
 
-static void Update(Camera2D camera, Rectangle textbox) {
+static void Update(Camera2D camera) {
 	if (graph) {
 		if (IsKeyPressed(KEY_TAB)) graph_pos.active = true;
 		if (graph_pos.active) {
@@ -121,33 +119,6 @@ static void Update(Camera2D camera, Rectangle textbox) {
 		}
 	}
 	if (start) {
-		if (CheckCollisionPointRec(GetMousePosition(), textbox)) textBox_active = true;
-		else textBox_active = false;
-		if (textBox_active) {
-			SetMouseCursor(MOUSE_CURSOR_IBEAM);
-			int key = GetCharPressed();
-			while (key > 0) {
-				if (( key >= 32) && (key <= 125) && (letterCount < max_chars)) {
-					name[letterCount] = (char)key;
-					name[letterCount+1] = '\0';
-					letterCount++;
-				}
-				key = GetCharPressed();
-			}
-			if (IsKeyPressed(KEY_BACKSPACE)) {
-				letterCount--;
-				if (letterCount < 0) letterCount = 0;
-				name[letterCount] = '\0';
-			}
-		} else {
-			SetMouseCursor(MOUSE_CURSOR_DEFAULT);
-		}
-		if (textBox_active) {
-			framesCounter++;
-		} else {
-			framesCounter = 0;
-		}
-
 		if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
 			Vector2 delta = GetMouseDelta();
 			delta = Vector2Scale(delta, -1.0f/camera.zoom);
@@ -168,20 +139,6 @@ static void Update(Camera2D camera, Rectangle textbox) {
 static void Draw(Camera2D camera, Rectangle textbox) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
-		if (start) {
-			DrawRectangleRec(textbox, LIGHTGRAY);
-			if (textBox_active) DrawRectangleLines((int)textbox.x, (int)textbox.y, (int)textbox.width, (int)textbox.height, RED);
-			else DrawRectangleLines((int)textbox.x, (int)textbox.y, (int)textbox.width, (int)textbox.height, DARKGRAY);
-
-			DrawText(name, (int)textbox.x + 5, (int)textbox.y + 8, 40, MAROON);
-			DrawText(TextFormat("INPUT CHARS: %i/%i", letterCount, max_chars), 315, 250, 20, DARKGRAY);
-			if (textBox_active) {
-				if (letterCount < max_chars) {
-					if (((framesCounter/20)%2) == 0) DrawText("_", (int)textbox.x + 8 + MeasureText(name, 40), (int)textbox.y + 12, 40, MAROON);
-				}
-				else DrawText("hello", 230, 300, 20, GRAY);
-			}
-		}
 		if (graph) {
 			BeginMode2D(camera);
 				rlPushMatrix();
@@ -197,15 +154,6 @@ static void Draw(Camera2D camera, Rectangle textbox) {
 static void UpdateDrawFrame(Camera2D camera, Rectangle textbox) {
 	Update(camera, textbox);
 	Draw(camera, textbox);
-}
-
-bool IsAnyKeyPressed() {
-	bool keyPressed = false;
-	int key = GetKeyPressed();
-
-	if ((key >= 32) && (key <= 126)) keyPressed = true;
-
-	return keyPressed;
 }
 
 static void Unload(void) {
