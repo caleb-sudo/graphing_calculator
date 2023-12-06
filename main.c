@@ -55,6 +55,7 @@ Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
 Texture2D division = LoadTexture("resources/operators/division_button.png");
 Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
 Texture2D addition = LoadTexture("resources/operators/addition_button.png");
+Texture2D enter = LoadTexture("resources/operators/equals_button.png");
 
 Texture2D zero = LoadTexture("resources/ints/zero_button.png");
 Texture2D one = LoadTexture("resources/ints/one_button.png");
@@ -66,6 +67,12 @@ Texture2D six = LoadTexture("resources/ints/six_button.png");
 Texture2D seven = LoadTexture("resources/ints/seven_button.png");
 Texture2D eight = LoadTexture("resources/ints/eight_button.png");
 Texture2D nine = LoadTexture("resource/ints/nine_button.png");
+
+Texture2D x = LoadTexture("resources/graph/x_button.png");
+
+Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
+Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
+Texture2D squared = LoadTexture("resource/others/squared_button.png");
 
 int main(Camera2D camera, Rectangle textbox) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
@@ -206,6 +213,7 @@ static void Unload(void) {
 	UnloadTexture(division);
 	UnloadTexture(subtraction);
 	UnloadTexture(addition);
+	UnloadTexture(enter);
 
 	UnloadTexture(zero);
 	UnloadTexture(one);
@@ -217,4 +225,10 @@ static void Unload(void) {
 	UnloadTexture(seven);
 	UnloadTexture(eight);
 	UnloadTexture(nine);
+
+	UnloadTexture(x);
+
+	UnloadTexture(exponent);
+	UnloadTexture(cubed);
+	UnloadTexture(squared);
 }
