@@ -42,7 +42,6 @@ static void Draw(Camera2D camera);
 static void UpdateDrawFrame(Camera2D camera);
 static void Unload();
 
-bool textBox_active = false;
 bool graph = false;
 
 
