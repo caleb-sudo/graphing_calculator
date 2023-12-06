@@ -111,8 +111,6 @@ static void Update(Camera2D camera) {
 				graph_pos.position.x += GraphSpeed;
 			}
 		}
-	}
-	if (start) {
 		if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
 			Vector2 delta = GetMouseDelta();
 			delta = Vector2Scale(delta, -1.0f/camera.zoom);
