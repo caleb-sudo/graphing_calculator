@@ -10,7 +10,6 @@
 
 #define	max_points	100
 #define max_lines	50
-#define max_chars	20
 #define GraphSpeed	7.0f
 
 typedef struct Points {
@@ -36,10 +35,6 @@ static Graph_Pos graph_pos = { 0 };
 
 const int screenWidth = 800;
 const int screenHeight = 450;
-int letterCount = 0;
-int framesCounter = 0;
-
-char name[max_chars+1] = "\0";
 
 static void Init();
 static void Update(Camera2D camera);
