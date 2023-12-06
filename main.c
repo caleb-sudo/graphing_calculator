@@ -74,6 +74,12 @@ Texture2D del = LoadTexture("resources/others/delete_button.png");
 Texture2D clear = LoadTexture("resources/others/clear_button.png");
 Texture2D sq = LoadTexture("resources/others/sq_button.png");
 Texture2D neg = LoadTexture("resources/others/neg_button.png");
+Texture2D sin = LoadTexture("resources/others/sin_button.png");
+Texture2D cos = LoadTexture("resource/others/cos_button.png");
+Texture2D tan = LoadTexture("resources/others/tan_button.png");
+Texture2D -tan = LoadTexture("reources/others/tan-1_button.png");
+Texture2D -cos = LoadTexture("resources/others/cos-1_button.png");
+Texture2D -sin = LoadTexture("resources/others/sin-1_button.png");
 
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
@@ -185,4 +191,10 @@ static void Unload(void) {
 	UnloadTexture(clear);
 	UnloadTexture(sq);
 	UnloadTexture(neg);
+	UnloadTexture(sin);
+	UnloadTexture(cos);
+	UnloadTexture(tan);
+	UnloadTexture(-tan);
+	UnloadTexture(-cos);
+	UnloadTexture(-sin);
 }
