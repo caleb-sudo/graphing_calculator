@@ -56,6 +56,17 @@ Texture2D division = LoadTexture("resources/operators/division_button.png");
 Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
 Texture2D addition = LoadTexture("resources/operators/addition_button.png");
 
+Texture2D zero = LoadTexture("resources/ints/zero_button.png");
+Texture2D one = LoadTexture("resources/ints/one_button.png");
+Texture2D two = LoadTexture("resources/ints/two_button.png");
+Texture2D three = LoadTexture("resources/ints/three_button.png");
+Texture2D four = LoadTexture("resource/ints/four_button.png");
+Texture2D five = LoadTexture("resources/ints/five_button.png");
+Texture2D six = LoadTexture("resources/ints/six_button.png");
+Texture2D seven = LoadTexture("resources/ints/seven_button.png");
+Texture2D eight = LoadTexture("resources/ints/eight_button.png");
+Texture2D nine = LoadTexture("resource/ints/nine_button.png");
+
 int main(Camera2D camera, Rectangle textbox) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
 	Init();
