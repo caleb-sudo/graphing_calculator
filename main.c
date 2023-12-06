@@ -80,6 +80,8 @@ Texture2D tan = LoadTexture("resources/others/tan_button.png");
 Texture2D -tan = LoadTexture("reources/others/tan-1_button.png");
 Texture2D -cos = LoadTexture("resources/others/cos-1_button.png");
 Texture2D -sin = LoadTexture("resources/others/sin-1_button.png");
+Texture2D first_braket = LoadTexture("resources/others/first-braket_button.png");
+Texture2D second_braket = LoadTexture("resources/others/second-braket_button.png");
 
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
@@ -197,4 +199,6 @@ static void Unload(void) {
 	UnloadTexture(-tan);
 	UnloadTexture(-cos);
 	UnloadTexture(-sin);
+	UnloadTexture(first_braket);
+	UnloadTexture(second_braket);
 }
