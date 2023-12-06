@@ -42,7 +42,10 @@ static void Draw(Camera2D camera);
 static void UpdateDrawFrame(Camera2D camera);
 static void Unload();
 
+bool norm = true;
 bool graph = false;
+
+int sq_num;
 
 Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
 Texture2D division = LoadTexture("resources/operators/division_button.png");
@@ -112,8 +115,15 @@ static void Init(void) {
 }
 
 static void Update(Camera2D camera) {
+	if (norm) {
+	}
+	}
 	if (graph) {
 		if (IsKeyPressed(KEY_TAB)) graph_pos.active = true;
+		if (IsKeyPressed(KEY_BACKSPACE)) {
+			graph = false;
+			norm = true;
+		}
 		if (graph_pos.active) {
 			if (IsKeyDown(KEY_UP)) {
 				graph_pos.position.y += GraphSpeed;
@@ -140,6 +150,7 @@ static void Update(Camera2D camera) {
 			if (camera.zoom < zoomIncrement) camera.zoom = zoomIncrement;
 		}
 	}
+	if(IsKeyPressed(KEY_ESC)) CloseWindow();
 }
 
 static void Draw(Camera2D camera, Rectangle textbox) {
