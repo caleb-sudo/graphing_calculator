@@ -72,6 +72,8 @@ Texture2D E = LoadTexture("resources/others/x10_button.png");
 Texture2D pi = LoadTexture("resources/others/pi_button.png");
 Texture2D del = LoadTexture("resources/others/delete_button.png");
 Texture2D clear = LoadTexture("resources/others/clear_button.png");
+Texture2D sq = LoadTexture("resources/others/sq_button.png");
+Texture2D neg = LoadTexture("resources/others/neg_button.png");
 
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
@@ -181,4 +183,6 @@ static void Unload(void) {
 	UnloadTexture(pi);
 	UnloadTexture(del);
 	UnloadTexture(clear);
+	UnloadTexture(sq);
+	UnloadTexture(neg);
 }
