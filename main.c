@@ -63,12 +63,15 @@ Texture2D eight = LoadTexture("resources/ints/eight_button.png");
 Texture2D nine = LoadTexture("resource/ints/nine_button.png");
 
 Texture2D x = LoadTexture("resources/graph/x_button.png");
+Texture2D y_equals = LoadTexture("resources/graph/Y=_button.png");
 
 Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
 Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
 Texture2D squared = LoadTexture("resource/others/squared_button.png");
 Texture2D E = LoadTexture("resources/others/x10_button.png");
 Texture2D pi = LoadTexture("resources/others/pi_button.png");
+Texture2D del = LoadTexture("resources/others/delete_button.png");
+Texture2D clear = LoadTexture("resources/others/clear_button.png");
 
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
@@ -169,10 +172,13 @@ static void Unload(void) {
 	UnloadTexture(nine);
 
 	UnloadTexture(x);
+	UnloadTexture(y_equals);
 
 	UnloadTexture(exponent);
 	UnloadTexture(cubed);
 	UnloadTexture(squared);
 	UnloadTexture(E);
 	UnloadTexture(pi);
+	UnloadTexture(del);
+	UnloadTexture(clear);
 }
