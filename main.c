@@ -44,7 +44,6 @@ static void Unload();
 
 bool graph = false;
 
-
 Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
 Texture2D division = LoadTexture("resources/operators/division_button.png");
 Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
