@@ -194,6 +194,9 @@ static void Update(Camera2D camera) {
 			//prints >
 		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
 			//prints <
+		} else if (CheckCollisonPointRec(mousePoint, sq_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, ans_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoints, abs_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
 			//prints (
 		} else if (CheckCollisionPointRec(mousePoint, second_braket_bounds) || IsKeyPressed(KEY_RIGHT_BRACKET)) {
