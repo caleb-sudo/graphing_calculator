@@ -49,47 +49,6 @@ bool button_pressed = false;
 
 int sq_num;
 
-Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
-Texture2D division = LoadTexture("resources/operators/division_button.png");
-Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
-Texture2D addition = LoadTexture("resources/operators/addition_button.png");
-Texture2D enter = LoadTexture("resources/operators/equals_button.png");
-
-Texture2D zero = LoadTexture("resources/ints/zero_button.png");
-Texture2D one = LoadTexture("resources/ints/one_button.png");
-Texture2D two = LoadTexture("resources/ints/two_button.png");
-Texture2D three = LoadTexture("resources/ints/three_button.png");
-Texture2D four = LoadTexture("resource/ints/four_button.png");
-Texture2D five = LoadTexture("resources/ints/five_button.png");
-Texture2D six = LoadTexture("resources/ints/six_button.png");
-Texture2D seven = LoadTexture("resources/ints/seven_button.png");
-Texture2D eight = LoadTexture("resources/ints/eight_button.png");
-Texture2D nine = LoadTexture("resource/ints/nine_button.png");
-
-Texture2D x = LoadTexture("resources/graph/x_button.png");
-Texture2D y_equals = LoadTexture("resources/graph/Y=_button.png");
-
-Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
-Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
-Texture2D squared = LoadTexture("resource/others/squared_button.png");
-Texture2D E = LoadTexture("resources/others/x10_button.png");
-Texture2D pi = LoadTexture("resources/others/pi_button.png");
-Texture2D del = LoadTexture("resources/others/delete_button.png");
-Texture2D clear = LoadTexture("resources/others/clear_button.png");
-Texture2D sq = LoadTexture("resources/others/sq_button.png");
-Texture2D neg = LoadTexture("resources/others/neg_button.png");
-Texture2D sin = LoadTexture("resources/others/sin_button.png");
-Texture2D cos = LoadTexture("resource/others/cos_button.png");
-Texture2D tan = LoadTexture("resources/others/tan_button.png");
-Texture2D -tan = LoadTexture("reources/others/tan-1_button.png");
-Texture2D -cos = LoadTexture("resources/others/cos-1_button.png");
-Texture2D -sin = LoadTexture("resources/others/sin-1_button.png");
-Texture2D first_braket = LoadTexture("resources/others/first-braket_button.png");
-Texture2D second_braket = LoadTexture("resources/others/second-braket_button.png");
-Texture2D decimal = LoadTexture("resources/others/decimal_button.png");
-Texture2D comma = LoadTexture("resources/others/comma_button.png");
-Texture2D log = LoadTexture("resources/others/log_button.png");
-
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
 	Init();
@@ -106,6 +65,47 @@ static void Init(void) {
 	camera.zoom = 1.0f;
 
 	Vector2 mousePoint = { 0.0f, 0.0f };
+
+	Texture2D multiply = LoadTexture("resources/operators/multiply_button.png");
+	Texture2D division = LoadTexture("resources/operators/division_button.png");
+	Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
+	Texture2D addition = LoadTexture("resources/operators/addition_button.png");
+	Texture2D enter = LoadTexture("resources/operators/equals_button.png");
+
+	Texture2D zero = LoadTexture("resources/ints/zero_button.png");
+	Texture2D one = LoadTexture("resources/ints/one_button.png");
+	Texture2D two = LoadTexture("resources/ints/two_button.png");
+	Texture2D three = LoadTexture("resources/ints/three_button.png");
+	Texture2D four = LoadTexture("resource/ints/four_button.png");
+	Texture2D five = LoadTexture("resources/ints/five_button.png");
+	Texture2D six = LoadTexture("resources/ints/six_button.png");
+	Texture2D seven = LoadTexture("resources/ints/seven_button.png");
+	Texture2D eight = LoadTexture("resources/ints/eight_button.png");
+	Texture2D nine = LoadTexture("resource/ints/nine_button.png");
+
+	Texture2D x = LoadTexture("resources/graph/x_button.png");
+	Texture2D y_equals = LoadTexture("resources/graph/Y=_button.png");
+
+	Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
+	Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
+	Texture2D squared = LoadTexture("resource/others/squared_button.png");
+	Texture2D E = LoadTexture("resources/others/x10_button.png");
+	Texture2D pi = LoadTexture("resources/others/pi_button.png");
+	Texture2D del = LoadTexture("resources/others/delete_button.png");
+	Texture2D clear = LoadTexture("resources/others/clear_button.png");
+	Texture2D sq = LoadTexture("resources/others/sq_button.png");
+	Texture2D neg = LoadTexture("resources/others/neg_button.png");
+	Texture2D sin_button = LoadTexture("resources/others/sin_button.png");
+	Texture2D cos_button = LoadTexture("resource/others/cos_button.png");
+	Texture2D tan_button = LoadTexture("resources/others/tan_button.png");
+	Texture2D neg_tan = LoadTexture("reources/others/tan-1_button.png");
+	Texture2D neg_cos = LoadTexture("resources/others/cos-1_button.png");
+	Texture2D neg_sin = LoadTexture("resources/others/sin-1_button.png");
+	Texture2D first_braket = LoadTexture("resources/others/first-braket_button.png");
+	Texture2D second_braket = LoadTexture("resources/others/second-braket_button.png");
+	Texture2D decimal = LoadTexture("resources/others/decimal_button.png");
+	Texture2D comma = LoadTexture("resources/others/comma_button.png");
+	Texture2D log_buttom = LoadTexture("resources/others/log_button.png");
 	
 	Rectangle one_bounds = { screenWidth/2 - 30, screenHeight/2 - 30, 30, 30 };
 	Rectangle two_bounds = { screenWidth/2 -60, screenHeight/2 -30, 30, 30 };
@@ -165,13 +165,13 @@ static void Update(Camera2D camera) {
 			//print seven
 		} else if (CheckCollisionPointRec(mousePoint, eight_bounds) || IsKeyPressed(KEY_EIGHT)) {
 			//print eight
-		} else if (CheckCollisionPointsRec(mousePoint, nine_bounds) || IsKeyPressed(KEY_NINE)) {
+		} else if (CheckCollisionPointRec(mousePoint, nine_bounds) || IsKeyPressed(KEY_NINE)) {
 			//prints nine
-		} else if (CheckCollisionPointsRec(mousePoint, zero_bounds) || IsKeyPressed(KEY_ZERO)) {
+		} else if (CheckCollisionPointRec(mousePoint, zero_bounds) || IsKeyPressed(KEY_ZERO)) {
 			//prints zero
-		} else if (CheckCollisionPointsRec(mousePoint, sub_bounds) || IsKeyPressed(KEY_MINUS)) {
+		} else if (CheckCollisionPointRec(mousePoint, sub_bounds) || IsKeyPressed(KEY_MINUS)) {
 			//prints -
-		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_EQUALS)) {
+		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_EQUAL)) {
 			// enters equation
 		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRAKET)) {
 			//prints (
@@ -192,9 +192,9 @@ static void Update(Camera2D camera) {
 		} else if (CheckCollisionPointRec(mousePoint, tan_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, sin_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, cos_bounds)) {
-		} else if (CheckCollisionPointRec(mousePoint, -tan_bounds)) {
-		} else if (CheckCollisionPointRec(mousePoint, -sin_bounds)) {
-		} else if (CheckCollisionPointRec(mousePoint, -cos_bounds)) { 
+		} else if (CheckCollisionPointRec(mousePoint, neg_tan_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, neg_sin_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) { 
 		}
 
 	}
@@ -260,7 +260,7 @@ static void UpdateDrawFrame(Camera2D camera, Rectangle textbox) {
 static void Unload(void) {
 	UnloadTexture(multiply);
 	UnloadTexture(division);
-	UnloadTexture(subtraction);
+	UnloadTexture(subtract);
 	UnloadTexture(addition);
 	UnloadTexture(enter);
 
@@ -287,15 +287,15 @@ static void Unload(void) {
 	UnloadTexture(clear);
 	UnloadTexture(sq);
 	UnloadTexture(neg);
-	UnloadTexture(sin);
-	UnloadTexture(cos);
-	UnloadTexture(tan);
-	UnloadTexture(-tan);
-	UnloadTexture(-cos);
-	UnloadTexture(-sin);
+	UnloadTexture(sin_button);
+	UnloadTexture(cos_button);
+	UnloadTexture(tan_button);
+	UnloadTexture(neg_tan);
+	UnloadTexture(neg_cos);
+	UnloadTexture(neg_sin);
 	UnloadTexture(first_braket);
 	UnloadTexture(second_braket);
 	UnloadTexture(decimal);
 	UnloadTexture(comma);
-	UnloadTexture(log);
+	UnloadTexture(log_button);
 }
