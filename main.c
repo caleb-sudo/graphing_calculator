@@ -106,6 +106,8 @@ static void Init(void) {
 	Texture2D decimal = LoadTexture("resources/others/decimal_button.png");
 	Texture2D comma = LoadTexture("resources/others/comma_button.png");
 	Texture2D log_buttom = LoadTexture("resources/others/log_button.png");
+	Texture2D abs = LoadTexture("resources/others/abs_button.png");
+	Texture2D ans = LoadTexture("resources/others/ans_button.png");
 	
 	Rectangle one_bounds = { screenWidth/2 - 30, screenHeight/2 - 30, 30, 30 };
 	Rectangle two_bounds = { screenWidth/2 -60, screenHeight/2 -30, 30, 30 };
@@ -311,4 +313,6 @@ static void Unload(void) {
 	UnloadTexture(decimal);
 	UnloadTexture(comma);
 	UnloadTexture(log_button);
+	UnloadTexture(abs);
+	UnloadTexture(ans);
 }
