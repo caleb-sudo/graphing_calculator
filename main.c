@@ -45,6 +45,9 @@ static void Unload();
 bool title = true;
 bool norm = false;
 bool graph = false;
+bool 1 = false;
+bool 2 = false;
+bool 3 = false;
 bool button_pressed = false;
 
 int sq_num;
@@ -161,11 +164,11 @@ static void Update(Camera2D camera) {
 		mousePoint = GetMousePosition();
 		button_pressed = false;
 		if (CheckCollisionPointRec(mousePoint, one_bounds) || IsKeyPressed(KEY_ONE)) {
-			//print one
+			1 = true;
 		} else if (CheckCollisionPointRec(mousePoint, two_bounds) || IsKeyPressed(KEY_TWO)) {
-			//print two
+			2 = true;
 		} else if (CheckCollisionPointRec(mousePoint, three_bounds) || IsKeyPressed(KEY_THREE)) {
-			//print three
+			3 = true;
 		} else if (CheckCollisionPointRec(mousePoint, four_bounds) || IsKeyPressed(KEY_FOUR)) {
 			//print four
 		} else if (CheckCollisionPointRec(mousePoint, five_bounds) || IsKeyPressed(KEY_FIVE)) {
@@ -264,6 +267,8 @@ static void Update(Camera2D camera) {
 static void Draw(Camera2D camera, Rectangle textbox) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
+		if (1) {
+		}
 		if (graph) {
 			BeginMode2D(camera);
 				rlPushMatrix();
