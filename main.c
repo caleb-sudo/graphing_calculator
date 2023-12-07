@@ -118,6 +118,13 @@ static void Init(void) {
 	Rectangle nine_bounds = { screenWidth/2 -90, screenHeight/2 -60, 30, 30 };
 	Rectangle zero_bounds = { screenWidth/2 +30, screenHeight/2 -60, 30, 30 };
 
+	Rectangle add_bounds = { screenWidth/2 +60, screenHeight +30, 30, 30 };
+	Rectangle multiply_bounds = { screenWidth/2 +60, screenHeight +60, 30, 30 };
+	Rectangle sub_bounds = { screenWidth/2 +60, screenHeight +90, 30, 30 };
+	Rectangle div_bounds = { screenWidth/2 +60, screenHeight +120, 30, 30 };
+	Rectangle enter_bounds = { screenWidth/2 +60, screenHeight +150, 30, 30 };
+	
+	Rectangle neg_bounds = { screenWidth/2 +30, screenHeight +150, 30, 30 };
 	Rectangle decimal_bounds = { screenWidth/2 +60, screenHeight/2 -60, 30, 30 };
 	Rectangle squared_bounds = { screenWidth/2 -30, screenHeight/2 +30, 30, 30 };
 	Rectangle cubed_bounds = { screenWidth/2 -60, screenHeight/2 +30, 30, 30 };
@@ -173,6 +180,12 @@ static void Update(Camera2D camera) {
 			//prints -
 		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_EQUAL)) {
 			// enters equation
+		} else if (CheckCollisionPointRec(mousePoint, multiply_bounds)) {
+			//prints *
+		} else if (CheckCollisionPointRec(mousePoint, add_bounds)) {
+			//prints +
+		} else if (CheckCollisionPointRec(mousePoint, sub_bounds)) {
+			//prints
 		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
 			//prints (
 		} else if (CheckCollisionPointRec(mousePoint, second_braket_bounds) || IsKeyPressed(KEY_RIGHT_BRACKET)) {
