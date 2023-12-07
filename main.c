@@ -101,8 +101,8 @@ static void Init(void) {
 	Texture2D neg_tan = LoadTexture("reources/others/tan-1_button.png");
 	Texture2D neg_cos = LoadTexture("resources/others/cos-1_button.png");
 	Texture2D neg_sin = LoadTexture("resources/others/sin-1_button.png");
-	Texture2D first_braket = LoadTexture("resources/others/first-braket_button.png");
-	Texture2D second_braket = LoadTexture("resources/others/second-braket_button.png");
+	Texture2D first_bracket = LoadTexture("resources/others/first-braket_button.png");
+	Texture2D second_bracket = LoadTexture("resources/others/second-braket_button.png");
 	Texture2D decimal = LoadTexture("resources/others/decimal_button.png");
 	Texture2D comma = LoadTexture("resources/others/comma_button.png");
 	Texture2D log_buttom = LoadTexture("resources/others/log_button.png");
@@ -173,9 +173,9 @@ static void Update(Camera2D camera) {
 			//prints -
 		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_EQUAL)) {
 			// enters equation
-		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRAKET)) {
+		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
 			//prints (
-		} else if (CheckCollisionPointRec(mousePoint, second_braket_bounds) || IsKeyPressed(KEY_RIGHT_BRAKET)) {
+		} else if (CheckCollisionPointRec(mousePoint, second_braket_bounds) || IsKeyPressed(KEY_RIGHT_BRACKET)) {
 			// prints )
 		} else if (CheckCollisionPointRec(mousePoint, division_bounds) || IsKeyPressed(KEY_BACKSLASH)) {
 			// prints division symbol
@@ -293,8 +293,8 @@ static void Unload(void) {
 	UnloadTexture(neg_tan);
 	UnloadTexture(neg_cos);
 	UnloadTexture(neg_sin);
-	UnloadTexture(first_braket);
-	UnloadTexture(second_braket);
+	UnloadTexture(first_bracket);
+	UnloadTexture(second_bracket);
 	UnloadTexture(decimal);
 	UnloadTexture(comma);
 	UnloadTexture(log_button);
