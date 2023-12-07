@@ -71,6 +71,8 @@ static void Init(void) {
 	Texture2D subtract = LoadTexture("resources/operators/subtract_button.png");
 	Texture2D addition = LoadTexture("resources/operators/addition_button.png");
 	Texture2D enter = LoadTexture("resources/operators/equals_button.png");
+	Texture2D greater = LoadTexture("resources/operators/greater_button.png");
+	Texture2D less = LoadTexture("resources/operators/less_button.png");
 
 	Texture2D zero = LoadTexture("resources/ints/zero_button.png");
 	Texture2D one = LoadTexture("resources/ints/one_button.png");
@@ -188,6 +190,10 @@ static void Update(Camera2D camera) {
 			//prints +
 		} else if (CheckCollisionPointRec(mousePoint, sub_bounds)) {
 			//prints
+		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
+			//prints >
+		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
+			//prints <
 		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
 			//prints (
 		} else if (CheckCollisionPointRec(mousePoint, second_braket_bounds) || IsKeyPressed(KEY_RIGHT_BRACKET)) {
@@ -278,6 +284,8 @@ static void Unload(void) {
 	UnloadTexture(subtract);
 	UnloadTexture(addition);
 	UnloadTexture(enter);
+	UnloadTexture(greater);
+	UnloadTexture(less);
 
 	UnloadTexture(zero);
 	UnloadTexture(one);
