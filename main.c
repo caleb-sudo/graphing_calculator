@@ -37,7 +37,7 @@ const int screenWidth = 800;
 const int screenHeight = 450;
 
 static void Init();
-static void Update(Camera2D camera);
+static void Update(Camera2D camera); 
 static void Draw(Camera2D camera);
 static void UpdateDrawFrame(Camera2D camera);
 static void Unload();
