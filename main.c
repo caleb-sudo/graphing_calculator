@@ -36,6 +36,8 @@ static Graph_Pos graph_pos = { 0 };
 const int screenWidth = 800;
 const int screenHeight = 450;
 
+int char answer;
+
 static void Init();
 static void Update(Camera2D camera); 
 static void Draw(Camera2D camera);
@@ -45,10 +47,14 @@ static void Unload();
 bool title = true;
 bool norm = false;
 bool graph = false;
-bool 1 = false;
+bool 1 = true;
 bool 2 = false;
-bool 3 = false;
 bool button_pressed = false;
+bool sub = false;
+bool add = false;
+bool multiply = false;
+bool div = false;
+bool negative = false;
 
 int sq_num;
 
@@ -164,39 +170,95 @@ static void Update(Camera2D camera) {
 		mousePoint = GetMousePosition();
 		button_pressed = false;
 		if (CheckCollisionPointRec(mousePoint, one_bounds) || IsKeyPressed(KEY_ONE)) {
-			1 = true;
+			if (1) {
+				int n1 = 1;
+			} else if (2) {
+				int n2 = 1;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, two_bounds) || IsKeyPressed(KEY_TWO)) {
-			2 = true;
+			if (1) {
+				int n1 = 2;
+			} else if (2) {
+				int n2 = 2;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, three_bounds) || IsKeyPressed(KEY_THREE)) {
-			3 = true;
+			if (1) {
+				int n1 = 3;
+			} else if (2) {
+				int n2 = 3;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, four_bounds) || IsKeyPressed(KEY_FOUR)) {
-			//print four
+			if (1) {
+				int n1 = 4;
+			} else if (2) {
+				int n2 = 4;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, five_bounds) || IsKeyPressed(KEY_FIVE)) {
-			//print five
+			if (1) {
+				int n1 = 5;
+			} else if (2) {
+				int n2 = 5
+			}
 		} else if (CheckCollisionPointRec(mousePoint, six_bounds) || IsKeyPressed(KEY_SIX)) {
-			//print six
+			if (1) {
+				int n1 = 6;
+			} else if (2) {
+				int n2 = 6;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, seven_bounds) || IsKeyPressed(KEY_SEVEN)) {
-			//print seven
+			if (1) {
+				int n1 = 7;
+			} else if (2) {
+				int n2 = 7;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, eight_bounds) || IsKeyPressed(KEY_EIGHT)) {
-			//print eight
+			if (1) {
+				int n1 = 8;
+			} else if (2) {
+				int n2 = 8;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, nine_bounds) || IsKeyPressed(KEY_NINE)) {
-			//prints nine
+			if (1) {
+				int n1 = 9;
+			} else if (2) {
+				int n2 = 9;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, zero_bounds) || IsKeyPressed(KEY_ZERO)) {
-			//prints zero
+			if (1) {
+				int n1 = 0;
+			} else if (2) {
+				int n2 = 0;
+			}
 		} else if (CheckCollisionPointRec(mousePoint, sub_bounds) || IsKeyPressed(KEY_MINUS)) {
-			//prints -
+			sub = true;
 		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_EQUAL)) {
-			// enters equation
+			printf("solution:");
+			switch(answer) {
+				case 'sub':
+					printf("&n1 - &n2", &n1, &n2, &sub);
+					break;
+				case 'add':
+					printf("&n1 + &n2", &n1, &n2, &sub);
+					break;
+				case 'multiply':
+					printf("&n1 * &n2", &n1, &n2, &multiply);
+					break;
+				case 'divide':
+					printf("&n1 / &n2", &n1, &n2, &divide);
+					break;
+				case 'negative':
+					break;
+				default:
+					printf("ERROR");
+			}
 		} else if (CheckCollisionPointRec(mousePoint, multiply_bounds)) {
-			//prints *
+			multiply = true;
 		} else if (CheckCollisionPointRec(mousePoint, add_bounds)) {
-			//prints +
+			add = true;
 		} else if (CheckCollisionPointRec(mousePoint, sub_bounds)) {
-			//prints
+			sub = true;
 		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
-			//prints >
 		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
-			//prints <
 		} else if (CheckCollisonPointRec(mousePoint, sq_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, ans_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoints, abs_bounds)) {
@@ -223,7 +285,7 @@ static void Update(Camera2D camera) {
 		} else if (CheckCollisionPointRec(mousePoint, neg_sin_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) { 
 		}
-
+		
 	}
 	if (graph) {
 		if (IsKeyPressed(KEY_TAB)) graph_pos.active = true;
@@ -232,7 +294,6 @@ static void Update(Camera2D camera) {
 			norm = true;
 		}
 		if (CheckCollisionPointRec(mousePoint, start_graph_bounds) || IsKeyPressed(KEY_G)) {
-			// draw
 		} else if (CheckCollisionPointRec(mousePoint, table_bounds) || IsKeyPressed(KEY_T)) {
 		}
 		if (graph_pos.active) {
@@ -261,7 +322,7 @@ static void Update(Camera2D camera) {
 			if (camera.zoom < zoomIncrement) camera.zoom = zoomIncrement;
 		}
 	}
-	if(IsKeyPressed(KEY_ESC)) CloseWindow();
+	if(IsKeyPressed(KEY_ESCAPE)) CloseWindow();
 }
 
 static void Draw(Camera2D camera, Rectangle textbox) {
