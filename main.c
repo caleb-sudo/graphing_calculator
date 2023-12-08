@@ -96,6 +96,9 @@ static void Init(void) {
 
 	Texture2D x = LoadTexture("resources/graph/x_button.png");
 	Texture2D y_equals = LoadTexture("resources/graph/Y=_button.png");
+	Texture2D table = LoadTexture("resources/graph/table_button.png");
+	Texture2D graph = LoadTexture("resources/graph/graph_button.png");
+	Texture2D trace = LoadTexture("resources/graph/trace_button.png");
 
 	Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
 	Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
@@ -369,6 +372,9 @@ static void Unload(void) {
 
 	UnloadTexture(x);
 	UnloadTexture(y_equals);
+	UnloadTexture(table);
+	UnloadTexture(graph);
+	UnloadTexture(trace);
 
 	UnloadTexture(exponent);
 	UnloadTexture(cubed);
