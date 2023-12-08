@@ -141,6 +141,10 @@ static void Init(void) {
 	Rectangle sub_bounds = { screenWidth/2 +60, screenHeight +90, 30, 30 };
 	Rectangle div_bounds = { screenWidth/2 +60, screenHeight +120, 30, 30 };
 	Rectangle enter_bounds = { screenWidth/2 +60, screenHeight +150, 30, 30 };
+	Rectangle less_bounds = { screenWidth +30, screenHeight +30, 30, 30 };
+	Rectangle greater_bounds = { screenWidth +60, screenHeight +60, 30, 30 };
+	Rectangle equal_less_bounds = { screenWidth +90, screenHeight +90, 30, 30 };
+	Rectangle equal_greater_bounds = { screenWidth +120, screenHeight +120, 30, 30 };
 	
 	Rectangle neg_bounds = { screenWidth/2 +30, screenHeight +150, 30, 30 };
 	Rectangle decimal_bounds = { screenWidth/2 +60, screenHeight/2 -60, 30, 30 };
@@ -149,7 +153,14 @@ static void Init(void) {
 	Rectangle exponent_bounds = { screenWidth/2 -90, screenHeight+30, 30, 30 };
 	Rectangle first_braket_bounds = { screenWidth+30, screenHeight+30, 30, 30 };
         Rectangle second_braket_bounds = { screenWidth+60, screenHeight+30, 30, 30 };
-	Rectangle comma_bounds = { screenWidth +90, screenHeight+30, 30, 30 }; 	
+	Rectangle comma_bounds = { screenWidth +90, screenHeight+30, 30, 30 };
+	Rectangle sq_bounds = { screenWidth +90, screenHeight +210, 30, 30 };
+	Rectangle sin_bounds = { screenWidth +120, screenHeight +210, 70, 30 };
+	Rectangle cos_bounds = { screenWidth +150, screenHeight +210, 70, 30 };
+	Rectangle tan_bounds = { screenWidth +180, screenHeight +210, 70, 30 };
+	Rectangle neg_sin_bounds = { screenWidth +120, screenHeight +240, 70, 30 };
+	Rectangle neg_cos_bounds = { screenWidth +150, screenHeight +240, 70, 30 };
+	Rectangle neg_tan_bounds = { screenWidth +180, screenHeight +240, 73, 30 };
 
 
 
@@ -268,27 +279,28 @@ static void Update(Camera2D camera) {
 		} else if (CheckCollisionPointRec(mousePoint, ans_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoints, abs_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
-			//prints (
-		} else if (CheckCollisionPointRec(mousePoint, second_braket_bounds) || IsKeyPressed(KEY_RIGHT_BRACKET)) {
-			// prints )
 		} else if (CheckCollisionPointRec(mousePoint, division_bounds) || IsKeyPressed(KEY_BACKSLASH)) {
-			// prints division symbol
 		} else if (CheckCollisionPointRec(mousePoint, decimal_bounds) || IsKeyPressed(KEY_PERIOD)) {
-			// prints decimal
 		} else if (CheckCollisionPointRec(mousePoint, y=_bounds) || IsKeyPressed(KEY_Y)) {
 			graph = true;
 		} else if (CheckCollisionPointRec(mousePoint, comma_bounds) || IsKeyPressed(KEY_COMMA)) {
-			// prints ,
 		} else if (CheckCollisionPointRec(mousePoint, del_bounds) || IsKeyPressed(KEY_BACKSPACE)) {
-			// deletes one
 		} else if (CheckCollisionPointRec(mousePoint, clr_bounds) || IsKeyPressed(KEY_C)) {
-			// clears screen
 		} else if (CheckCollisionPointRec(mousePoint, tan_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, sin_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, cos_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, neg_tan_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, neg_sin_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) { 
+		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, equal_less_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, equal_greater_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, log_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, clr_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, del_bounds) IsKeyPressed(KEY_BACKSPACE)) {
+		} else if (CheckCollisionPointRec(mousePoint, abs_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint ans_bounds)) {
 		}
 		
 	}
