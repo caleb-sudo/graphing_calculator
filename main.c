@@ -82,6 +82,8 @@ static void Init(void) {
 	Texture2D enter = LoadTexture("resources/operators/equals_button.png");
 	Texture2D greater = LoadTexture("resources/operators/greater_button.png");
 	Texture2D less = LoadTexture("resources/operators/less_button.png");
+	Texture2D equal_less = LoadTexture("resources/operators/equal-less_button.png");
+	Texture2D equal_greater = LoadTexture("resources/operators/eqqal-greater_button.png");
 
 	Texture2D zero = LoadTexture("resources/ints/zero_button.png");
 	Texture2D one = LoadTexture("resources/ints/one_button.png");
@@ -358,6 +360,8 @@ static void Unload(void) {
 	UnloadTexture(enter);
 	UnloadTexture(greater);
 	UnloadTexture(less);
+	UnloadTexture(equal_less);
+	UnloadTexture(equal_greater);
 
 	UnloadTexture(zero);
 	UnloadTexture(one);
