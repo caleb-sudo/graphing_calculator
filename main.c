@@ -55,6 +55,7 @@ bool add = false;
 bool multiply = false;
 bool div = false;
 bool negative = false;
+n1 = true;
 
 int sq_num;
 
@@ -188,61 +189,80 @@ static void Update(Camera2D camera) {
 		if (CheckCollisionPointRec(mousePoint, one_bounds) || IsKeyPressed(KEY_ONE)) {
 			if (1) {
 				int n1 = 1;
-			} else if (2) {
+				1 = false
+			}
+			if (2) {
 				int n2 = 1;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, two_bounds) || IsKeyPressed(KEY_TWO)) {
 			if (1) {
 				int n1 = 2;
-			} else if (2) {
+				1 = false;
+			}
+			if (2) {
 				int n2 = 2;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, three_bounds) || IsKeyPressed(KEY_THREE)) {
 			if (1) {
 				int n1 = 3;
-			} else if (2) {
+				1 = false;
+			} 
+			if (2) {
 				int n2 = 3;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, four_bounds) || IsKeyPressed(KEY_FOUR)) {
 			if (1) {
 				int n1 = 4;
-			} else if (2) {
+				1 = false;
+			} 
+			if (2) {
 				int n2 = 4;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, five_bounds) || IsKeyPressed(KEY_FIVE)) {
 			if (1) {
 				int n1 = 5;
-			} else if (2) {
+				1 = false;
+			}
+			if (2) {
 				int n2 = 5
 			}
 		} else if (CheckCollisionPointRec(mousePoint, six_bounds) || IsKeyPressed(KEY_SIX)) {
 			if (1) {
 				int n1 = 6;
-			} else if (2) {
+				1 = false;
+			}
+			if (2) {
 				int n2 = 6;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, seven_bounds) || IsKeyPressed(KEY_SEVEN)) {
 			if (1) {
 				int n1 = 7;
-			} else if (2) {
+				1 = false;
+			} 
+			if (2) {
 				int n2 = 7;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, eight_bounds) || IsKeyPressed(KEY_EIGHT)) {
 			if (1) {
 				int n1 = 8;
-			} else if (2) {
+				1 = false;
+			} 
+			if (2) {
 				int n2 = 8;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, nine_bounds) || IsKeyPressed(KEY_NINE)) {
 			if (1) {
 				int n1 = 9;
-			} else if (2) {
+				1 = false;
+			} if (2) {
 				int n2 = 9;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, zero_bounds) || IsKeyPressed(KEY_ZERO)) {
 			if (1) {
 				int n1 = 0;
-			} else if (2) {
+				1 = false;
+			}
+			if (2) {
 				int n2 = 0;
 			}
 		} else if (CheckCollisionPointRec(mousePoint, sub_bounds) || IsKeyPressed(KEY_MINUS)) {
