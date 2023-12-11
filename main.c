@@ -48,39 +48,42 @@ bool graph = false;
 bool 1 = true;
 bool 2 = false;
 bool button_pressed = false;
-bool add = false;
-bool sub = false;
-bool multiply = false;
-bool divide = false;
+bool ans_add = false;
+bool ans_sub = false;
+bool ans_multiply = false;
+bool ans_divide = false;
 bool square_root = false;
 bool squared = false;
 bool cubed = false;
 bool neg = false;
 bool frac = false;
-bool pi = false;
-bool sin = false;
-bool tan = false;
-bool cos = false;
-bool neg_sin = false;
-bool neg_tan = false;
-bool neg_cos = false;
-bool log = false;
-bool ans = false;
-bool abs = false;
-bool greater = false;
-bool less = false;
-bool equal_greater = false;
-bool equal_less = false;
+bool ans_pi = false;
+bool ans_sin = false;
+bool ans_tan = false;
+bool ans_cos = false;
+bool ans_neg_sin = false;
+bool ans_neg_tan = false;
+bool ans_eg_cos = false;
+bool ans_log = false;
+bool answer_1 = false;
+bool ans_abs = false;
+bool ans_greater = false;
+bool ans_less = false;
+bool ans_equal_greater = false;
+bool ans_equal_less = false;
 bool clear = false;
 bool delete = false;
-bool e = false;
+bool ans_E = false;
 bool comma = false;
 bool 1st_bracket = false;
 bool 2nd_bracket = false;
-bool expo = false;
+bool ans_expo = false;
+bool ans_log = false;
 
 float answer;
-float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, pi_ans;
+float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, pi_ans, log_ans;
+float tan_ans, sin_ans, cos_ans, neg_tan_ans, neg_sin_ans, neg_cos_ans;
+float less_ans, greater_ans, equal_less_ans, equal_greater_ans; 
 float sum = (float) num1 + num2;
 float diff = (float) num1 - num2;
 float div = (float) num1 / num2;
@@ -305,12 +308,8 @@ static void Update(Camera2D camera) {
 		} else if (CheckCollisionPointRec(mousePoint, div_bounds)) {
 			divide = true;
 			answer = divide;
-		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
-		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
-		} else if (CheckCollisonPointRec(mousePoint, sqr_bounds)) {
-			square_root = true;
-			answer = sq_root_ans;
 		} else if (CheckCollisionPointRec(mousePoint, ans_bounds)) {
+			answ = true;
 		} else if (CheckCollisionPointRec(mousePoints, abs_bounds)) {
 		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
 		} else if (CheckCollisionPointRec(mousePoint, division_bounds) || IsKeyPressed(KEY_BACKSLASH)) {
@@ -320,16 +319,38 @@ static void Update(Camera2D camera) {
 		} else if (CheckCollisionPointRec(mousePoint, del_bounds) || IsKeyPressed(KEY_BACKSPACE)) {
 		} else if (CheckCollisionPointRec(mousePoint, clr_bounds) || IsKeyPressed(KEY_C)) {
 		} else if (CheckCollisionPointRec(mousePoint, tan_bounds)) {
+			ans_tan = true;
+			answer = tan_ans;
 		} else if (CheckCollisionPointRec(mousePoint, sin_bounds)) {
+			ans_sin = true;
+			answer = sin_ans;
 		} else if (CheckCollisionPointRec(mousePoint, cos_bounds)) {
+			ans_cos = true;
+			answer = cos_ans;
 		} else if (CheckCollisionPointRec(mousePoint, neg_tan_bounds)) {
+			ans_neg_tan = true;
+			answer = neg_tan_ans;
 		} else if (CheckCollisionPointRec(mousePoint, neg_sin_bounds)) {
-		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) { 
+			ans_neg_sin = true;
+			answer = neg_sin_ans;
+		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) {
+		        ans_neg_cos = true;
+			answer = neg_cos_ans;		       
 		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
+			ans_less = true;
+			answer = ans_less;
 		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
+			greater_ans = true;
+			answer = ans_greater;
 		} else if (CheckCollisionPointRec(mousePoint, equal_less_bounds)) {
+			equal_less_ans = true;
+			answer = ans_equal_less;
 		} else if (CheckCollisionPointRec(mousePoint, equal_greater_bounds)) {
+			equal_greater_ans = true;
+			answer = ans_equal_greater;
 		} else if (CheckCollisionPointRec(mousePoint, log_bounds)) {
+			log_ans = true;
+			answer = ans_log;
 		} else if (CheckCollisionPointRec(mousePoint, squared_bounds)) {
 			squared = true;
 			answer = squared_ans;
@@ -340,8 +361,11 @@ static void Update(Camera2D camera) {
 			expo = true;
 			answer = expo_ans;
 		} else if (CheckCollisionPointRec(mousePoint, pi_bounds)) {
-			pi = true;
+			ans_pi = true;
 			answer = pi_ans;
+		} else if (CheckCollisionPointRec(mousePoint, log_bounds)) {
+			ans_log = true;
+			answer = log_ans;
 		}
 		
 	}
@@ -381,32 +405,38 @@ static void Update(Camera2D camera) {
 		}
 	}
 	if(IsKeyPressed(KEY_ESCAPE)) CloseWindow();
-}
 
+}
+}
 static void Draw(Camera2D camera) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
 		
 		double num1, num2;
 
-		if (add) DrawText(TextFormat("%lf + %lf = %f", num1 + num2 = sum = ans), 700, 400, BLACK);
-		if (sub) DrawText(TextFormat("%lf - %lf = %f", num1 - num2 = diff = ans), 700, 400, BLACK);
-		if (multiply) DrawText(TextFormat("%lf * %lf = %f", num1 * num2 = product = ans), 700, 400, BLACK);
-		if (divide) DrawText(TextFormat("%lf / %lf = %f", num1 / num2 = div = ans), 700, 400, BLACK);
+		if (add) DrawText(TextFormat("%lf + %lf = %f", num1 + num2 = sum = answer), 700, 400, BLACK);
+		if (sub) DrawText(TextFormat("%lf - %lf = %f", num1 - num2 = diff = answer), 700, 400, BLACK);
+		if (multiply) DrawText(TextFormat("%lf * %lf = %f", num1 * num2 = product = answer), 700, 400, BLACK);
+		if (divide) DrawText(TextFormat("%lf / %lf = %f", num1 / num2 = div = answer), 700, 400, BLACK);
 
 		double num;
 
-		if (squared) DrawText(TextFormat("%lf^2 = %f", num * num = square = ans), 700, 400, BLACK);
-		if (cubed) DrawText(TextFormat("%lf^3 = %f", num * num * num = cube = ans), 700, 400, BLACK);
+		if (squared) DrawText(TextFormat("%lf^2 = %f", num * num = square = answer), 700, 400, BLACK);
+		if (cubed) DrawText(TextFormat("%lf^3 = %f", num * num * num = cube = answer), 700, 400, BLACK);
 		if (expo) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (square_root) DrawText(TextFormat("sq(%lf) = %f", sqrt(num) = sq = ans), 700, 400, BLACK);
-		if (pi) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (tan) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (sin) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (cos) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (neg_tan) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (neg_sin) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (neg_cos) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (square_root) DrawText(TextFormat("sq(%lf) = %f", sqrt(num) = sq = answer), 700, 400, BLACK);
+		if (ans_pi) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (ans_tan) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (ans_sin) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (ans_cos) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (ans_neg_tan) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (ans_neg_sin) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (ans_neg_cos) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (answer) { 
+			DrawText(TextFormat("%f = %f", answer = answer), 700, 400, BLACK);
+		} else {
+			answer = num;
+		}
 
 		if (graph) {
 			BeginMode2D(camera);
