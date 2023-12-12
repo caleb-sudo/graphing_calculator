@@ -42,43 +42,15 @@ static void Draw(Camera2D camera);
 static void UpdateDrawFrame(Camera2D camera);
 static void Unload();
 
+typedef enum Operator_pressed = { ADD, SUB, DIVIDE, MULTIPLY, ENTER, LESS, GREATER, EQUAL_GREATER, EQUAL_LESS } Operator_pressed; 
+typedef enum Digit_pressed = { ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE } Digit_pressed;
+typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COM, E } Button_pressed;
+typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE } Graph_pressed;
+
+
 bool title = true;
 bool norm = false;
 bool graph = false;
-bool 1 = true;
-bool 2 = false;
-bool button_pressed = false;
-bool ans_add = false;
-bool ans_sub = false;
-bool ans_multiply = false;
-bool ans_divide = false;
-bool square_root = false;
-bool squared = false;
-bool cubed = false;
-bool neg = false;
-bool frac = false;
-bool ans_pi = false;
-bool ans_sin = false;
-bool ans_tan = false;
-bool ans_cos = false;
-bool ans_neg_sin = false;
-bool ans_neg_tan = false;
-bool ans_eg_cos = false;
-bool ans_log = false;
-bool answer_1 = false;
-bool ans_abs = false;
-bool ans_greater = false;
-bool ans_less = false;
-bool ans_equal_greater = false;
-bool ans_equal_less = false;
-bool clear = false;
-bool delete = false;
-bool ans_E = false;
-bool comma = false;
-bool 1st_bracket = false;
-bool 2nd_bracket = false;
-bool ans_expo = false;
-bool ans_log = false;
 
 float answer;
 float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, pi_ans, log_ans;
@@ -170,7 +142,7 @@ static void Init(void) {
 	Rectangle add_bounds = { screenWidth/2 +60, screenHeight +30, 30, 30 };
 	Rectangle multiply_bounds = { screenWidth/2 +60, screenHeight +60, 30, 30 };
 	Rectangle sub_bounds = { screenWidth/2 +60, screenHeight +90, 30, 30 };
-	Rectangle div_bounds = { screenWidth/2 +60, screenHeight +120, 30, 30 };
+	Rectangle divide_bounds = { screenWidth/2 +60, screenHeight +120, 30, 30 };
 	Rectangle enter_bounds = { screenWidth/2 +60, screenHeight +150, 30, 30 };
 	Rectangle less_bounds = { screenWidth +30, screenHeight +30, 30, 30 };
 	Rectangle greater_bounds = { screenWidth +60, screenHeight +60, 30, 30 };
@@ -216,158 +188,102 @@ static void Update(Camera2D camera) {
 	if (norm) {
 		mousePoint = GetMousePosition();
 		button_pressed = false;
-		if (CheckCollisionPointRec(mousePoint, one_bounds) || IsKeyPressed(KEY_ONE)) {
-			if (1) {
-				int n1 = 1;
-				1 = false
-			}
-			if (2) {
-				int n2 = 1;
-			}
+
+		if (CheckCollisionPointRec(mousePoint, zero_bounds) || IsKeyPressed(KEY_ZERO)) {
+			digit.pressed = ZERO;
+		} else if (CheckCollisionPointRec(mousePoint, one_bounds) || IsKeyPressed(KEY_ONE)) {
+			digit.pressed = ONE;
 		} else if (CheckCollisionPointRec(mousePoint, two_bounds) || IsKeyPressed(KEY_TWO)) {
-			if (1) {
-				int n1 = 2;
-				1 = false;
-			}
-			if (2) {
-				int n2 = 2;
-			}
+			digit.pressed = TWO;
 		} else if (CheckCollisionPointRec(mousePoint, three_bounds) || IsKeyPressed(KEY_THREE)) {
-			if (1) {
-				int n1 = 3;
-				1 = false;
-			} 
-			if (2) {
-				int n2 = 3;
-			}
+			digit.pressed = THREE;
 		} else if (CheckCollisionPointRec(mousePoint, four_bounds) || IsKeyPressed(KEY_FOUR)) {
-			if (1) {
-				int n1 = 4;
-				1 = false;
-			} 
-			if (2) {
-				int n2 = 4;
-			}
+			digit.pressed = FOUR;
 		} else if (CheckCollisionPointRec(mousePoint, five_bounds) || IsKeyPressed(KEY_FIVE)) {
-			if (1) {
-				int n1 = 5;
-				1 = false;
-			}
-			if (2) {
-				int n2 = 5
-			}
+			digit.pressed = FIVE;
 		} else if (CheckCollisionPointRec(mousePoint, six_bounds) || IsKeyPressed(KEY_SIX)) {
-			if (1) {
-				int n1 = 6;
-				1 = false;
-			}
-			if (2) {
-				int n2 = 6;
-			}
-		} else if (CheckCollisionPointRec(mousePoint, seven_bounds) || IsKeyPressed(KEY_SEVEN)) {
-			if (1) {
-				int n1 = 7;
-				1 = false;
-			} 
-			if (2) {
-				int n2 = 7;
-			}
+			digit.pressed = SIX;
+		} else if (CheckCollisionPointRec(mousePoint, seven_bound) || IsKeyPressed(KEY_SEVEN)) {
+			digit.pressed = SEVEN;
 		} else if (CheckCollisionPointRec(mousePoint, eight_bounds) || IsKeyPressed(KEY_EIGHT)) {
-			if (1) {
-				int n1 = 8;
-				1 = false;
-			} 
-			if (2) {
-				int n2 = 8;
-			}
+			digit.pressed = EIGHT;
 		} else if (CheckCollisionPointRec(mousePoint, nine_bounds) || IsKeyPressed(KEY_NINE)) {
-			if (1) {
-				int n1 = 9;
-				1 = false;
-			} if (2) {
-				int n2 = 9;
-			}
-		} else if (CheckCollisionPointRec(mousePoint, zero_bounds) || IsKeyPressed(KEY_ZERO)) {
-			if (1) {
-				int n1 = 0;
-				1 = false;
-			}
-			if (2) {
-				int n2 = 0;
-			}
-		} else if (CheckCollisionPointRec(mousePoint, sub_bounds) || IsKeyPressed(KEY_MINUS)) {
-			sub = true;
-			answer = sub;
-		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_EQUAL)) {
-		} else if (CheckCollisionPointRec(mousePoint, multiply_bounds)) {
-			multiply = true;
-			answer = product;
-		} else if (CheckCollisionPointRec(mousePoint, add_bounds)) {
-			add = true;
-			answer = sum;
-		} else if (CheckCollisionPointRec(mousePoint, div_bounds)) {
-			divide = true;
-			answer = divide;
-		} else if (CheckCollisionPointRec(mousePoint, ans_bounds)) {
-			answ = true;
-		} else if (CheckCollisionPointRec(mousePoints, abs_bounds)) {
-		} else if (CheckCollisionPointRec(mousePoint, first_braket_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
-		} else if (CheckCollisionPointRec(mousePoint, division_bounds) || IsKeyPressed(KEY_BACKSLASH)) {
-		} else if (CheckCollisionPointRec(mousePoint, y=_bounds) || IsKeyPressed(KEY_Y)) {
-			graph = true;
-		} else if (CheckCollisionPointRec(mousePoint, comma_bounds) || IsKeyPressed(KEY_COMMA)) {
-		} else if (CheckCollisionPointRec(mousePoint, del_bounds) || IsKeyPressed(KEY_BACKSPACE)) {
-		} else if (CheckCollisionPointRec(mousePoint, clr_bounds) || IsKeyPressed(KEY_C)) {
-		} else if (CheckCollisionPointRec(mousePoint, tan_bounds)) {
-			ans_tan = true;
-			answer = tan_ans;
-		} else if (CheckCollisionPointRec(mousePoint, sin_bounds)) {
-			ans_sin = true;
-			answer = sin_ans;
-		} else if (CheckCollisionPointRec(mousePoint, cos_bounds)) {
-			ans_cos = true;
-			answer = cos_ans;
-		} else if (CheckCollisionPointRec(mousePoint, neg_tan_bounds)) {
-			ans_neg_tan = true;
-			answer = neg_tan_ans;
-		} else if (CheckCollisionPointRec(mousePoint, neg_sin_bounds)) {
-			ans_neg_sin = true;
-			answer = neg_sin_ans;
-		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) {
-		        ans_neg_cos = true;
-			answer = neg_cos_ans;		       
-		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
-			ans_less = true;
-			answer = ans_less;
-		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
-			greater_ans = true;
-			answer = ans_greater;
-		} else if (CheckCollisionPointRec(mousePoint, equal_less_bounds)) {
-			equal_less_ans = true;
-			answer = ans_equal_less;
-		} else if (CheckCollisionPointRec(mousePoint, equal_greater_bounds)) {
-			equal_greater_ans = true;
-			answer = ans_equal_greater;
-		} else if (CheckCollisionPointRec(mousePoint, log_bounds)) {
-			log_ans = true;
-			answer = ans_log;
-		} else if (CheckCollisionPointRec(mousePoint, squared_bounds)) {
-			squared = true;
-			answer = squared_ans;
-		} else if (CheckCollisionPointRec(mousePoint, cubed_bounds)) {
-			cubed = true;
-			answer = cubed_ans;
-		} else if (CheckCollisionPointRec(mousePoint, expo_bounds)) {
-			expo = true;
-			answer = expo_ans;
-		} else if (CheckCollisionPointRec(mousePoint, pi_bounds)) {
-			ans_pi = true;
-			answer = pi_ans;
-		} else if (CheckCollisionPointRec(mousePoint, log_bounds)) {
-			ans_log = true;
-			answer = log_ans;
+			digit.pressed = NINE;
 		}
-		
+
+		if (CheckCollisionPointRec(mousePoint, add_bounds)) {
+			op.pressed = ADD;
+		} else if (CheckCollisionPointRec(mousePoint, sub_bounds) || IsKeyPressed(KEY_MINUS)) {
+			op.pressed = SUB;
+		} else if (CheckCollisionPointRec(mousePoint, multiply_bounds)) {
+			op.pressed = MULTIPLY;
+		} else if (CheckCollisionPointRec(mousePoint, divide_bounds) || IsKeyPressed(KEY_SLASH)) {
+			op.pressed = DIVIDE;
+		} else if (CheckCollisionPointRec(mousePoint, enter_bounds) || IsKeyPressed(KEY_ENTER)) {
+			op.pressed = ENTER;
+		} else if (CheckCollisionPointRec(mousePoint, greater_bounds)) {
+			op.pressed = GREATER;
+		} else if (CheckCollisionPointRec(mousePoint, less_bounds)) {
+			op.pressed = LESS;
+		} else if (CheckCollisionPointRec(mousePoint, equal_greater_bounds)) {
+			op.pressed = EQUAL_GREATER;
+		} else if (CheckCollisionPointRec(mousePoint, equal_less_bounds)) {
+			op.pressed = EQUAL_LESS;
+		}
+
+		if (CheckCollisionPointRec(mousePoint, log_bounds)) {
+			button.pressed = LOG;
+		} else if (CheckCollisionPointRec(mousePoint, pi_bounds)) {
+			button.pressed = PI_ANS;
+		} else if (CheckCollisionPointRec(mousePoint, sin_bounds)) {
+			button.pressed = SIN;
+		} else if (CheckCollisionPointRec(mousePoint, tan_bounds)) {
+			button.pressed = TAN;
+		} else if (CheckCollisionPointRec(mousePoint, cos_bounds)) {
+			button.pressed = COS;
+		} else if (CheckCollisionPointRec(mousePoint, neg_sin_bounds)) {
+			button.pressed = NEG_SIN;
+		} else if (CheckCollisionPointRec(mousePoint, neg_tan_bounds)) {
+			button.pressed = NEG_TAN;
+		} else if (CheckCollisionPointRec(mousePoint, neg_cos_bounds)) {
+			button.pressed = NEG_COS;
+		} else if (CheckCollisionPointRec(mousePoint, ans_bounds)) {
+			button.pressed = ANS;
+		} else if (CheckCollisionPointRec(mousePoint, abs_bounds)) {
+			button.pressed = ABS;
+		} else if (CheckCollisionPointRec(mousePoint, squared_bounds)) {
+			button.pressed = SQ;
+		} else if (CheckCollisionPointRec(mousePoint, cubed_bounds)) {
+			button.pressed = CUBED;
+		} else if (CheckCollisionPointRec(mousePoint, sqr_bounds)) {
+			button.pressed = SQR;
+		} else if (CheckCollisionPointRec(mousePoint, neg_bounds) || IsKeyPressed(KEY_MINUS)) {
+			button.pressed = NEG;
+		} else if (CheckCollisionPointRec(mousePoint, clr_bounds)) {
+			button.pressed = CLR;
+		} else if (CheckCollisionPointRec(mousePoint, del_bounds) || IsKeyPressed(KEY_BACKSPACE)); {
+			button.pressed = DEL;
+		} else if (CheckCollisionPointRec(mousePoint, comma_bounds) || IsKeyPressed(KEY_COMMA)) {
+			button.pressed = COMMA;
+		} else if (CheckCollisionPointRec(mousePoint, decimal_bounds)) {
+			button.pressed = DECIMAL;
+		} else if (CheckCollisionPointRec(mousePoint, first_brak_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
+			button.pressed = L_BRAK;
+		} else if (CheckCollisionPointRec(mousePoint, second_brak_bounds) || IsKeyPressed(KEY_RIGHT_BRACKET)) { 
+			button.pressed = R_BRAK;
+		}
+
+		if (CheckCollisionPointRec(mousePoint, y_equals_bounds)) {
+			graph.pressed = Y_EQUALS;
+		} else if (CheckCollisionPointRec(mousePoint, graph_bounds)) {
+			graph.pressed = GRAPH;
+		} else if (CheckCollisionPointRec(mousePoint, x_bounds)) {
+			graph.pressed = X;
+		} else if (CheckCollisionPointRec(mousePoint, table_bounds)) {
+			graph.pressed = TABLE;
+		} else if (CheckCollisionPointRec(mousePoint, trace_bounds)) {
+			graph.pressed = TRACE;
+		}
 	}
 	if (graph) {
 		if (IsKeyPressed(KEY_TAB)) graph_pos.active = true;
