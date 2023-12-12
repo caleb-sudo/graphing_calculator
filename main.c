@@ -11,6 +11,7 @@
 #define	max_points	100
 #define max_lines	50
 #define GraphSpeed	7.0f
+#define max_sects	200
 
 typedef struct Points {
 	int radius;
@@ -285,6 +286,20 @@ static void Update(Camera2D camera) {
 			graph.pressed = TRACE;
 		}
 	}
+	if (TABLE) {
+		InitWindow(screenWidth, screenHeight, "table");
+		while (!WindowShouldClose()) {
+			Rectangle t-table_y = { screenWidth, screenHeight, screenWidth/2, 30, screenHeight };
+			for (int i = 0, i < max_sects, i++) {
+				rectangle t-table_x = { screenWidth, screenHeight-3*i, screenWidth, 5 };
+				float x;
+				float y;
+			}
+		}
+	}
+
+		CloseWindow();
+	
 	if (graph) {
 		if (IsKeyPressed(KEY_TAB)) graph_pos.active = true;
 		if (IsKeyPressed(KEY_BACKSPACE)) {
@@ -394,6 +409,14 @@ static void Draw(Camera2D camera) {
 			answer = num;
 		}
 
+		if (TABLE) {
+			for (int i = 0; i < max_stacs; i++) {
+				DrawRectangleRec(t-table_x.x, t-table_x.y);
+				DrawText(TextFormat("%f", x), 100, 300, BLACK);
+				DrawText(TextFormat("%f", y), 300, 300, BLACK);
+			}
+			DrawRectangleRec(t-table_y.x, t-tabel_y.y);
+		}
 		if (graph) {
 			BeginMode2D(camera);
 				rlPushMatrix();
