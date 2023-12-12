@@ -261,7 +261,7 @@ static void Update(Camera2D camera) {
 			button.pressed = NEG;
 		} else if (CheckCollisionPointRec(mousePoint, clr_bounds)) {
 			button.pressed = CLR;
-		} else if (CheckCollisionPointRec(mousePoint, del_bounds) || IsKeyPressed(KEY_BACKSPACE)); {
+		} else if (CheckCollisionPointRec(mousePoint, del_bounds) || IsKeyPressed(KEY_BACKSPACE)) {
 			button.pressed = DEL;
 		} else if (CheckCollisionPointRec(mousePoint, comma_bounds) || IsKeyPressed(KEY_COMMA)) {
 			button.pressed = COMMA;
