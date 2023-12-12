@@ -231,7 +231,7 @@ static void Update(Camera2D camera) {
 			op.pressed = EQUAL_LESS;
 		}
 
-		if (CheckCollisionPointRec(mousePoint, log_bounds)) {
+		if (CheckCollisionPointRec(mousePoint, log_bounds) || IsKeyPressed(KEY_L)) {
 			button.pressed = LOG;
 		} else if (CheckCollisionPointRec(mousePoint, pi_bounds)) {
 			button.pressed = PI_ANS;
@@ -265,7 +265,7 @@ static void Update(Camera2D camera) {
 			button.pressed = DEL;
 		} else if (CheckCollisionPointRec(mousePoint, comma_bounds) || IsKeyPressed(KEY_COMMA)) {
 			button.pressed = COMMA;
-		} else if (CheckCollisionPointRec(mousePoint, decimal_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, decimal_bounds) || IsKeyPressed(KEY_PERIOD)) {
 			button.pressed = DECIMAL;
 		} else if (CheckCollisionPointRec(mousePoint, first_brak_bounds) || IsKeyPressed(KEY_LEFT_BRACKET)) {
 			button.pressed = L_BRAK;
@@ -273,15 +273,15 @@ static void Update(Camera2D camera) {
 			button.pressed = R_BRAK;
 		}
 
-		if (CheckCollisionPointRec(mousePoint, y_equals_bounds)) {
+		if (CheckCollisionPointRec(mousePoint, y_equals_bounds) || IsKeyPressed(KEY_Y)) {
 			graph.pressed = Y_EQUALS;
-		} else if (CheckCollisionPointRec(mousePoint, graph_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, graph_bounds) || IsKeyPressed(KEY_G)) {
 			graph.pressed = GRAPH;
-		} else if (CheckCollisionPointRec(mousePoint, x_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, x_bounds) || IsKeyPressed(KEY_X)) {
 			graph.pressed = X;
-		} else if (CheckCollisionPointRec(mousePoint, table_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, table_bounds) || IsKeyPressed(KEY_T) ) {
 			graph.pressed = TABLE;
-		} else if (CheckCollisionPointRec(mousePoint, trace_bounds)) {
+		} else if (CheckCollisionPointRec(mousePoint, trace_bounds) || IsKeyPressed(KEY_R)) {
 			graph.pressed = TRACE;
 		}
 	}
@@ -323,31 +323,71 @@ static void Update(Camera2D camera) {
 	if(IsKeyPressed(KEY_ESCAPE)) CloseWindow();
 
 }
-}
 static void Draw(Camera2D camera) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
 		
 		double num1, num2;
 
-		if (add) DrawText(TextFormat("%lf + %lf = %f", num1 + num2 = sum = answer), 700, 400, BLACK);
-		if (sub) DrawText(TextFormat("%lf - %lf = %f", num1 - num2 = diff = answer), 700, 400, BLACK);
-		if (multiply) DrawText(TextFormat("%lf * %lf = %f", num1 * num2 = product = answer), 700, 400, BLACK);
-		if (divide) DrawText(TextFormat("%lf / %lf = %f", num1 / num2 = div = answer), 700, 400, BLACK);
+		if (ADD) DrawText(TextFormat("%lf + %lf = %f", num1 + num2 = sum = answer), 700, 400, BLACK);
+		if (SUB) DrawText(TextFormat("%lf - %lf = %f", num1 - num2 = diff = answer), 700, 400, BLACK);
+		if (MULTIPLY) DrawText(TextFormat("%lf * %lf = %f", num1 * num2 = product = answer), 700, 400, BLACK);
+		if (DIVIDE) DrawText(TextFormat("%lf / %lf = %f", num1 / num2 = div = answer), 700, 400, BLACK);
+		if (LESS) {
+			if (num1 < num2) {
+				DrawText(TextFormat("%lf < %lf = %f", num1 < num2 = answer), 700, 400, BLACk);
+			}
+			if (num2 < num1) {
+				DrawText(TextFormat("%lf < %lf = %f", num2 < num1 = answer), 700, 400, BLACK);
+			}
+		}
+		if (GREATER) {
+			if (num1 > num2) {
+				DrawText(TextFormat("%lf > %lf = %f", num1 > num2 = answer), 700, 400, BLACK);
+			}
+			if (num2 > num1) {
+				DrawText(TextFormat("%lf > %lf = %f", num2 > num1 = answer), 700, 400, BLACK);
+			}
+		}
+		if (EQUAL_LESS) {
+			if (num1 = num2 || num1 < num2) {
+				DrawText(TextFormat("%lf =< %lf = %f", num1, num2, answer), 700, 400, BLACK);
+			}
+			if (num2 = num1 || num2 < num1) {
+				DrawText(TextFormat("%lf =< %lf = %f", num2, num1, answer), 700, 400, BLACK);
+			}
+		}
+		if (EQUAL_GREATER) {
+			if (num1 = num2 || num1 > num1) {
+				DrawText(TextFormat("%lf => %lf = %f", num1, num2, answer), 700, 400, BLACK);
+			}
+			if (num2 = num1 || num2 > num1) {
+				DrawText(TextFormat("%lf => %lf = %f", num2, num1, answer), 700, 400, BLACK);
+			}
+		}
 
 		double num;
+		double exp;
 
-		if (squared) DrawText(TextFormat("%lf^2 = %f", num * num = square = answer), 700, 400, BLACK);
-		if (cubed) DrawText(TextFormat("%lf^3 = %f", num * num * num = cube = answer), 700, 400, BLACK);
-		if (expo) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (square_root) DrawText(TextFormat("sq(%lf) = %f", sqrt(num) = sq = answer), 700, 400, BLACK);
-		if (ans_pi) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (ans_tan) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (ans_sin) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (ans_cos) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (ans_neg_tan) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (ans_neg_sin) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (ans_neg_cos) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (SQ) DrawText(TextFormat("%lf^2 = %f", num * num = square = answer), 700, 400, BLACK);
+		if (CUBED) DrawText(TextFormat("%lf^3 = %f", num * num * num = cube = answer), 700, 400, BLACK);
+		if (EXPO) DrawText(TextFormat("%lf^%lf", pow(num, exp)), 700, 400, BLACK);
+		if (SQR) DrawText(TextFormat("sq(%lf) = %f", sqrt(num) = sq = answer), 700, 400, BLACK);
+		if (PI_ANS) DrawText(TextFormat("pi * %lf", PI*num), 700, 400, BLACK);
+		if (TAN) DrawText(TextFormat("tan(%lf) = %f", tan(num) = answer), 700, 400, BLACK);
+		if (SIN) DrawText(TextFormat("sin(%lf) = %f", sin(num)) = answer, 700, 400, BLACK);
+		if (COS) DrawText(TextFormat("cos(%lf) = %f", cos(num) = answer), 700, 400, BLACK);
+		if (NEG_TAN) DrawText(TextFormat("-tan(%lf) = %f", -tan(num) = answer), 700, 400, BLACK);
+		if (NEG_SIN) DrawText(TextFormat("-sin(%lf) = %f", -sin(num) = answer), 700, 400, BLACK);
+		if (NEG_COS) DrawText(TextFormat("-cos(%lf) = %f", -cos(num) = answer), 700, 400, BLACK);
+		if (ANS) DrawText(TextFormat("%f = %f", answer = answer), 700, 400, BLACK);
+		if (ABS) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (LOG) DrawText(TextFormet(""), 700, 400, BLACK);
+		if (FRAC) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (E) DrawText(TextFormat("%lfe", num*pow(10, exp)), 700, 400, BLACK);
+		if (COMMA) DrawText(TextFormat(" , "), 700, 400, BLACK);
+		if (DECIMAL) DrawText(TextFormat("."), 700, 400, BLACK);
+		
 		if (answer) { 
 			DrawText(TextFormat("%f = %f", answer = answer), 700, 400, BLACK);
 		} else {
