@@ -44,7 +44,7 @@ static void Unload();
 
 typedef enum Operator_pressed = { ADD, SUB, DIVIDE, MULTIPLY, ENTER, LESS, GREATER, EQUAL_GREATER, EQUAL_LESS } Operator_pressed; 
 typedef enum Digit_pressed = { ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE } Digit_pressed;
-typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COM, E } Button_pressed;
+typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COMMA, E } Button_pressed;
 typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE } Graph_pressed;
 
 
