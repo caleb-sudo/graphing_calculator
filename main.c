@@ -45,7 +45,7 @@ static void Unload();
 
 typedef enum Operator_pressed = { ADD, SUB, DIVIDE, MULTIPLY, ENTER, LESS, GREATER, EQUAL_GREATER, EQUAL_LESS } Operator_pressed; 
 typedef enum Digit_pressed = { ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE } Digit_pressed;
-typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COMMA, E } Button_pressed;
+typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COMMA, E, IN } Button_pressed;
 typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE } Graph_pressed;
 
 
@@ -128,6 +128,7 @@ static void Init(void) {
 	Texture2D log = LoadTexture("resources/others/log_button.png");
 	Texture2D abs = LoadTexture("resources/others/abs_button.png");
 	Texture2D ans = LoadTexture("resources/others/ans_button.png");
+	Texture2D in = LoadTexture("resources/others/in_button.png");
 
 	for (int i = 0; i < max_lines; i++) {
 		lines[i].position = (Vector2) { 0, y-int };
@@ -463,4 +464,5 @@ static void Unload(void) {
 	UnloadTexture(log_button);
 	UnloadTexture(abs);
 	UnloadTexture(ans);
+	UnloadTexture(in);
 }
