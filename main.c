@@ -235,7 +235,11 @@ static void Update(Camera2D camera) {
 			button.pressed = L_BRAK;
 		} else if (CheckCollisionPointRec(mousePoint, second_brak) || IsKeyPressed(KEY_RIGHT_BRACKET)) { 
 			button.pressed = R_BRAK;
-		}
+		} else if (CheckCollisionPointRec(mousePoint, in)) {
+			button.pressed = IN;
+		} else if (CheckCollisionPointRec(mousePoint, exp)) {
+			button.pressed = EXP;
+		} 
 
 		if (CheckCollisionPointRec(mousePoint, y_equals || IsKeyPressed(KEY_Y)) {
 			graph.pressed = Y_EQUALS;
