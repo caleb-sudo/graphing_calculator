@@ -54,9 +54,11 @@ bool norm = false;
 bool graph = false;
 
 float answer;
-float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, pi_ans, log_ans;
+float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, log_ans;
 float tan_ans, sin_ans, cos_ans, neg_tan_ans, neg_sin_ans, neg_cos_ans;
-float less_ans, greater_ans, equal_less_ans, equal_greater_ans; 
+float less_ans, greater_ans, equal_less_ans, equal_greater_ans;
+float in_ans, exp_ans;
+float pi_ans = (float) PI*num;
 float sum = (float) num1 + num2;
 float diff = (float) num1 - num2;
 float div = (float) num1 / num2;
