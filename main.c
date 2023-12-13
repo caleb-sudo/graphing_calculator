@@ -52,6 +52,7 @@ typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE } Graph_pressed;
 bool title = true;
 bool norm = false;
 bool graph = false;
+bool table = false;
 
 float answer;
 float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, log_ans;
@@ -271,6 +272,8 @@ static void Update(Camera2D camera) {
 	
 	if (graph) {
 		if (IsKeyPressed(KEY_TAB)) graph_pos.active = true;
+		if (IsKeyPressed(KEY_BACKSLASH)) graph_pos.active = false;
+		if (IsKeyPressed(KEY_T)) table = true;
 		if (IsKeyPressed(KEY_BACKSPACE)) {
 			graph = false;
 			norm = true;
@@ -310,6 +313,10 @@ static void Update(Camera2D camera) {
 static void Draw(Camera2D camera) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
+
+		if (title) {
+			DrawText("click enter to start");
+		}
 
 		if (norm) {
 			DrawTexture(zero, 0, 800);
