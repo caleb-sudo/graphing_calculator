@@ -46,7 +46,7 @@ static void Unload();
 typedef enum Operator_pressed = { ADD, SUB, DIVIDE, MULTIPLY, ENTER, LESS, GREATER, EQUAL_GREATER, EQUAL_LESS } Operator_pressed; 
 typedef enum Digit_pressed = { ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE } Digit_pressed;
 typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COMMA, E, IN, EXP } Button_pressed;
-typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE } Graph_pressed;
+typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE, COT } Graph_pressed;
 
 
 bool title = true;
@@ -108,6 +108,7 @@ static void Init(void) {
 	Texture2D table = LoadTexture("resources/graph/table_button.png");
 	Texture2D graph = LoadTexture("resources/graph/graph_button.png");
 	Texture2D trace = LoadTexture("resources/graph/trace_button.png");
+	Texture2D cot = LoadTexture("resources/graph/cot_button.png");
 
 	Texture2D exponent = LoadTexture("resources/others/exponent_button.png");
 	Texture2D cubed = LoadTexture("resources/others/cubed_button.png");
@@ -254,6 +255,8 @@ static void Update(Camera2D camera) {
 			graph.pressed = TABLE;
 		} else if (CheckCollisionPointRec(mousePoint, trace) || IsKeyPressed(KEY_R)) {
 			graph.pressed = TRACE;
+		} else if (CheckCollisionPointRec(mousePoint, cot)) {
+			graph.pressed = COT;
 		}
 	}
 	if (TABLE) {
@@ -334,6 +337,11 @@ static void Draw(Camera2D camera) {
 			DrawTexture(sub, 0, 650);
 			DrawTextute(multiply, 0, 620);
 			DrawTexture(divide, 0, 590);
+			DrawTexture(enter, 30, 680);
+
+			DrawTexture(sin, 0, 830);
+			DrawTexture(cos, 70, 830);
+			DrawTexture(tan, 140, 830);
 		}
 		
 		double num1, num2;
@@ -458,6 +466,7 @@ static void Unload(void) {
 	UnloadTexture(table);
 	UnloadTexture(graph);
 	UnloadTexture(trace);
+	UnloadTexture(cot);
 
 	UnloadTexture(exponent);
 	UnloadTexture(cubed);
