@@ -302,6 +302,24 @@ static void Update(Camera2D camera) {
 static void Draw(Camera2D camera) {
 	BeginDrawing();
 		ClearBackground(RAYWHITE);
+
+		if (norm) {
+			DrawTexture(zero, 0, 800);
+			DrawTexture(one, 0, 770);
+			DrawTexture(two. 0, 740);
+			DrawTexture(three, 0, 710);
+			DrawTexture(four, 30, 800);
+			DrawTexture(five, 30, 770);
+			DrawTexture(six, 30, 740);
+			DrawTexture(seven, 30, 710);
+			DrawTexture(eight, 60, 800);
+			DrawTexture(nine, 60, 770);
+
+			DrawTexture(add, 0, 680);
+			DrawTexture(sub, 0, 650);
+			DrawTextute(multiply, 0, 620);
+			DrawTexture(divide, 0, 590);
+		}
 		
 		double num1, num2;
 
