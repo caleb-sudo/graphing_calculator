@@ -384,9 +384,12 @@ static void Draw(Camera2D camera) {
 		if (ABS) DrawText(TextFormat(""), 700, 400, BLACK);
 		if (LOG) DrawText(TextFormet(""), 700, 400, BLACK);
 		if (FRAC) DrawText(TextFormat(""), 700, 400, BLACK);
-		if (E) DrawText(TextFormat("%lfe", num*pow(10, exp)), 700, 400, BLACK);
+		if (E) DrawText(TextFormat("%lf^e", num*pow(10, exp)), 700, 400, BLACK);
 		if (COMMA) DrawText(TextFormat(" , "), 700, 400, BLACK);
 		if (DECIMAL) DrawText(TextFormat("."), 700, 400, BLACK);
+		if (IN) DrawText(TextFormat("In(%lf) = %f", num, answer), 700, 400, BLACK);
+		if (EXP) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (LOG) DrawText(TextFormat("Log(%lf) = %f", num, answer), 700, 400, BLACK);
 		
 		if (answer) { 
 			DrawText(TextFormat("%f = %f", answer = answer), 700, 400, BLACK);
