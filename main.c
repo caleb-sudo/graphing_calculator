@@ -358,6 +358,9 @@ static void Draw(Camera2D camera) {
 			DrawTexture(E, 90, 210);
 			DrawTexture(pi, 120, 210);
 			DrawTexture(ans, 200, 210);
+			DrawTexture(abs, 270, 210);
+			DrawTexture(clr, 340, 210);
+			DrawTexture(del, 420, 210);
 
 			DrawTexture(X, 150, 210);
 			DrawTexture(cot, 200, 210);
