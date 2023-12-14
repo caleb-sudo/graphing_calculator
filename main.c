@@ -335,7 +335,7 @@ static void Draw(Camera2D camera) {
 
 			DrawTexture(add, 0, 680);
 			DrawTexture(sub, 0, 650);
-			DrawTextute(multiply, 0, 620);
+			DrawTextute(multiply, 0, 620); 
 			DrawTexture(divide, 0, 590);
 			DrawTexture(enter, 30, 680);
 
