@@ -46,7 +46,7 @@ static void Unload();
 
 typedef enum Operator_pressed = { ADD, SUB, DIVIDE, MULTIPLY, ENTER, LESS, GREATER, EQUAL_GREATER, EQUAL_LESS } Operator_pressed; 
 typedef enum Digit_pressed = { ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE } Digit_pressed;
-typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COMMA, E, IN, EXP, MAX, MIN } Button_pressed;
+typedef enum Button_pressed = { NEG, FRAC, LOG, SQ, CUBED, EXP, SQR, PI_ANS, LOG, ABS, ANS, SIN, TAN, COS, NEG_SIN, NEG_TAN, NEG_COS, L_BRAK, R_BRAK, CLR, DEL, COMMA, E, IN, EXP, MAX, MIN, LIM, MOD, DET } Button_pressed;
 typedef enum Graph_pressed = { Y_EQUALS, X, GRAPH, TRACE, TABLE, COT } Graph_pressed;
 
 
@@ -137,6 +137,9 @@ static void Init(void) {
 	Texture2D exp = LoadTexture("resources/others/exp_button.png");
 	Texture2D max = LoadTexture("resources/others/max_button.png");
 	Texture2D min = LoadTexture("resources/others/min_button.png");
+	Texture2D det = LoadTexture("resources/others/det_button.png");
+	Texture2D mod = LoadTexture("resources/others/mod_button.png");
+	Texture2D lim = LoadTexture("resources/others/lim_button.png");
 
 	for (int i = 0; i < max_lines; i++) {
 		lines[i].position = (Vector2) { 0, y-int };
@@ -440,6 +443,9 @@ static void Draw(Camera2D camera) {
 		if (LOG) DrawText(TextFormat("Log(%lf) = %f", num, answer), 700, 400, BLACK);
 		if (MAX) DrawText(TextFormat(""), 700, 400, BLACK);
 		if (MIN) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (LIM) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (DET) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (MOD) DrawText(TextFormat(""), 700, 400, BLACK);
 		
 		if (answer) { 
 			DrawText(TextFormat("%f = %f", answer = answer), 700, 400, BLACK);
@@ -527,4 +533,7 @@ static void Unload(void) {
 	UnloadTexture(exp);
 	UnloadTexture(max);
 	UnloadTexture(min);
+	UnloadTexture(mod);
+	UnloadTexture(lim);
+	UnloadTexture(det);
 }
