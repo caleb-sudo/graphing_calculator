@@ -342,6 +342,23 @@ static void Draw(Camera2D camera) {
 			DrawTexture(sin, 0, 830);
 			DrawTexture(cos, 70, 830);
 			DrawTexture(tan, 140, 830);
+			Drawtexture(neg_sin, 0, 860);
+			DrawTexture(neg_cos, 70, 860);
+			DrawTexture(neg_tan, 140, 860);
+			DrawTexture(log, 0, 0);
+			DrawTexture(sqr, 0, 30);
+			DrawTexture(squared, 0, 60);
+			DrawTexture(cubed, 0, 90);
+			DrawTexture(exponent, 0, 120);
+			DrawTexture(decimal, 0, 150);
+			DrawTexture(comma, 0, 180);
+			DrawTexture(neg, 0, 210);
+			DrawTexture(left_brak, 30, 210);
+			DrawTexture(right_brak, 60, 210);
+			DrawTexture(E, 90, 210);
+			DrawTexture(pi, 120, 210);
+
+			DrawTexture(X, 150, 210);
 		}
 		
 		double num1, num2;
