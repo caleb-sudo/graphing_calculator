@@ -362,11 +362,15 @@ static void Draw(Camera2D camera) {
 			DrawTexture(abs, 270, 210);
 			DrawTexture(clr, 340, 210);
 			DrawTexture(del, 420, 210);
-
+			DrawTexture(in, 100, 240);
+			DrawTexture(exp, 100, 300);
+			DrawTexture(
+			
 			DrawTexture(X, 150, 210);
 			DrawTexture(cot, 200, 210);
 			DrawTexture(graph, 300, 210);
 			DrawTexture(table, 400, 210);
+			DrawTexture(trace, 480, 210);
 		}
 		
 		double num1, num2;
@@ -512,7 +516,7 @@ static void Unload(void) {
 	UnloadTexture(second_bracket);
 	UnloadTexture(decimal);
 	UnloadTexture(comma);
-	UnloadTexture(log_button);
+	UnloadTexture(log);
 	UnloadTexture(abs);
 	UnloadTexture(ans);
 	UnloadTexture(in);
