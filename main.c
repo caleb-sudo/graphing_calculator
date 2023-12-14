@@ -249,7 +249,17 @@ static void Update(Camera2D camera) {
 			button.pressed = IN;
 		} else if (CheckCollisionPointRec(mousePoint, exp)) {
 			button.pressed = EXP;
-		} 
+		} else if (CheckCollisionPointRec(mousePoint, min)) {
+			button.pressed = MIN;
+		} else if (CheckCollisionPointRec(mousePoint, max)) {
+			button.pressed = MAX; 
+		} else if (CheckCollisionPointRec(mousePoint, det)) {
+			button.pressed = DET;
+		} else if (CheckCollisionPointRec(mousePoint, mod)) {
+			button.pressed = MOD;
+		} else if (CheckCollisionPointRec(mousePoint, lim)) {
+			button.pressed = LIM;
+		}
 
 		if (CheckCollisionPointRec(mousePoint, y_equals || IsKeyPressed(KEY_Y)) {
 			graph.pressed = Y_EQUALS;
