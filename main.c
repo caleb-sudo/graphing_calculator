@@ -56,15 +56,17 @@ bool graph = false;
 bool table = false;
 
 float answer;
-float sq_root_ans, squared_ans, cubed_ans, expo_ans, e_ans, log_ans;
+float sq_root_ans, expo_ans, e_ans, log_ans;
 float tan_ans, sin_ans, cos_ans, neg_tan_ans, neg_sin_ans, neg_cos_ans;
 float less_ans, greater_ans, equal_less_ans, equal_greater_ans;
-float in_ans, exp_ans;
+float in_ans, exp_ans, lim, min, max, mod, det;
 float pi_ans = (float) PI*num;
 float sum = (float) num1 + num2;
 float diff = (float) num1 - num2;
 float div = (float) num1 / num2;
 float product = (float) num1 * num2;
+float squared = (float) num * num;
+float cubed = (float) num * num * num;
 
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
@@ -379,7 +381,6 @@ static void Draw(Camera2D camera) {
 			DrawTexture(del, 420, 210);
 			DrawTexture(in, 100, 240);
 			DrawTexture(exp, 100, 300);
-			DrawTexture(
 			
 			DrawTexture(X, 150, 210);
 			DrawTexture(cot, 200, 210);
