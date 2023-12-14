@@ -3,6 +3,7 @@
 #include "include/rlgl.h"
 
 #include <stdlib.h> 
+#include <stdbool.h>
 #include <time.h>
 #include <stdio.h>
 #include <math.h>
