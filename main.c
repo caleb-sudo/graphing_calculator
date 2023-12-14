@@ -339,9 +339,9 @@ static void Draw(Camera2D camera) {
 			DrawTexture(divide, 0, 590);
 			DrawTexture(enter, 30, 680);
 
-			DrawTexture(sin, 0, 830);
-			DrawTexture(cos, 70, 830);
-			DrawTexture(tan, 140, 830);
+			DrawTexture(sin_button, 0, 830);
+			DrawTexture(cos_button, 70, 830);
+			DrawTexture(tan_button, 140, 830);
 			Drawtexture(neg_sin, 0, 860);
 			DrawTexture(neg_cos, 70, 860);
 			DrawTexture(neg_tan, 140, 860);
