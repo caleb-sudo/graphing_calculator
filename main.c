@@ -388,12 +388,58 @@ static void Draw(Camera2D camera) {
 			DrawTexture(del, 420, 210);
 			DrawTexture(in, 100, 240);
 			DrawTexture(exp, 100, 300);
+			DrawTextue(lim, 300, 300);
+			DrawTexture(mod, 370, 370);
+			DrawTexture(max, 470, 470);
+			DrawTexture(min, 570, 570);
+			DrawTexture(det, 670, 670);
 			
 			DrawTexture(X, 150, 210);
 			DrawTexture(cot, 200, 210);
 			DrawTexture(graph, 300, 210);
 			DrawTexture(table, 400, 210);
 			DrawTexture(trace, 480, 210);
+		}
+
+		if (ONE) {
+			if (1) DrawText("1", 700, 400);
+			if (2) DrawText("1", 900, 400);
+		}
+		if (TWO) {
+			if (1) DrawText("2", 700, 400);
+			if (2) DrawText("2", 900, 400);
+		}
+		if (THREE) {
+			if (1) DrawText("3", 700, 400);
+			if (2) DrawText("3", 900, 400);
+		}
+		if (FOUR) {
+			if (1) DrawText("4", 700, 400);
+			if (2) DrawText("4", 900, 400);
+		}
+		if (FIVE) {
+			if (1) DrawText("5", 700, 400);
+			if (2) DrawText("5", 900, 400);
+		}
+		if (SIX) {
+			if (1) DrawText("6", 700, 400);
+			if (2) DrawText("6", 900, 400);
+		}
+		if (SEVEN) {
+			if (1) DrawText("7", 700, 400);
+			if (2) DrawText("7", 900, 400);
+		}
+		if (EIGHT) {
+			if (1) DrawText("8", 700, 400);
+			if (2) DrawText("8", 900, 400);
+		}
+		if (NINE) {
+			if (1) DrawText("9", 700, 400);
+			if (2) DrawText("9", 900, 400);
+		}
+		if (ZERO) {
+			if (1) DrawText("0", 700, 400);
+			if (2) DrawText("0", 700, 400);
 		}
 		
 		double num1, num2;
@@ -464,6 +510,7 @@ static void Draw(Camera2D camera) {
 		if (LIM) DrawText(TextFormat(""), 700, 400, BLACK);
 		if (DET) DrawText(TextFormat(""), 700, 400, BLACK);
 		if (MOD) DrawText(TextFormat(""), 700, 400, BLACK);
+		if (
 		
 		if (answer) { 
 			DrawText(TextFormat("%f = %f", answer = answer), 700, 400, BLACK);
