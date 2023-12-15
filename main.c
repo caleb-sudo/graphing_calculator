@@ -336,7 +336,7 @@ static void Draw(Camera2D camera) {
 		ClearBackground(RAYWHITE);
 
 		if (title) {
-			DrawText("click enter to start");
+			DrawText("Welcome! \n click enter to start", 0, 0);
 		}
 
 		if (norm) {
