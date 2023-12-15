@@ -441,6 +441,9 @@ static void Draw(Camera2D camera) {
 			if (1) DrawText("0", 700, 400);
 			if (2) DrawText("0", 700, 400);
 		}
+
+		if (L_BRAK) DrawText("(", 700, 400);
+		if (R_Brak) DrawText(")", 700, 400);
 		
 		double num1, num2;
 
