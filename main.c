@@ -443,7 +443,7 @@ static void Draw(Camera2D camera) {
 		}
 
 		if (L_BRAK) DrawText("(", 700, 400);
-		if (R_Brak) DrawText(")", 700, 400);
+		if (R_BRAK) DrawText(")", 700, 400);
 		
 		double num1, num2;
 
