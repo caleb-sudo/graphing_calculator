@@ -144,19 +144,25 @@ static void Init(void) {
 	Texture2D mod = LoadTexture("resources/others/mod_button.png");
 	Texture2D lim = LoadTexture("resources/others/lim_button.png");
 
-	for (int i = 0; i < max_lines; i++) {
-		lines[i].position = (Vector2) { 0, y-int };
-		lines[i].active = false;
+	if (graph) {
+		for (int i = 0; i < max_points; i++) {
+			points[i].radius = 5;
+			points[i].active = true;
+			points[i].poisition = (Vector2) {  };
+		}
+		for (int i = 0; i < max_lines; i++) {
+			lines[i].active = true;
+			lines[i].size = (Vector2) { };
+			lines[i].position = (Vector2) { };
+		}
+		graph_pos.active = false;
+		graph_pos.radius = 0;
+		graph_pos.position = (Vector2) { GetScreenWidth()/2 -30, GetScreenHeight()/2 -30 };
+		graph_pos.speed = (Vector2) { 0, 0 };
 	}
-	for (int i = 0; i < max_points; i++) {
-		points[i].active = false;
-		points[i].radius = 5;
-	}
-	graph_pos.active = false;
-	graph_pos.radius = 0;
-	graph_pos.position = (Vector2) { GetScreenWidth()/2 -30, GetScreenHeight()/2 -30 };
-	graph_pos.speed = (Vector2) { 0, 0 };
+
 }
+
 
 static void Update(Camera2D camera) {
 	if (title) {
