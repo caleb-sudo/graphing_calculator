@@ -13,7 +13,7 @@
 #define	max_points	100
 #define max_lines	50
 #define GraphSpeed	7.0f
-#define max_sects	200
+#define ver_sects	10
 
 typedef struct Points {
 	int radius;
@@ -31,10 +31,16 @@ typedef struct Graph_Pos {
 	Vector2 position;
 	Vector2 speed;
 } Graph_Pos;
+typedef struct Sects {
+	bool active;
+	Vector2 size;
+	Vector2 position;
+} Sects;
 
 static Points points[max_points] = { 0 };
 static Lines lines[max_lines] = { 0 };
 static Graph_Pos graph_pos = { 0 };
+static Sects sects[max_sects] = { 0 };
 
 const int screenWidth = 800;
 const int screenHeight = 450;
@@ -145,6 +151,15 @@ int main() {
 		graph_pos.radius = 0;
 		graph_pos.position = (Vector2) { GetScreenWidth()/2 -30, GetScreenHeight()/2 -30 };
 		graph_pos.speed = (Vector2) { 0, 0 };
+	}
+	if (table) {
+		for (int i = 0; i < max_sects; i++) {
+			sects[i].active = true;
+			sects[i].size = (Vector2) { screenWidth/2, screenHeight/10 };
+			for (int j = 0; j < ver_sects; j++) {
+				sects[i].position = (Vector2) { screenWidth/2, screenHeight/10*j };
+			}
+		}
 	}
 	while(!WindowShouldClose()) {
 		if (title) {
@@ -407,8 +422,8 @@ int main() {
 			if (2) DrawText("0", 700, 400, 20, BLACK);
 		}
 
-		if (L_BRAK) DrawText("(", 700, 400, 20, BLACK);
-		if (R_BRAK) DrawText(")", 700, 400, 20, BLACK);
+		if (L_BRAK) DrawText("", 700, 400, 20, BLACK);
+		if (R_BRAK) DrawText("", 700, 400, 20, BLACK);
 		
 		double num1, num2;
 
@@ -450,11 +465,11 @@ int main() {
 		}
 
 		double num;
-		double exp;
+		double exponent;
 
 		if (SQ) DrawText(TextFormat("%lf^2 = %f", num, num, squared_ans), 700, 400, 20, BLACK);
 		if (CUBED) DrawText(TextFormat("%lf^3 = %f", num, cubed_ans), 700, 400, 20, BLACK);
-		if (EXPO) DrawText(TextFormat("%lf^%lf", pow(num, exp)), 700, 400, 20, BLACK);
+		if (EXPO) DrawText(TextFormat("%lf^%lf", pow(num, exponent)), 700, 400, 20, BLACK);
 		if (SQR) DrawText(TextFormat("sq(%lf) = %f", sqrt(num), sq_root_ans), 700, 400, 20, BLACK);
 		if (PI_ANS) DrawText(TextFormat("pi * %lf", PI*num), 700, 400, 20, BLACK);
 		if (TAN) DrawText(TextFormat("tan(%lf) = %f", tan(num) = answer), 700, 400, 20, BLACK);
@@ -464,22 +479,32 @@ int main() {
 		if (NEG_SIN) DrawText(TextFormat("-sin(%lf) = %f", -sin(num) = answer), 700, 400, 20, BLACK);
 		if (NEG_COS) DrawText(TextFormat("-cos(%lf) = %f", -cos(num) = answer), 700, 400, 20, BLACK);
 		if (ANS) DrawText(TextFormat("%f = %f", answer), 700, 400, 20, BLACK);
-		if (ABS) DrawText(TextFormat(""), 700, 400, 20, BLACK);
-		if (LOG) DrawText(TextFormat(""), 700, 400, 20, BLACK);
+		if (ABS) DrawText(TextFormat("abs(%lf = %f", num, answer), 700, 400, 20, BLACK);
+		if (LOG) DrawText(TextFormat("log(%lf = %f", num, answer), 700, 400, 20, BLACK);
 		if (FRAC) DrawText(TextFormat(""), 700, 400, 20, BLACK);
 		if (COMMA) DrawText(TextFormat(" , "), 700, 400, 20, BLACK);
 		if (DECIMAL) DrawText(TextFormat(" . "), 700, 400, 20, BLACK);
-		if (IN) DrawText(TextFormat("In(%lf) = %f", num, answer), 700, 400, 20, BLACK);
-		if (EXP) DrawText(TextFormat(""), 700, 400, 20, BLACK);
-		if (LOG) DrawText(TextFormat("Log(%lf) = %f", num, answer), 700, 400, 20, BLACK);
-		if (MAX) DrawText(TextFormat(""), 700, 400, 20, BLACK);
-		if (MIN) DrawText(TextFormat(""), 700, 400, 20, BLACK);
-		if (LIM) DrawText(TextFormat(""), 700, 400, 20, BLACK);
-		if (DET) DrawText(TextFormat(""), 700, 400, 20, BLACK);
-		if (MOD) DrawText(TextFormat(""), 700, 400, 20, BLACK);
+		if (IN) DrawText(TextFormat("In%lf) = %f", num, answer), 700, 400, 20, BLACK);
+		if (EXP) DrawText(TextFormat("exp%lf = %f", num, answer), 700, 400, 20, BLACK);
+		if (LOG) DrawText(TextFormat("Log%lf) = %f", num, answer), 700, 400, 20, BLACK);
+		if (MAX) DrawText(TextFormat("max%lf = %f", num, answer), 700, 400, 20, BLACK);
+		if (MIN) DrawText(TextFormat("min%lf = %f", num, answer), 700, 400, 20, BLACK);
+		if (LIM) DrawText(TextFormat("lim%lf = %f", num, answer), 700, 400, 20, BLACK);
+		if (DET) DrawText(TextFormat("det%lf = %f", num, answer), 700, 400, 20, BLACK);
+		if (MOD) DrawText(TextFormat("mod%lf = %f", num, answer), 700, 400, 20, BLACK);
 
-		if (X) DrawText(TextFormat("X", x), 700, 400, 20, BLACK);
-		if (Y) DrawText(TextFormat("Y", y), 700, 400, 20, BLACK);
+		if (X) DrawText(TextFormat("X"), 700, 400, 20, BLACK);
+		if (Y) DrawText(TextFormat("Y"), 700, 400, 20, BLACK);
+		if (COT) DrawText(TextFormat("COT"), 700, 400, 20, BLACK);
+
+		if (table) {
+			for (int i = 0; i < max_sects; i++) {
+				if (sects) {
+					DrawRectangleRec(sects[i].size, sects[i].position, BLACK);
+				}
+			}
+		}
+			
 		
 		if (answer) { 
 			DrawText(TextFormat("%f = %f", answer = answer), 700, 400, 20, BLACK);
@@ -497,7 +522,6 @@ int main() {
 		}
 	EndDrawing();
 	}
-	if(IsKeyPressed(KEY_ESCAPE)) CloseWindow();
 	UnloadTexture(multiply);
 	UnloadTexture(divide);
 	UnloadTexture(sub);
