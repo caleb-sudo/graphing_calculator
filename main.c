@@ -66,7 +66,7 @@ float cubed_ans = (float) num * num * num;
 
 int main(Camera2D camera) {
 	InitWindow(screenWidth, screenHeight, "your calculator");
-		Camera2D camera;
+	Camera2D camera;
 	camera.zoom = 1.0f;
 
 	Vector2 mousePoint = { 0.0f, 0.0f };
