@@ -1,2 +1,2 @@
-main: main.c main.o
-  gcc
+main: main.c
+  gcc main.c -o test -static -I include/ -L lib -raylib -lopengl32 -lgdi32 -lwinm
