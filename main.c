@@ -45,6 +45,11 @@ static Lines lines[max_lines] = { 0 };
 static Graph_Pos graph_pos = { 0 };
 static Sects sects[max_sects] = { 0 };
 
+static void Init();
+static void update();
+static void draw();
+static void drawFrame();
+
 const int screenWidth = 800;
 const int screenHeight = 450;
 
@@ -140,7 +145,82 @@ int main() {
 	Texture2D mod = LoadTexture("resources/textures/others/mod_button.png");
 	Texture2D lim = LoadTexture("resources/textures/others/lim_button.png");
 
-	if (graph) {
+	init();
+
+	#if defined(WEB_PLATFORM)
+		emscripten_set_main_loop(drawFrame, 60, 1);
+	#else
+	
+	while(!WindowShouldClose()) {
+		drawFrame();
+	}
+	#endif
+	UnloadTexture(multiply);
+	UnloadTexture(divide);
+	UnloadTexture(sub);
+	UnloadTexture(add);
+	UnloadTexture(enter);
+	UnloadTexture(greater);
+	UnloadTexture(less);
+	UnloadTexture(equal_less);
+	UnloadTexture(equal_greater);
+
+	UnloadTexture(zero);
+	UnloadTexture(one);
+	UnloadTexture(two);
+	UnloadTexture(three);
+	UnloadTexture(four);
+	UnloadTexture(five);
+	UnloadTexture(six);
+	UnloadTexture(seven);
+	UnloadTexture(eight);
+	UnloadTexture(nine);
+
+	UnloadTexture(x_button);
+	UnloadTexture(y_button);
+	UnloadTexture(y_equals);
+	UnloadTexture(table);
+	UnloadTexture(graph);
+	UnloadTexture(trace);
+	UnloadTexture(cot);
+
+	UnloadTexture(exponent);
+	UnloadTexture(cubed);
+	UnloadTexture(squared);
+	UnloadTexture(e_button);
+	UnloadTexture(pi);
+	UnloadTexture(del);
+	UnloadTexture(clear);
+	UnloadTexture(sqr);
+	UnloadTexture(neg);
+	UnloadTexture(sin_button);
+	UnloadTexture(cos_button);
+	UnloadTexture(tan_button);
+	UnloadTexture(neg_tan);
+	UnloadTexture(neg_cos);
+	UnloadTexture(neg_sin);
+	UnloadTexture(left_brak);
+	UnloadTexture(right_brak);
+	UnloadTexture(decimal);
+	UnloadTexture(comma);
+	UnloadTexture(log);
+	UnloadTexture(abs);
+	UnloadTexture(ans);
+	UnloadTexture(in);
+	UnloadTexture(exp);
+	UnloadTexture(max);
+	UnloadTexture(min);
+	UnloadTexture(mod);
+	UnloadTexture(lim);
+	UnloadTexture(det);
+
+	CloseWindow();
+
+	return 0;
+}
+
+static void Init(void) {
+		if (graph) {
 		for (int i = 0; i < max_points; i++) {
 			points[i].radius = 5;
 			points[i].active = true;
@@ -166,12 +246,10 @@ int main() {
 		}
 	}
 
-	#if defined(WEB_PLATFORM)
-		emscripten_set_main_loop(drawFrame, 60, 1);
-	#else
-	
-	while(!WindowShouldClose()) {
-		if (title) {
+}
+
+static void update(void) {
+			if (title) {
 			if (IsKeyPressed(KEY_ENTER)) norm = true;
 		}
 		if (norm) {
@@ -328,7 +406,10 @@ int main() {
 				if (camera.zoom < zoomIncrement) camera.zoom = zoomIncrement;
 			}
 		}
-	BeginDrawing();
+}
+
+static void draw(void) {
+		BeginDrawing();
 		ClearBackground(RAYWHITE);
 
 		if (title) {
@@ -530,69 +611,10 @@ int main() {
 			EndMode2D();
 		}
 	EndDrawing();
-	}
-	#endif
-	UnloadTexture(multiply);
-	UnloadTexture(divide);
-	UnloadTexture(sub);
-	UnloadTexture(add);
-	UnloadTexture(enter);
-	UnloadTexture(greater);
-	UnloadTexture(less);
-	UnloadTexture(equal_less);
-	UnloadTexture(equal_greater);
+}
 
-	UnloadTexture(zero);
-	UnloadTexture(one);
-	UnloadTexture(two);
-	UnloadTexture(three);
-	UnloadTexture(four);
-	UnloadTexture(five);
-	UnloadTexture(six);
-	UnloadTexture(seven);
-	UnloadTexture(eight);
-	UnloadTexture(nine);
-
-	UnloadTexture(x_button);
-	UnloadTexture(y_button);
-	UnloadTexture(y_equals);
-	UnloadTexture(table);
-	UnloadTexture(graph);
-	UnloadTexture(trace);
-	UnloadTexture(cot);
-
-	UnloadTexture(exponent);
-	UnloadTexture(cubed);
-	UnloadTexture(squared);
-	UnloadTexture(e_button);
-	UnloadTexture(pi);
-	UnloadTexture(del);
-	UnloadTexture(clear);
-	UnloadTexture(sqr);
-	UnloadTexture(neg);
-	UnloadTexture(sin_button);
-	UnloadTexture(cos_button);
-	UnloadTexture(tan_button);
-	UnloadTexture(neg_tan);
-	UnloadTexture(neg_cos);
-	UnloadTexture(neg_sin);
-	UnloadTexture(left_brak);
-	UnloadTexture(right_brak);
-	UnloadTexture(decimal);
-	UnloadTexture(comma);
-	UnloadTexture(log);
-	UnloadTexture(abs);
-	UnloadTexture(ans);
-	UnloadTexture(in);
-	UnloadTexture(exp);
-	UnloadTexture(max);
-	UnloadTexture(min);
-	UnloadTexture(mod);
-	UnloadTexture(lim);
-	UnloadTexture(det);
-
-	CloseWindow();
-
-	return 0;
+static drawFrame(void) {
+	update();
+	draw();
 }
 
