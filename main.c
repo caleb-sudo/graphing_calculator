@@ -9,6 +9,9 @@
 #include <stdio.h>
 #include <math.h>
 
+#if defined(WEB_PLATFORM)
+	#inculde <emscripten.h>
+#endif
 
 #define	max_points	100
 #define max_lines	50
@@ -72,6 +75,7 @@ float cubed_ans = (float) num * num * num;
 
 int main() {
 	InitWindow(screenWidth, screenHeight, "your calculator");
+	
 	Camera2D camera;
 	camera.zoom = 1.0f;
 
@@ -161,6 +165,11 @@ int main() {
 			}
 		}
 	}
+
+	#if defined(WEB_PLATFORM)
+		emscripten_set_main_loop(drawFrame, 60, 1);
+	#else
+	
 	while(!WindowShouldClose()) {
 		if (title) {
 			if (IsKeyPressed(KEY_ENTER)) norm = true;
@@ -522,6 +531,7 @@ int main() {
 		}
 	EndDrawing();
 	}
+	#endif
 	UnloadTexture(multiply);
 	UnloadTexture(divide);
 	UnloadTexture(sub);
