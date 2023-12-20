@@ -1,1 +1,41 @@
+include raylib_H
 
+Texture2D zero = LoadTexture("resources/textures/ints/zero_button.png");
+Texture2D one = LoadTexture("resources/textures/ints/one_button.png");
+Texture2D two = LoadTexture("resources/textures/ints/two_button.png");
+Texture2D three = LoadTexture("resources/textures/ints/three_button.png");
+Texture2D four = LoadTexture("resources/textures/ints/four_button.png");
+Texture2D five = LoadTexture("resources/textures/ints/five_button.png");
+Texture2D six = LoadTexture("resources/textures/ints/six_button.png");
+Texture2D seven = LoadTexture("resources/textures/ints/seven_button.png");
+Texture2D eight = LoadTexture("resources/textures/ints/eight_button.png");
+Texture2D nine = LoadTexture("resources/textures/ints/nine_button.png");
+
+Texture2D multiply = LoadTexture("resources/textures/operators/multiply_button.png");
+Texture2D add = LoadTexture("resources/textures/operators/addition_button.png");
+Texture2D divide = LoadTexture("resources/textures/operators/division_button.png");
+Texture2D subtract = LoadTexture("resources/textures/operators/subtraction_button.png");
+Texture2D greater = LoadTexture("resources/textures/operators/greater_button.png");
+Texture2D less = LoadTexture("resources/textures/operators/less_button.png");
+Texture2D equal_greater = LoadTexture("resources/textures/operators/equals-greater_button.png");
+Texture2D equal_less = LoadTexture("resources/textures/operators/equals-less_button.png");
+
+Texture2D y_equals = LoadTexture("resources/textures/graph/Y=_button.png");
+Texture2D Y_button = LoadTexture("resources/textures/graph/y_button.png");
+Tetxure2D x_button = LoadTexture("resources/textures/graph/x_button.png");
+Texture2D trace = LoadTexture("resources/textures/graph/table_button.png");
+Texture2D graph = LoadTexture("resources/textures/graph/graph_button.png");
+Texture2D cot = LoadTexture("resources/textures/graph/cot_button.png");
+
+Texture2D abs = LoadTexture("resources/textures/others/abs_button.png");
+Texture2D ans = LoadTexture("resources/textures/others/ans_button.png");
+Texture2D clr = LoadTexture("resources/textures/others/clear_button.png");
+Texture2D del = LoadTexture("resources/textures/others/delete_button.png");
+Texture2D comma = LoadTexture("resources/textures/others/comma_button.png");
+Texture2D det = LoadTexture("resources/textures/others/det_button.png");
+Texture2D exp = LoadTexture("resources/textures/others/exp_button.png");
+Texture2D cubed = LoadTexture("resources/textures/others/cubed_button.png");
+Texture2D decimal = LoadTexture("resources/textures/others/decimal_button.png");
+Texture2D cos = LoadTexture("resources/textures/others/cos_button.png");
+Texture2D sin = LoadTexture("resources/textures/others/sin_button.png");
+Texture2D tan = LoadTexture("resources/texture/others/tan_button.png");
