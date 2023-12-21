@@ -26,16 +26,3 @@ Tetxure2D x_button = LoadTexture("resources/textures/graph/x_button.png");
 Texture2D trace = LoadTexture("resources/textures/graph/table_button.png");
 Texture2D graph = LoadTexture("resources/textures/graph/graph_button.png");
 Texture2D cot = LoadTexture("resources/textures/graph/cot_button.png");
-
-Texture2D abs = LoadTexture("resources/textures/others/abs_button.png");
-Texture2D ans = LoadTexture("resources/textures/others/ans_button.png");
-Texture2D clr = LoadTexture("resources/textures/others/clear_button.png");
-Texture2D del = LoadTexture("resources/textures/others/delete_button.png");
-Texture2D comma = LoadTexture("resources/textures/others/comma_button.png");
-Texture2D det = LoadTexture("resources/textures/others/det_button.png");
-Texture2D exp = LoadTexture("resources/textures/others/exp_button.png");
-Texture2D cubed = LoadTexture("resources/textures/others/cubed_button.png");
-Texture2D decimal = LoadTexture("resources/textures/others/decimal_button.png");
-Texture2D cos = LoadTexture("resources/textures/others/cos_button.png");
-Texture2D sin = LoadTexture("resources/textures/others/sin_button.png");
-Texture2D tan = LoadTexture("resources/texture/others/tan_button.png");
