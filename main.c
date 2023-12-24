@@ -4,6 +4,8 @@
 #include "include/Plots.h"
 #include "include/supportLib.h"
 
+#include "include/textures.h"
+
 #include <stdlib.h> 
 #include <stdbool.h>
 #include <time.h>
