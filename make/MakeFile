@@ -1,3 +1,0 @@
-make: main.c pbPlots suppotLib.c
-  gcc main.c pbPlots.c supportLib.c -o graphing_calc.exe -static -I include/ -L lib -raylib -lopengl32 -lgdi32 -lwinm -lm
-
