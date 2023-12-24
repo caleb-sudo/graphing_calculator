@@ -1,6 +1,8 @@
 #include "include/raylib.h"
 #include "include/raymath.h"
 #include "include/rlgl.h"
+#include "include/Plots.h"
+#include "include/supportLib.h"
 
 #include <stdlib.h> 
 #include <stdbool.h>
