@@ -1,7 +1,7 @@
 #include "include/raylib.h"
 #include "include/raymath.h"
 #include "include/rlgl.h"
-#include "include/Plots.h"
+#include "include/pbPlots.h"
 #include "include/supportLib.h"
 
 #include "include/textures.h"
