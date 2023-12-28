@@ -73,7 +73,6 @@ float sq_root_ans, expo_ans, e_ans, log_ans;
 float tan_ans, sin_ans, cos_ans, neg_tan_ans, neg_sin_ans, neg_cos_ans;
 float less_ans, greater_ans, equal_less_ans, equal_greater_ans;
 float in_ans, exp_ans, lim_ans, min_ans, max_ans, mod_ans, det_ans;
-float x, y, z;
 float pi_ans = (float) PI*num;
 float sum = (float) num1 + num2;
 float diff = (float) num1 - num2;
