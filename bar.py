@@ -1,3 +1,3 @@
 import plotly.express as px
-import ctype
+import ctypes
 graph = ctype.CDLL("lib/graph.dll")
