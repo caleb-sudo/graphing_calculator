@@ -1,2 +1,4 @@
 import plotly.express as px
-from ctypes import CDLL
+import ctypes
+graph = ctypes.CDLL("lib/graph.dll")
+fig.show()
