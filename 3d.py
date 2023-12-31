@@ -2,7 +2,7 @@ import matplotlib.pyplot as pyplot
 import numpy as np
 import ctypes
 
-plt.style.use('_mpl_gallery')
+plt.style.use('_mpl-gallery')
 
 variables = ctypes.WinDLL("D://graphing_calulator/lib/mylib.dll")
 x = ctypes.c_int.in_dll(variables, "x")
