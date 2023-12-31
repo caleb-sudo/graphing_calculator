@@ -4,7 +4,7 @@ import numpy as np
 
 plt.style.use('_mpl-gallery')
 
-variables = ctypes.WinDLL("D://graphing_calculator/lib/graph.dll")
+variables = ctypes.WinDLL("D://graphing_calculator/lib/mylib.dll")
 x = ctypes.c_int.int_dll(variables, "x")
 y = ctypes.c_int.int_dll(variables, "y")
 xlimx = ctypes.c_int.in_dll(variables, "xlimx")
