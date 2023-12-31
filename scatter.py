@@ -4,7 +4,7 @@ import ctypes
 
 plt.style.use('_mpl-gallery')
 
-variables = ctypes.WinDLL("D://graphing_calculator/lib/graph.dll")
+variables = ctypes.WinDLL("D://graphing_calculator/lib/mylib.dll")
 x = ctypes.c_int.in_dll(variables, "x")
 y = ctypes.c_int.in_dll(variables, "y")
 
