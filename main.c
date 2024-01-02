@@ -83,9 +83,6 @@ float cubed_ans = (float) num * num * num;
 
 double num, num1, num2, exponent;
 double g = 9.81;
-double xs [] = { x };
-double ys [] = { y };
-_Bool success;
 
 Camera2D camera;
 camera.zoom = 1.0f;
@@ -142,166 +139,162 @@ static void Init(void) {
 
 static void update(void) {
 	if (title) {
-	if (IsKeyPressed(KEY_ENTER)) norm = true;
+		if (IsKeyPressed(KEY_ENTER)) norm = true;
+	}
+	if (norm) {
+		mousePoint = GetMousePosition();
+		button_pressed = false;
+	
+		if (CheckCollisionPointRec(mousePoint, zero) || IsKeyPressed(KEY_ZERO)) {
+			digit.pressed = ZERO;
+		} else if (CheckCollisionPointRec(mousePoint, one) || IsKeyPressed(KEY_ONE)) {
+			digit.pressed = ONE;
+		} else if (CheckCollisionPointRec(mousePoint, two) || IsKeyPressed(KEY_TWO)) {
+			digit.pressed = TWO;
+		} else if (CheckCollisionPointRec(mousePoint, three) || IsKeyPressed(KEY_THREE)) {
+			digit.pressed = THREE;
+		} else if (CheckCollisionPointRec(mousePoint, four) || IsKeyPressed(KEY_FOUR)) {
+			digit.pressed = FOUR;
+		} else if (CheckCollisionPointRec(mousePoint, five) || IsKeyPressed(KEY_FIVE)) {
+			digit.pressed = FIVE;
+		} else if (CheckCollisionPointRec(mousePoint, six) || IsKeyPressed(KEY_SIX)) {
+			digit.pressed = SIX;
+		} else if (CheckCollisionPointRec(mousePoint, seven) || IsKeyPressed(KEY_SEVEN)) {
+			digit.pressed = SEVEN;
+		} else if (CheckCollisionPointRec(mousePoint, eight) || IsKeyPressed(KEY_EIGHT)) {
+			digit.pressed = EIGHT;
+		} else if (CheckCollisionPointRec(mousePoint, nine) || IsKeyPressed(KEY_NINE)) {
+			digit.pressed = NINE;
 		}
-		if (norm) {
-			mousePoint = GetMousePosition();
-			button_pressed = false;
 	
-			if (CheckCollisionPointRec(mousePoint, zero) || IsKeyPressed(KEY_ZERO)) {
-				digit.pressed = ZERO;
-			} else if (CheckCollisionPointRec(mousePoint, one) || IsKeyPressed(KEY_ONE)) {
-				digit.pressed = ONE;
-			} else if (CheckCollisionPointRec(mousePoint, two) || IsKeyPressed(KEY_TWO)) {
-				digit.pressed = TWO;
-			} else if (CheckCollisionPointRec(mousePoint, three) || IsKeyPressed(KEY_THREE)) {
-				digit.pressed = THREE;
-			} else if (CheckCollisionPointRec(mousePoint, four) || IsKeyPressed(KEY_FOUR)) {
-				digit.pressed = FOUR;
-			} else if (CheckCollisionPointRec(mousePoint, five) || IsKeyPressed(KEY_FIVE)) {
-				digit.pressed = FIVE;
-			} else if (CheckCollisionPointRec(mousePoint, six) || IsKeyPressed(KEY_SIX)) {
-				digit.pressed = SIX;
-			} else if (CheckCollisionPointRec(mousePoint, seven) || IsKeyPressed(KEY_SEVEN)) {
-				digit.pressed = SEVEN;
-			} else if (CheckCollisionPointRec(mousePoint, eight) || IsKeyPressed(KEY_EIGHT)) {
-				digit.pressed = EIGHT;
-			} else if (CheckCollisionPointRec(mousePoint, nine) || IsKeyPressed(KEY_NINE)) {
-				digit.pressed = NINE;
-			}
+		if (CheckCollisionPointRec(mousePoint, add)) {
+			op.pressed = ADD;
+		} else if (CheckCollisionPointRec(mousePoint, sub) || IsKeyPressed(KEY_MINUS)) {
+			op.pressed = SUB;
+		} else if (CheckCollisionPointRec(mousePoint, multiply)) {
+			op.pressed = MULTIPLY;
+		} else if (CheckCollisionPointRec(mousePoint, divide) || IsKeyPressed(KEY_SLASH)) {
+			op.pressed = DIVIDE;
+		} else if (CheckCollisionPointRec(mousePoint, enter) || IsKeyPressed(KEY_ENTER)) {
+			op.pressed = ENTER;
+		} else if (CheckCollisionPointRec(mousePoint, greater)) {
+			op.pressed = GREATER;
+		} else if (CheckCollisionPointRec(mousePoint, less)) {
+			op.pressed = LESS;
+		} else if (CheckCollisionPointRec(mousePoint, equal_greater)) {
+			op.pressed = EQUAL_GREATER;
+		} else if (CheckCollisionPointRec(mousePoint, equal_less)) {
+			op.pressed = EQUAL_LESS;
+		}
 	
-			if (CheckCollisionPointRec(mousePoint, add)) {
-				op.pressed = ADD;
-			} else if (CheckCollisionPointRec(mousePoint, sub) || IsKeyPressed(KEY_MINUS)) {
-				op.pressed = SUB;
-			} else if (CheckCollisionPointRec(mousePoint, multiply)) {
-				op.pressed = MULTIPLY;
-			} else if (CheckCollisionPointRec(mousePoint, divide) || IsKeyPressed(KEY_SLASH)) {
-				op.pressed = DIVIDE;
-			} else if (CheckCollisionPointRec(mousePoint, enter) || IsKeyPressed(KEY_ENTER)) {
-				op.pressed = ENTER;
-			} else if (CheckCollisionPointRec(mousePoint, greater)) {
-				op.pressed = GREATER;
-			} else if (CheckCollisionPointRec(mousePoint, less)) {
-				op.pressed = LESS;
-			} else if (CheckCollisionPointRec(mousePoint, equal_greater)) {
-				op.pressed = EQUAL_GREATER;
-			} else if (CheckCollisionPointRec(mousePoint, equal_less)) {
-				op.pressed = EQUAL_LESS;
-			}
+		if (CheckCollisionPointRec(mousePoint, log) || IsKeyPressed(KEY_L)) {
+			button.pressed = LOG;
+		} else if (CheckCollisionPointRec(mousePoint, pi)) {
+			button.pressed = PI_ANS;
+		} else if (CheckCollisionPointRec(mousePoint, sin)) {
+			button.pressed = SIN;
+		} else if (CheckCollisionPointRec(mousePoint, tan)) {
+			button.pressed = TAN;
+		} else if (CheckCollisionPointRec(mousePoint, cos)) {
+			button.pressed = COS;
+		} else if (CheckCollisionPointRec(mousePoint, neg_sin)) {
+			button.pressed = NEG_SIN;
+		} else if (CheckCollisionPointRec(mousePoint, neg_tan)) {
+			button.pressed = NEG_TAN;
+		} else if (CheckCollisionPointRec(mousePoint, neg_cos)) {
+			button.pressed = NEG_COS;
+		} else if (CheckCollisionPointRec(mousePoint, ans)) {
+			button.pressed = ANS;
+		} else if (CheckCollisionPointRec(mousePoint, abs)) {
+			button.pressed = ABS;
+		} else if (CheckCollisionPointRec(mousePoint, squared)) {
+			button.pressed = SQ;
+		} else if (CheckCollisionPointRec(mousePoint, cubed)) {
+			button.pressed = CUBED;
+		} else if (CheckCollisionPointRec(mousePoint, sqr)) {
+			button.pressed = SQR;
+		} else if (CheckCollisionPointRec(mousePoint, neg) || IsKeyPressed(KEY_MINUS)) {
+			button.pressed = NEG;
+		} else if (CheckCollisionPointRec(mousePoint, clear)) {
+			button.pressed = CLR;
+		} else if (CheckCollisionPointRec(mousePoint, del) || IsKeyPressed(KEY_BACKSPACE)) {
+			button.pressed = DEL;
+		} else if (CheckCollisionPointRec(mousePoint, comma) || IsKeyPressed(KEY_COMMA)) {
+			button.pressed = COMMA;
+		} else if (CheckCollisionPointRec(mousePoint, decimal) || IsKeyPressed(KEY_PERIOD)) {
+			button.pressed = DECIMAL;
+		} else if (CheckCollisionPointRec(mousePoint, left_brak) || IsKeyPressed(KEY_LEFT_BRACKET)) {
+			button.pressed = L_BRAK;
+		} else if (CheckCollisionPointRec(mousePoint, right_brak) || IsKeyPressed(KEY_RIGHT_BRACKET)) { 
+			button.pressed = R_BRAK;
+		} else if (CheckCollisionPointRec(mousePoint, in)) {
+			button.pressed = IN;
+		} else if (CheckCollisionPointRec(mousePoint, exp)) {
+			button.pressed = EXP;
+		} else if (CheckCollisionPointRec(mousePoint, min)) {
+			button.pressed = MIN;
+		} else if (CheckCollisionPointRec(mousePoint, max)) {
+			button.pressed = MAX; 
+		} else if (CheckCollisionPointRec(mousePoint, det)) {
+			button.pressed = DET;
+		} else if (CheckCollisionPointRec(mousePoint, mod)) {
+			button.pressed = MOD;
+		} else if (CheckCollisionPointRec(mousePoint, lim)) {
+			button.pressed = LIM;
+		} else if (CheckCollisionPointRec(mousePoint, e_button) || IsKeyPressed(KEY_E)) {
+			button.pressed = E_BUTTON;
+		} else if (CheckCollisionPointRec(mousePoint, grav) || IsKeyPressed(KEY_G)) {
+			button.pressed = GRAV;
+		}
 	
-			if (CheckCollisionPointRec(mousePoint, log) || IsKeyPressed(KEY_L)) {
-				button.pressed = LOG;
-			} else if (CheckCollisionPointRec(mousePoint, pi)) {
-				button.pressed = PI_ANS;
-			} else if (CheckCollisionPointRec(mousePoint, sin)) {
-				button.pressed = SIN;
-			} else if (CheckCollisionPointRec(mousePoint, tan)) {
-				button.pressed = TAN;
-			} else if (CheckCollisionPointRec(mousePoint, cos)) {
-				button.pressed = COS;
-			} else if (CheckCollisionPointRec(mousePoint, neg_sin)) {
-				button.pressed = NEG_SIN;
-			} else if (CheckCollisionPointRec(mousePoint, neg_tan)) {
-				button.pressed = NEG_TAN;
-			} else if (CheckCollisionPointRec(mousePoint, neg_cos)) {
-				button.pressed = NEG_COS;
-			} else if (CheckCollisionPointRec(mousePoint, ans)) {
-				button.pressed = ANS;
-			} else if (CheckCollisionPointRec(mousePoint, abs)) {
-				button.pressed = ABS;
-			} else if (CheckCollisionPointRec(mousePoint, squared)) {
-				button.pressed = SQ;
-			} else if (CheckCollisionPointRec(mousePoint, cubed)) {
-				button.pressed = CUBED;
-			} else if (CheckCollisionPointRec(mousePoint, sqr)) {
-				button.pressed = SQR;
-			} else if (CheckCollisionPointRec(mousePoint, neg) || IsKeyPressed(KEY_MINUS)) {
-				button.pressed = NEG;
-			} else if (CheckCollisionPointRec(mousePoint, clear)) {
-				button.pressed = CLR;
-			} else if (CheckCollisionPointRec(mousePoint, del) || IsKeyPressed(KEY_BACKSPACE)) {
-				button.pressed = DEL;
-			} else if (CheckCollisionPointRec(mousePoint, comma) || IsKeyPressed(KEY_COMMA)) {
-				button.pressed = COMMA;
-			} else if (CheckCollisionPointRec(mousePoint, decimal) || IsKeyPressed(KEY_PERIOD)) {
-				button.pressed = DECIMAL;
-			} else if (CheckCollisionPointRec(mousePoint, left_brak) || IsKeyPressed(KEY_LEFT_BRACKET)) {
-				button.pressed = L_BRAK;
-			} else if (CheckCollisionPointRec(mousePoint, right_brak) || IsKeyPressed(KEY_RIGHT_BRACKET)) { 
-				button.pressed = R_BRAK;
-			} else if (CheckCollisionPointRec(mousePoint, in)) {
-				button.pressed = IN;
-			} else if (CheckCollisionPointRec(mousePoint, exp)) {
-				button.pressed = EXP;
-			} else if (CheckCollisionPointRec(mousePoint, min)) {
-				button.pressed = MIN;
-			} else if (CheckCollisionPointRec(mousePoint, max)) {
-				button.pressed = MAX; 
-			} else if (CheckCollisionPointRec(mousePoint, det)) {
-				button.pressed = DET;
-			} else if (CheckCollisionPointRec(mousePoint, mod)) {
-				button.pressed = MOD;
-			} else if (CheckCollisionPointRec(mousePoint, lim)) {
-				button.pressed = LIM;
-			} else if (CheckCollisionPointRec(mousePoint, e_button) || IsKeyPressed(KEY_E)) {
-				button.pressed = E_BUTTON;
-			} else if (CheckCollisionPointRec(mousePoint, grav) || IsKeyPressed(KEY_G)) {
-				button.pressed = GRAV;
-			}
-	
-			if (CheckCollisionPointRec(mousePoint, y_equals) || IsKeyPressed(KEY_Y)) {
-				graph.pressed = Y_EQUALS;
-			} else if (CheckCollisionPointRec(mousePoint, graph) || IsKeyPressed(KEY_G)) {
-				graph.pressed = GRAPH;
-			} else if (CheckCollisionPointRec(mousePoint, x_button) || IsKeyPressed(KEY_X)) {
-				graph.pressed = X;
-			} else if (CheckCollisionPointRec(mousePoint, y_button) || IsKeyPressed(KEY_Y)) {
-				graph.pressed = Y;
-			} else if (CheckCollisionPointRec(mousePoint, table) || IsKeyPressed(KEY_T)) {
-				graph.pressed = TABLE;
-			} else if (CheckCollisionPointRec(mousePoint, trace) || IsKeyPressed(KEY_R)) {
-				graph.pressed = TRACE;
-			} else if (CheckCollisionPointRec(mousePoint, cot)) {
-				graph.pressed = COT;
-			}
-			if (GRAPH) {
-				if (IsKeyPressed(KEY_ONE)) {
-					graph_choice = 1;
-				} else if (IsKeyPressed(KEY_TWO)) {
-					graph_choice = 2;
-				} else if (IsKeyPressed(KEY_THREE)) {
-					graph_choice = 3;
-				} else if (IsKeyPressed(KEY_FOUR)) {
-					graph_choice = 4;
-				} else if (IsKeyPressed(KEY_FIVE)) {
-					graph_choice = 5;
-				} else if (IsKeyPressed(KEY_SIX)) {
-					graph_choice = 6;
-				}
-				switch(graph_choice) {
-					case '1':
-						choice = system("python scatter.py");
-						break;
-					case '2':
-						choice = system("python line.py");
-						break;
-					case '3':
-						choice = system("python bar.py");
-						break;
-					case '4':
-						choice = system("python 3d.py");
-						break;
-					case '5':
-						choice = system("python map.py");
-						break;
-					case '6':
-						choice = system("python area.py");
-						break;
-					default:
-			DrawText("ERROR\nFor this to work you need to have python installed\nor you may not have put in the correct input",  700, 400, 10, BLACK);
-						break;
-			}
+		if (CheckCollisionPointRec(mousePoint, y_equals) || IsKeyPressed(KEY_Y)) {
+			graph.pressed = Y_EQUALS;
+		} else if (CheckCollisionPointRec(mousePoint, graph) || IsKeyPressed(KEY_G)) {
+			graph.pressed = GRAPH;
+		} else if (CheckCollisionPointRec(mousePoint, x_button) || IsKeyPressed(KEY_X)) {
+			graph.pressed = X;
+		} else if (CheckCollisionPointRec(mousePoint, y_button) || IsKeyPressed(KEY_Y)) {
+			graph.pressed = Y;
+		} else if (CheckCollisionPointRec(mousePoint, table) || IsKeyPressed(KEY_T)) {
+			graph.pressed = TABLE;
+		} else if (CheckCollisionPointRec(mousePoint, trace) || IsKeyPressed(KEY_R)) {
+			graph.pressed = TRACE;
+		} else if (CheckCollisionPointRec(mousePoint, cot)) {
+			graph.pressed = COT;
+		}
+	}
+	if (GRAPH) {
+		switch(slope_num){
+			case 1:
+				slope = 1;
+				break;
+			case 2:
+				slope = 2;
+				break;
+			case 3:
+				slope = 3;
+				break;
+			case 4:
+				slope = 4;
+				break;
+			case 5:
+				slope = 5;
+				break;
+			case 6:
+				slope = 6;
+				break;
+			case 7:
+				slope = 7;
+				break;
+			case 8:
+				slope = 8;
+				break;
+			case 9:
+				slope = 9;
+				break;
+		}
+		if (IsKeyPressed(KEY_ENTER)) {
+			op.system(python line.py);
 		}
 	}
 }
