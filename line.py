@@ -7,6 +7,7 @@ x = np.linspace(-10, 10, 999999999)
 variables = ctypes.WinDLL('D:/graphing_calc/lib/mydll.dll')
 m = ctypes.c_int.in_dll(variables, 'slope')
 b = ctypes.c_int.in_dll(variables, 'intercept')
+z = ctypes.c_int.in_dll(variables, 'z')
 m = 1
 b = 2
 y = m*x + b
