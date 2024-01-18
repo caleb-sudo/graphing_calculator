@@ -1,6 +1,6 @@
 #include "raylib.h"
 
-#define MAX_INPUT_CHARS     9
+#define MAX_INPUT_CHARS     20
 
 bool start = true;
 bool calc = false;
@@ -13,10 +13,13 @@ int main(void) {
     InitWindow(screenWidth, screenHeight, "raylib [text] example - input box");
 
     char name[MAX_INPUT_CHARS + 1] = "\0";
+    char value;
     int letterCount = 0;
 
     Rectangle textBox = { screenWidth/4.0f - 190, 180, 325, 50 };
+    Rectangle start_graph = { screenWidth/2.0f, screenHeight/2.0f, 300, 100 };
     bool mouseOnText = false;
+    bool result = false;
 
     int framesCounter = 0;
 
@@ -45,11 +48,14 @@ int main(void) {
 
                     key = GetCharPressed();
                 }
-
                 if (IsKeyPressed(KEY_BACKSPACE)) {
                     letterCount--;
                     if (letterCount < 0) letterCount = 0;
                     name[letterCount] = '\0';
+                }
+                if (IsKeyPressed(KEY_ENTER)) {
+                    letterCount = 0;
+                    result = true;
                 }
             } else SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 
@@ -96,10 +102,13 @@ int main(void) {
                     }
                     else DrawText("Press BACKSPACE to delete chars...", 230, 300, 20, GRAY);
                 }
+                if (result == true) DrawText(TextFormat("result %f", value), screenWidth, screenHight, 20, BLACK);
             }
 
             if (graph == true) {
                 DrawText("press C to go back to calculator mode", 50, 200, 30, BLACK);
+                DrawRectangleRec(start_graph, Black);
+                DrawText("start", (int)start_graph.x, (int)start_graph.y, 100, 20, 20);
             }
 
         EndDrawing();
