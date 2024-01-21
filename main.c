@@ -10,7 +10,7 @@ int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 450;
 
-    InitWindow(screenWidth, screenHeight, "raylib [text] example - input box");
+    InitWindow(screenWidth, screenHeight, "");
 
     char name[MAX_INPUT_CHARS + 1] = "\0";
     char value;
