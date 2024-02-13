@@ -89,6 +89,8 @@ elif types == '9':
             gold_vol = df['gold_volume']
             copper_val = df['copper_value']
             copper_vol = df['copper_volume']
+            silver_val = df['silver_value']
+            silver_vol = df['silver_volume']
             
             fig, ax = plt.subplots()
 
