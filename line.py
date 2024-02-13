@@ -125,18 +125,10 @@ elif types == '9':
                 lines = (l0, l1, l2, l3, l4, l5, l6, l7)
                 
 
-            def setVisible(label_name):
-                option_indx = choices.index(label_name)
-                line = lines[option_indx]
-                line.set_visible(not line.get_visible())
-                plt.draw()
-            choices = ('oil', 'gold', 'copper')
-            check_state = (True, False, False)
-            ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.2])
-            checkbox = CheckButtons(ax_checkbox, choices, check_state)
-            checkbox.on_clicked(setVisible)
-            for i, line in enumerate(lines):
-                line.set_visible(check_state[i])
+
+            choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel')
+            check_state = (True, False, False, False, False, False, False, False)
+
         elif type == 'companies':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
             times = df.index
@@ -146,6 +138,7 @@ elif types == '9':
             microsoft = df['microsoft']
             walmart = df['walmart']
             mcdonalds = df['mcdonalds']
+            
 
             fig, ax = plt.subplots()
 
@@ -153,8 +146,11 @@ elif types == '9':
             l2, = ax.plot(times, apple)
             l3, = ax.plot(times, microsoft)
             l4, = ax.plot(times, walmart)
+            l5, = ax.plot(times, mcdonalds)
 
-            lines = (l1, l2, l3, l4)
+            lines = (l1, l2, l3, l4, l5)
+            choices_market = (google, apple, microsoft, walmart, mcdonalds)
+            check_state = (True, False, False, False, False)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
@@ -179,6 +175,16 @@ elif types == '9':
             l1, = ax.plot(times, bitcoin)
             l2, = ax.plot(times, bitcoin)
             lines = (l1, l2)
+        def setVisible(label_name):
+            option_indx = choices_market.index(label_name)
+            line = lines[option_indx]
+            line.set_visible(not line.get_visible())
+            plt.draw()
+        checkbox.on_clicked(setVisible)
+        for i, line in enumerate(lines):
+            line.set_visible(check_state[i])
+        ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.2])
+        checkbox = CheckButtons(ax_checkbox, choices_market, check_state)
 
 elif types == '10':
     x = np.linspace(-30, 30, 300)
