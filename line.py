@@ -91,13 +91,20 @@ elif types == '9':
             copper_vol = df['copper_volume']
             silver_val = df['silver_value']
             silver_vol = df['silver_volume']
+            platinum_val = df['platinum_value']
+            platinum_vol = df['platinum_volume']
+            lumber_val = df['lumber_value']
+            lumber_vol = df['lumber_volume']
             
             fig, ax = plt.subplots()
 
             l0, = ax.plot(times, oil_val)
             l1, = ax.plot(times, gold_val)
             l2, = ax.plot(times, copper_val)
-            lines = (l0, l1, l2)
+            l3, = ax.plot(times, silver_val)
+            l4 = ax.plot(times, platinum_val)
+            l5 = ax.plot(times, lumber_val)
+            lines = (l0, l1, l2, l3, l4, l5)
 
             def setVisible(label_name):
                 option_indx = choices.index(label_name)
@@ -111,6 +118,9 @@ elif types == '9':
             checkbox.on_clicked(setVisible)
             for i, line in enumerate(lines):
                 line.set_visible(check_state[i])
+        if type == 'companies':
+            df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
+            times= df.index
 
 elif types == '10':
     x = np.linspace(-30, 30, 300)
