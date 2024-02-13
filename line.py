@@ -98,6 +98,7 @@ elif types == '9':
             aluminum_val = df['aluminum_value']
             aluminum_vol = df['aluminum_volume']
             
+            
             fig, ax = plt.subplots()
 
             l0, = ax.plot(times, oil_val)
@@ -124,6 +125,20 @@ elif types == '9':
         elif type == 'companies':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
             times = df.index
+
+            google = df['google']
+            apple = df['apple']
+            microsoft = df['microsoft']
+            walmart = ['walmart']
+
+            fig, ax = plt.subplots()
+
+            l1, = ax.plot(times, google)
+            l2, = ax.plot(times, apple)
+            l3, = ax.plot(times, microsoft)
+            l4, = ax.plot(times, walmart)
+
+            lines = (l1, l2, l3, l4)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
