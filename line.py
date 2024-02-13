@@ -97,18 +97,33 @@ elif types == '9':
             lumber_vol = df['lumber_volume']
             aluminum_val = df['aluminum_value']
             aluminum_vol = df['aluminum_volume']
+            steel_val = df['steel_val']
+            steel_vol = df['steel_vol']
             
             
             fig, ax = plt.subplots()
-
-            l0, = ax.plot(times, oil_val)
-            l1, = ax.plot(times, gold_val)
-            l2, = ax.plot(times, copper_val)
-            l3, = ax.plot(times, silver_val)
-            l4 = ax.plot(times, platinum_val)
-            l5 = ax.plot(times, lumber_val)
-            l6, = ax.plot(times, aluminum_vol)
-            lines = (l0, l1, l2, l3, l4, l5, l6)
+            choice2 = input("type: ")
+            if choice2 == 'value':
+                l0, = ax.plot(times, oil_val)
+                l1, = ax.plot(times, gold_val)
+                l2, = ax.plot(times, copper_val)
+                l3, = ax.plot(times, silver_val)
+                l4, = ax.plot(times, platinum_val)
+                l5, = ax.plot(times, lumber_val)
+                l6, = ax.plot(times, aluminum_val)
+                l7, = ax.plot(times, steel_val)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7)
+            elif choice2 = 'volume':
+                l0, = ax.plot(times, oil_vol)
+                l1, = ax.plot(times, gold_vol)
+                l2, = ax.plot(times, copper_vol)
+                l3, = ax.plot(times, silver_vol)
+                l4, = ax.plot(times, platinum_vol)
+                l5, = ax.plot(times, lumber_vol)
+                l6, = ax.plot(times, aluminum_vol)
+                l7, = ax.plot(times, steel_vol)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7)
+                
 
             def setVisible(label_name):
                 option_indx = choices.index(label_name)
@@ -129,7 +144,8 @@ elif types == '9':
             google = df['google']
             apple = df['apple']
             microsoft = df['microsoft']
-            walmart = ['walmart']
+            walmart = df['walmart']
+            mcdonalds = df['mcdonalds']
 
             fig, ax = plt.subplots()
 
@@ -143,6 +159,16 @@ elif types == '9':
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
             times = df.index
+            USD = df['us_dollar_val']
+            CAD = df['Canadian_dollar_val']
+            euro = df['euro_val']
+            yen = df['yen_val']
+
+            l1, = ax.plot(times, USD)
+            l2, = ax.plot(times, CAD)
+            l3, = ax.plot(times, euro)
+            l4, = ax.plot(times, yen)
+            lines = (l1, l2, l3, l4)
 
         elif type == 'crypto':
             df = pd.read_csv('pre_ploted_graphs/markets/crypto.csv', index_col='time')
