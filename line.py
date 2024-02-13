@@ -66,19 +66,19 @@ elif types == '9':
     if gr == 'population':
         df_population = pd.read_csv('pre-plotted_graphs/population/world_pop.csv')
         df_population.plot(x="year", y="value", title="world population 1950-2023")
-    if gr == 'map':
+    elif gr == 'map':
         path = geodatasets.get_path("naturalearth.land")
         df = gpd.read_file(path)
         cx.add_basemap(ax)
         df.plot()
-    if gr == 'temps':
+    elif gr == 'temps':
         df_temps = pd.read_csv('pre-plotted_graphs/temps/average_temps.csv')
         df_temps.plot(x="year", y="temp", title="average yearly temps(Celsius)")
-    if gr == 'emmisions':
+    elif gr == 'emmisions':
         df_emmisions = pd.read_csv('pre-plotted_graphs/em/emmisions.csv')
         df_emmisions.plot(x="year", y="amount", alpha=0.8)
         plt.legend(loc='upper left')
-    if gr == '1':
+    elif gr == '1':
         type = input("type: ")
         if type == '1':
             df = pd.read_csv('pre-plotted_graphs/markets/resources.csv', index_col='time')
@@ -95,6 +95,8 @@ elif types == '9':
             platinum_vol = df['platinum_volume']
             lumber_val = df['lumber_value']
             lumber_vol = df['lumber_volume']
+            aluminum_val = df['aluminum_value']
+            aluminum_vol = df['aluminum_volume']
             
             fig, ax = plt.subplots()
 
@@ -104,7 +106,8 @@ elif types == '9':
             l3, = ax.plot(times, silver_val)
             l4 = ax.plot(times, platinum_val)
             l5 = ax.plot(times, lumber_val)
-            lines = (l0, l1, l2, l3, l4, l5)
+            l6, = ax.plot(times, aluminum_vol)
+            lines = (l0, l1, l2, l3, l4, l5, l6)
 
             def setVisible(label_name):
                 option_indx = choices.index(label_name)
@@ -118,9 +121,17 @@ elif types == '9':
             checkbox.on_clicked(setVisible)
             for i, line in enumerate(lines):
                 line.set_visible(check_state[i])
-        if type == 'companies':
+        elif type == 'companies':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
-            times= df.index
+            times = df.index
+
+        elif type == 'currency':
+            df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
+            times = df.index
+
+        elif type == 'crypto':
+            df = pd.read_csv('pre_ploted_graphs/markets/crypto.csv', index_col='time')
+            times = df.index
 
 elif types == '10':
     x = np.linspace(-30, 30, 300)
