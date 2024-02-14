@@ -105,6 +105,8 @@ elif types == '9':
             coal_vol = df['coal_vol']
             helium_val = df['helium_val']
             helium_vol = df['helium_vol']
+            iron_val = df['iron_val']
+            iron_vol = df['iron_vol']
             
             
             fig, ax = plt.subplots()
@@ -121,7 +123,8 @@ elif types == '9':
                 l8, = ax.plot(times, lithium_val)
                 l9, = ax.plot(times, coal_val)
                 l10, = ax.plot(times, helium_val)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
+                l11, = ax.plot(times, iron_val)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
             elif choice2 == 'volume':
                 l0, = ax.plot(times, oil_vol)
                 l1, = ax.plot(times, gold_vol)
@@ -134,10 +137,11 @@ elif types == '9':
                 l8, = ax.plot(times, lithium_vol)
                 l9, = ax.plot(times, coal_vol)
                 l10, = ax.plot(times, helium_vol)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
+                l11, = ax.plot(times, iron_vol)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
                 
-                choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium')
-                check_state = (True, False, False, False, False, False, False, False, False, False, False)
+                choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium', 'iron')
+                check_state = (True, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'companies':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
@@ -155,6 +159,10 @@ elif types == '9':
             amazon = df['amazon']
             nivida = df['nivida']
             IBM = df['IBM']
+            samsung = df['samsung']
+            telus = df['telus']
+            rogers = df['rogers']
+            bell = df['bell']
             
 
             fig, ax = plt.subplots()
@@ -171,10 +179,12 @@ elif types == '9':
             l10, = ax.plot(times, amazon)
             l11, = ax.plot(times, nivida)
             l12, = ax.plot(times, IBM)
+            l13, = ax.plot(times, samsung)
+            l14, = ax.plot(times, telus)
 
-            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12)
-            choices_market = (google, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM)
-            check_state = (True, False, False, False, False, False, False, False, False, False, False, False)
+            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14)
+            choices_market = (google, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM, samsung, telus)
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
