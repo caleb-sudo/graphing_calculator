@@ -173,12 +173,17 @@ elif types == '9':
             CAD = df['Canadian_dollar_val']
             euro = df['euro_val']
             yen = df['yen_val']
+            peso = df['peso_val']
 
             l1, = ax.plot(times, USD)
             l2, = ax.plot(times, CAD)
             l3, = ax.plot(times, euro)
             l4, = ax.plot(times, yen)
-            lines = (l1, l2, l3, l4)
+            l5, = ax.plot(times, peso)
+            lines = (l1, l2, l3, l4, l5)
+
+            choice_market = (USD, CAD, euro, yen, peso)
+            check_state = (True, False, False, False, False)
 
         elif type == 'crypto':
             df = pd.read_csv('pre_ploted_graphs/markets/crypto.csv', index_col='time')
