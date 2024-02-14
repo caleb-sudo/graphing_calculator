@@ -99,6 +99,12 @@ elif types == '9':
             aluminum_vol = df['aluminum_volume']
             steel_val = df['steel_val']
             steel_vol = df['steel_vol']
+            lithium_val = df['lithium_val']
+            lithium_vol = df['lithium_vol']
+            coal_val = df['coal_val']
+            coal_vol = df['coal_vol']
+            helium_val = df['helium_val']
+            helium_vol = df['helium_vol']
             
             
             fig, ax = plt.subplots()
@@ -112,7 +118,10 @@ elif types == '9':
                 l5, = ax.plot(times, lumber_val)
                 l6, = ax.plot(times, aluminum_val)
                 l7, = ax.plot(times, steel_val)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7)
+                l8, = ax.plot(times, lithium_val)
+                l9, = ax.plot(times, coal_val)
+                l10, = ax.plot(times, helium_val)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
             elif choice2 == 'volume':
                 l0, = ax.plot(times, oil_vol)
                 l1, = ax.plot(times, gold_vol)
@@ -122,12 +131,13 @@ elif types == '9':
                 l5, = ax.plot(times, lumber_vol)
                 l6, = ax.plot(times, aluminum_vol)
                 l7, = ax.plot(times, steel_vol)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7)
+                l8, = ax.plot(times, lithium_vol)
+                l9, = ax.plot(times, coal_vol)
+                l10, = ax.plot(times, helium_vol)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
                 
-
-
-            choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel')
-            check_state = (True, False, False, False, False, False, False, False)
+                choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium')
+                check_state = (True, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'companies':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
