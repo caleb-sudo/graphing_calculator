@@ -138,6 +138,13 @@ elif types == '9':
             microsoft = df['microsoft']
             walmart = df['walmart']
             mcdonalds = df['mcdonalds']
+            tesla = df['tesla']
+            meta = df['meta']
+            tencent = df['tencent']
+            intel = df['intel']
+            amazon = df['amazon']
+            nivida = df['nivida']
+            IBM = df['IBM']
             
 
             fig, ax = plt.subplots()
@@ -147,10 +154,17 @@ elif types == '9':
             l3, = ax.plot(times, microsoft)
             l4, = ax.plot(times, walmart)
             l5, = ax.plot(times, mcdonalds)
+            l6, = ax.plot(times, tesla)
+            l7, = ax.plot(times, meta)
+            l8, = ax.plot(times, tencent)
+            l9, = ax.plot(times, intel)
+            l10, = ax.plot(times, amazon)
+            l11, = ax.plot(times, nivida)
+            l12, = ax.plot(times, IBM)
 
-            lines = (l1, l2, l3, l4, l5)
-            choices_market = (google, apple, microsoft, walmart, mcdonalds)
-            check_state = (True, False, False, False, False)
+            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12)
+            choices_market = (google, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM)
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
