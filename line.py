@@ -39,7 +39,7 @@ if types == '1':
     x = np.linspace(-30, 30, 200, 200)
     m = input("slope: ")
     b = input("y-intercept: ")
-    y = int(m)*a + int(b)
+    y = int(m)*x + int(b)
 
     radio_background = 'lightgoldenrodyellow'
 
@@ -189,6 +189,9 @@ elif types == '9':
             l1, = ax.plot(times, bitcoin)
             l2, = ax.plot(times, bitcoin)
             lines = (l1, l2)
+
+            choices_market = (bitcoin, dogecoin)
+            check_state = (True, False)
         def setVisible(label_name):
             option_indx = choices_market.index(label_name)
             line = lines[option_indx]
@@ -215,4 +218,5 @@ elif types == '11':
     c = input("C: ")
     y = int(a)*x**2 + int(b)*x + int(c)
     plt.plot(x, y)
+plt.grid(True)
 plt.show()
