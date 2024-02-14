@@ -147,7 +147,6 @@ elif types == '9':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
             times = df.index
 
-            google = df['google']
             apple = df['apple']
             microsoft = df['microsoft']
             walmart = df['walmart']
@@ -163,11 +162,13 @@ elif types == '9':
             telus = df['telus']
             rogers = df['rogers']
             bell = df['bell']
-            
+            toyota = df['toyota']
+            ford = df['ford']
+            alphabet = df['alphabet']
 
             fig, ax = plt.subplots()
 
-            l1, = ax.plot(times, google)
+            l1, = ax.plot(times, alphabet)
             l2, = ax.plot(times, apple)
             l3, = ax.plot(times, microsoft)
             l4, = ax.plot(times, walmart)
@@ -181,10 +182,14 @@ elif types == '9':
             l12, = ax.plot(times, IBM)
             l13, = ax.plot(times, samsung)
             l14, = ax.plot(times, telus)
+            l15, = ax.plot(times, rogers)
+            l16, = ax.plot(times, bell)
+            l17, = ax.plot(times, toyota)
+            l18, = ax.plot(times, ford)
 
-            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14)
-            choices_market = (google, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM, samsung, telus)
-            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False)
+            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18)
+            choices_market = (alphabet, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM, samsung, telus, rogers, bell, toyota, ford)
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
@@ -210,13 +215,19 @@ elif types == '9':
             times = df.index
             bitcoin = df['bitcoin_val']
             dogecoin = df['dogecoin_val']
+            ethereum = df['ethereum_val']
+            tether = df['tether_val']
+            solana = df['solana_val']
 
             l1, = ax.plot(times, bitcoin)
-            l2, = ax.plot(times, bitcoin)
-            lines = (l1, l2)
+            l2, = ax.plot(times, dogecoin)
+            l3, = ax.plot(times, ethereum)
+            l4, = ax.plot(times, tether)
+            l5, = ax.plot(times, solana)
+            lines = (l1, l2, l3, l4, l5)
 
-            choices_market = (bitcoin, dogecoin)
-            check_state = (True, False)
+            choices_market = (bitcoin, dogecoin, ethereum, tether, solana)
+            check_state = (True, False, False, False, False)
         def setVisible(label_name):
             option_indx = choices_market.index(label_name)
             line = lines[option_indx]
