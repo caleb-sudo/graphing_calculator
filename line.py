@@ -169,8 +169,8 @@ elif types == '9':
         elif type == 'crypto':
             df = pd.read_csv('pre_ploted_graphs/markets/crypto.csv', index_col='time')
             times = df.index
-            bitcoin = df[bitcoin_val]
-            dogecoin = df[dogecoin_val]
+            bitcoin = df['bitcoin_val']
+            dogecoin = df['dogecoin_val']
 
             l1, = ax.plot(times, bitcoin)
             l2, = ax.plot(times, bitcoin)
