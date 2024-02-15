@@ -95,8 +95,6 @@ elif types == '9':
             platinum_vol = df['platinum_volume']
             lumber_val = df['lumber_value']
             lumber_vol = df['lumber_volume']
-            aluminum_val = df['aluminum_value']
-            aluminum_vol = df['aluminum_volume']
             steel_val = df['steel_value']
             steel_vol = df['steel_volume']
             lithium_val = df['lithium_value']
@@ -118,13 +116,12 @@ elif types == '9':
                 l3, = ax.plot(times, silver_val)
                 l4, = ax.plot(times, platinum_val)
                 l5, = ax.plot(times, lumber_val)
-                l6, = ax.plot(times, aluminum_val)
-                l7, = ax.plot(times, steel_val)
-                l8, = ax.plot(times, lithium_val)
-                l9, = ax.plot(times, coal_val)
-                l10, = ax.plot(times, helium_val)
-                l11, = ax.plot(times, iron_val)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
+                l6, = ax.plot(times, steel_val)
+                l7, = ax.plot(times, lithium_val)
+                l8, = ax.plot(times, coal_val)
+                l9, = ax.plot(times, helium_val)
+                l10, = ax.plot(times, iron_val)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
             elif choice2 == 'volume':
                 l0, = ax.plot(times, oil_vol)
                 l1, = ax.plot(times, gold_vol)
@@ -132,13 +129,12 @@ elif types == '9':
                 l3, = ax.plot(times, silver_vol)
                 l4, = ax.plot(times, platinum_vol)
                 l5, = ax.plot(times, lumber_vol)
-                l6, = ax.plot(times, aluminum_vol)
-                l7, = ax.plot(times, steel_vol)
-                l8, = ax.plot(times, lithium_vol)
-                l9, = ax.plot(times, coal_vol)
-                l10, = ax.plot(times, helium_vol)
-                l11, = ax.plot(times, iron_vol)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
+                l6, = ax.plot(times, steel_vol)
+                l7, = ax.plot(times, lithium_vol)
+                l8, = ax.plot(times, coal_vol)
+                l9, = ax.plot(times, helium_vol)
+                l10, = ax.plot(times, iron_vol)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
             elif choice2 == 'both':
                 l0, = ax.plot_wireframe(times, oil_val, oil_vol)
                 l1, = ax.plot_wireframe(times, gold_val, gold_vol)
@@ -146,13 +142,12 @@ elif types == '9':
                 l3, = ax.plot_wireframe(times, silver_val, silver_vol)
                 l4, = ax.plot_wireframe(times, platinum_val, platinum_vol)
                 l5, = ax.plot_wireframe(times, lumber_val, lumber_vol)
-                l6, = ax.plot_wireframe(times, aluminum_val, aluminum_vol)
-                l7, = ax.plot_wireframe(times, steel_val, steel_vol)
-                l8, = ax.plot_wireframe(times, lithium_val, lithium_vol)
-                l9, = ax.plot_wireframe(times, coal_val, coal_vol)
-                l10, = ax.plot_wireframe(times, helium_val, helium_vol)
-                l11, = ax.plot_wireframe(times, iron_val, iron_vol)
-                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
+                l6, = ax.plot_wireframe(times, steel_val, steel_vol)
+                l7, = ax.plot_wireframe(times, lithium_val, lithium_vol)
+                l8, = ax.plot_wireframe(times, coal_val, coal_vol)
+                l9, = ax.plot_wireframe(times, helium_val, helium_vol)
+                l10, = ax.plot_wireframe(times, iron_val, iron_vol)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
                 
                 
             choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium', 'iron')
