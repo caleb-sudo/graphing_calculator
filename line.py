@@ -234,12 +234,12 @@ elif types == '9':
             line.set_visible(not line.get_visible())
             plt.draw()
 
-        ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.2])
+        ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.9])
         checkbox = CheckButtons(ax_checkbox, choices_market, check_state)
         checkbox.on_clicked(setVisible)
         for i, line in enumerate(lines):
             line.set_visible(check_state[i])
-        ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.2])
+        ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.009])
 elif types == '10':
     x = np.linspace(-30, 30, 300)
     a = input("a: ")
