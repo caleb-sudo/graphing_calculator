@@ -136,6 +136,7 @@ elif types == '9':
                 l10, = ax.plot(times, iron_vol)
                 lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10)
             elif choice2 == 'both':
+                fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
                 l0, = ax.plot_wireframe(times, oil_val, oil_vol)
                 l1, = ax.plot_wireframe(times, gold_val, gold_vol)
                 l2, = ax.plot_wireframe(times, copper_val, copper_vol)
