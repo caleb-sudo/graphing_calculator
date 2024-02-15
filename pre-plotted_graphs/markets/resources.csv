@@ -1,4 +1,4 @@
-time,oil_value,oil_volume,gold_value,gold_volume,copper_value,copper_volume,silver_value,silver_volume,platinum_value,platinum_volume,lumber_value,lumber_volume,steel_value,steel_volume,lithium_value,lithium_volume
+time,oil_value,oil_volume,gold_value,gold_volume,copper_value,copper_volume,silver_value,silver_volume,platinum_value,platinum_volume,lumber_value,lumber_volume,steel_value,steel_volume,lithium_value,lithium_volume,aluminum_value,aluminum_volume
 04.01.2009,51.12,1126103,891.20,365870,2.0475,57497,12.325,115265,,,,,,,,
 05.01.2009,66.31,5254102,980.30,1999095,2.1975,299865,15.610,372817,,,,,,,,
 06.01.2009,69.89,5806679,927.40,2083586,2.2720,423585,13.600,630591,,,,,,,,
