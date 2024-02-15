@@ -6,6 +6,7 @@ import folium
 import geodatasets
 import contextily as cx
 
+from mpl_toolkits.mplot3d import axes3d
 from mpl_toolkits.axes_grid1 import host_subplot
 from matplotlib.widgets import RadioButtons, Cursor, CheckButtons, Slider
 from matplotlib.backend_bases import MouseEvent, MouseButton
