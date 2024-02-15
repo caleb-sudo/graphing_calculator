@@ -139,6 +139,21 @@ elif types == '9':
                 l10, = ax.plot(times, helium_vol)
                 l11, = ax.plot(times, iron_vol)
                 lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
+            elif choice2 == 'both':
+                l0, = ax.plot(times, oil_val, oil_vol)
+                l1, = ax.plot(times, gold_val, gold_vol)
+                l2, = ax.plot(times, copper_val, copper_vol)
+                l3, = ax.plot(times, silver_val, silver_vol)
+                l4, = ax.plot(times, platinum_val, platinum_vol)
+                l5, = ax.plot(times, lumber_val, lumber_vol)
+                l6, = ax.plot(times, aluminum_val, aluminum_vol)
+                l7, = ax.plot(times, steel_val, steel_vol)
+                l8, = ax.plot(times, lithium_val, lithium_vol)
+                l9, = ax.plot(times, coal_val, coal_vol)
+                l10, = ax.plot(times, helium_val, helium_vol)
+                l11, = ax.plot(times, iron_val, iron_vol)
+                lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
+                
                 
                 choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium', 'iron')
                 check_state = (True, False, False, False, False, False, False, False, False, False, False, False)
