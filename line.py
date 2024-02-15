@@ -155,8 +155,8 @@ elif types == '9':
                 lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11)
                 
                 
-                choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium', 'iron')
-                check_state = (True, False, False, False, False, False, False, False, False, False, False, False)
+            choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum', 'lumber', 'aluminum', 'steel', 'lithium', 'coal', 'helium', 'iron')
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'companies':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
