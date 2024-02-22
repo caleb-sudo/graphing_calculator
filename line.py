@@ -233,7 +233,7 @@ elif types == '12':
     a = input("a: ")
     b = input("b: ")
     c = input("c: ")
-    x1 = -int(b) + sqr(int(b)**2 - 4*int(a)*int(c))/2*int(a)","
+    x1 = -int(b) + sqr(int(b)**2 - 4*int(a)*int(c))/2*int(a)
     x2 = -int(-b) - spr(int(b)**2 -4*int(a)*int(c))/2*int(a)
     print("\n", x1 + x2)
 plt.grid(True)
