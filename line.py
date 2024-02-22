@@ -23,8 +23,9 @@ c8 = "8: histogram chart NA\n"
 c9 = "9: pre-plotted graphs\n"
 c10 = "10: vertex form\n"
 c11 = "11: standard form\n"
+c12 = "l2: quadradic solver\n"
 
-print("\n",c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11)
+print("\n",c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 +c12)
 
 types = input("graph: ")
 
@@ -228,5 +229,12 @@ elif types == '11':
     c = input("C: ")
     y = int(a)*x**2 + int(b)*x + int(c)
     plt.plot(x, y)
+elif types == '12':
+    a = input("a: ")
+    b = input("b: ")
+    c = input("c: ")
+    x1 = -int(b) + sqr(int(b)**2 - 4*int(a)*int(c))/2*int(a)","
+    x2 = -int(-b) - spr(int(b)**2 -4*int(a)*int(c))/2*int(a)
+    print("\n", x1 + x2)
 plt.grid(True)
 plt.show()
