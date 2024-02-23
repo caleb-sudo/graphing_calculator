@@ -76,9 +76,25 @@ elif types == '9':
         df_temps = pd.read_csv('pre-plotted_graphs/temps/average_temps.csv')
         df_temps.plot(x="year", y="temp", title="average yearly temps(Celsius)")
     elif gr == 'emmisions':
-        df_emmisions = pd.read_csv('pre-plotted_graphs/em/emmisions.csv')
-        df_emmisions.plot(x="year", y="amount", alpha=0.8)
-        plt.legend(loc='upper left')
+        df_emmisions = pd.read_csv('pre-plotted_graphs/em/emmisions.csv', index_col='year')
+        year = df.index
+        africa = df_emmisions['africa']
+        asia = df_emmisions['asia']
+        north_america = df_emmisions['north_america']
+        oceania = df['oceania']
+        south_america = df['south_america']
+        world = df['world']
+
+        l1, = ax.plot(year, world)
+        l2, = ax.plot(year, africa)
+        l3, = ax.plot(year, asia)
+        l4, = ax.plot(year, north_america)
+        l5, = ax.plot(year, south_america)
+        l6, = ax.plot(year, oceania)
+        lines = (l1, l2, l3, l4, l5, l6)
+        
+        choices_plotted = ('World', 'Africa', 'Aisa', 'North_america', 'South_america', 'Oceania')
+        check_state = (True, False, False, False, False, False)
     elif gr == '1':
         type = input("type: ")
         if type == '1':
@@ -94,8 +110,6 @@ elif types == '9':
             silver_vol = df['silver_vol']
             platinum_val = df['platinum_val']
             platinum_vol = df['platinum_vol']
-
-            
             
             fig, ax = plt.subplots()
             choice2 = input("type: ")
@@ -114,7 +128,7 @@ elif types == '9':
                 l4, = ax.plot(times, platinum_vol)
                 lines = (l0, l1, l2, l3, l4)
                 
-            choices_market = ('oil', 'gold', 'copper', 'silver', 'platinum')
+            choices_plotted = ('oil', 'gold', 'copper', 'silver', 'platinum')
             check_state = (True, False, False, False, False)
 
         elif type == 'companies':
@@ -162,7 +176,7 @@ elif types == '9':
             l18, = ax.plot(times, ford)
 
             lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18)
-            choices_market = (alphabet, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM, samsung, telus, rogers, bell, toyota, ford)
+            choices_plotted = (alphabet, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM, samsung, telus, rogers, bell, toyota, ford)
             check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'currency':
@@ -182,7 +196,7 @@ elif types == '9':
             l5, = ax.plot(times, peso)
             lines = (l1, l2, l3, l4, l5)
 
-            choice_market = (USD, CAD, euro, yen, peso)
+            choice_plotted = (USD, CAD, euro, yen, peso)
             check_state = (True, False, False, False, False)
 
         elif type == 'crypto':
@@ -201,7 +215,7 @@ elif types == '9':
             l5, = ax.plot(times, solana)
             lines = (l1, l2, l3, l4, l5)
 
-            choices_market = (bitcoin, dogecoin, ethereum, tether, solana)
+            choices_plotted = (bitcoin, dogecoin, ethereum, tether, solana)
             check_state = (True, False, False, False, False)
         def setVisible(label_name):
             option_indx = choices_market.index(label_name)
@@ -210,7 +224,7 @@ elif types == '9':
             plt.draw()
 
         ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.9])
-        checkbox = CheckButtons(ax_checkbox, choices_market, check_state)
+        checkbox = CheckButtons(ax_checkbox, choices_plotted, check_state)
         checkbox.on_clicked(setVisible)
         for i, line in enumerate(lines):
             line.set_visible(check_state[i])
