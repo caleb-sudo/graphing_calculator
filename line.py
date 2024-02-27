@@ -242,8 +242,8 @@ elif types == '9':
             Ukraina_gdp = df['Ukraine_GDP']
             Turkey_gdp = df['Turkey_GDP']
             Hungary_gdp = df['Hungary_GDP']
-            south-korea_gdp = df['south-korea_GDP']
-            Liberea_gdp = df['Liberea_GDP']
+            South_Korea_gdp = df['south-korea_GDP']
+            Libera_gdp = df['Libera_GDP']
             Indonisea_gdp = df['Indonisea_GDP']
 
             fig, ax = plt.subplots()
@@ -262,6 +262,16 @@ elif types == '9':
             l11, = ax.plot(time, Norway_gdp)
             l12, = ax.plot(time, Poland_gdp)
             l13, = ax.plot(time, Panama_gdp)
+            l14, = ax.plot(times, finland_gdp)
+            l15, = ax.plot(time Frane_gdp)
+            l16, = ax.plot(time, Brazil_gdp)
+            l17, = ax.plot(time, Australia_gdp)
+            l18, = ax.plot(time, Ukraine_gdp)
+            l19, = ax.plot(time Turkey_gdp)
+            l20, = ax.plot(time, Hungary_gdp)
+            l21, = ax.plot(time, South_Korea_gdp)
+            l22, = ax.plot(time, Libera_gdp)
+            l23, = ax.plot(time, indonisea_gdp)
             
     def setVisible(label_name):
         option_indx = choices_plotted.index(label_name)
