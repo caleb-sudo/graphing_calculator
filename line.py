@@ -262,7 +262,7 @@ elif types == '9':
             l11, = ax.plot(time, Norway_gdp)
             l12, = ax.plot(time, Poland_gdp)
             l13, = ax.plot(time, Panama_gdp)
-            l14, = ax.plot(times, finland_gdp)
+            l14, = ax.plot(times, Finland_gdp)
             l15, = ax.plot(time Frane_gdp)
             l16, = ax.plot(time, Brazil_gdp)
             l17, = ax.plot(time, Australia_gdp)
@@ -271,9 +271,12 @@ elif types == '9':
             l20, = ax.plot(time, Hungary_gdp)
             l21, = ax.plot(time, South_Korea_gdp)
             l22, = ax.plot(time, Libera_gdp)
-            l23, = ax.plot(time, indonisea_gdp)
-            
-    def setVisible(label_name):
+            l23, = ax.plot(time, Indonisea_gdp)
+            lines = (l0, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23)
+
+            choices_plotted = ('USA GDP', 'Canada GDP', 'China GDP', 'UK GDP', 'Mexico GDP', 'Japan GDP', 'Peru GDP', 'India GDP', 'Russia GDP', 'Germany GDP', 'Italy GDP', 'Norway GDP', 'Poland GDP', 'Panama GDP', 'Finland GDP', 'France GDP', 'Brazil GDP', 'Austraila GDP', 'Ukraine GDP', 'Turkey GDP', 'Hungary GDP', 'South Korea GDP', 'Libera GDP', 'Indonisea GDP') 
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)
+'21    def setVisible(label_name):
         option_indx = choices_plotted.index(label_name)
         line = lines[option_indx]
         line.set_visible(not line.get_visible())
