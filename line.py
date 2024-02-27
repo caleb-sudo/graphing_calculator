@@ -218,6 +218,12 @@ elif types == '9':
 
             choices_plotted = (bitcoin, dogecoin, ethereum, tether, solana)
             check_state = (True, False, False, False, False)
+        elif type == 'gdp':
+            df = pd.read_csv('pre_plotted_graphs/markets/GDP.csv', index_col='time')
+            time = df.index
+            US_gdp = df['USA_GDP']
+            canada_gdp = df['Canada_GDP']
+            
     def setVisible(label_name):
         option_indx = choices_plotted.index(label_name)
         line = lines[option_indx]
