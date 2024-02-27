@@ -177,7 +177,7 @@ elif types == '9':
             l18, = ax.plot(times, ford)
 
             lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18)
-            choices_plotted = (alphabet, apple, microsoft, walmart, mcdonalds, tesla, meta, tencent, intel, amazon, nivida, IBM, samsung, telus, rogers, bell, toyota, ford)
+            choices_plotted = ('alphabet', 'apple', 'microsoft', 'walmart', 'mcdonalds', 'tesla', 'meta', 'tencent', 'intel', 'amazon', 'nivida', 'IBM', 'samsung', 'telus', 'rogers', 'bell', 'toyota', 'ford')
             check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'currency':
@@ -216,13 +216,52 @@ elif types == '9':
             l5, = ax.plot(times, solana)
             lines = (l1, l2, l3, l4, l5)
 
-            choices_plotted = (bitcoin, dogecoin, ethereum, tether, solana)
+            choices_plotted = ('bitcoin', 'dogecoin', 'ethereum', 'tether', 'solana')
             check_state = (True, False, False, False, False)
         elif type == 'gdp':
             df = pd.read_csv('pre_plotted_graphs/markets/GDP.csv', index_col='time')
             time = df.index
-            US_gdp = df['USA_GDP']
-            canada_gdp = df['Canada_GDP']
+            USA_gdp = df['USA_GDP']
+            Canada_gdp = df['Canada_GDP']
+            China_gdp = df['China_GDP']
+            UK_gdp = df['UK_GDP']
+            Mexico_gdp = df['Mexico_GDP']
+            Japan_gdp = df['Japan_GDP']
+            Peru_gdp = df['Peru_GDP']
+            India_gdp = df['India_GDP']
+            Russia_gdp = df['Russia_GDP']
+            Germany_gdp = df['Germany_GDP']
+            Italy_gdp = df['Italy_GDP']
+            Norway_gdp = df['Norway_GDP']
+            Poland_gdp = df['Poland_GDP']
+            Panama_gdp = df['Panama_GDP']
+            Finland_gdp = df['Finland_GDP']
+            France_gdp = df['France_GDP']
+            Brazil_gdp = df['Brazil_GDP']
+            Austraila_gdp = df['Australia_GDP']
+            Ukraina_gdp = df['Ukraine_GDP']
+            Turkey_gdp = df['Turkey_GDP']
+            Hungary_gdp = df['Hungary_GDP']
+            south-korea_gdp = df['south-korea_GDP']
+            Liberea_gdp = df['Liberea_GDP']
+            Indonisea_gdp = df['Indonisea_GDP']
+
+            fig, ax = plt.subplots()
+            
+            l0, = ax.plot(time, USA_gdp)
+            l1, = ax.plot(time, Canada_gdp)
+            l2, = ax.plot(time, China_gdp)
+            l3, = ax.plot(time, Uk_gdp)
+            l4, = ax.plot(time, Mexico_gdp)
+            l5, = ax.plot(time, Japan_gdp)
+            l6, = ax.plot(time, Peru_gdp)
+            l7, = ax.plot(time, India_gdp)
+            l8, = ax.plot(time, Russia_gdp)
+            l9, = ax.plot(time, Germany_gdp)
+            l10, = ax.plot(time, Italy_gdp)
+            l11, = ax.plot(time, Norway_gdp)
+            l12, = ax.plot(time, Poland_gdp)
+            l13, = ax.plot(time, Panama_gdp)
             
     def setVisible(label_name):
         option_indx = choices_plotted.index(label_name)
