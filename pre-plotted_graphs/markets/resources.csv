@@ -1,4 +1,4 @@
-time,oil_val,oil_vol,gold_val,gold_vol,copper_val,copper_vol,silver_val,silver_vol,platinum_val,platinum_vol
+time(month/day/year),oil_val,oil_vol,gold_val,gold_vol,copper_val,copper_vol,silver_val,silver_vol,platinum_val,platinum_vol
 04.01.2009,51.12,1126103,891.20,365870,2.0475,57497,12.325,115265,1106.6,9161
 05.01.2009,66.31,5254102,980.30,1999095,2.1975,299865,15.610,372817,1196.0,32932
 06.01.2009,69.89,5806679,927.40,2083586,2.2720,423585,13.600,630591,1185.3,72336
