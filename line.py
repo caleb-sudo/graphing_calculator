@@ -99,7 +99,7 @@ elif types == '9':
     elif gr == '1':
         type = input("type: ")
         if type == '1':
-            df = pd.read_csv('pre-plotted_graphs/markets/resources.csv', index_col='time')
+            df = pd.read_csv('pre-plotted_graphs/markets/resources.csv', index_col='time(month/day/year)')
             times = df.index
             oil_val = df['oil_val']
             oil_vol = df['oil_vol']
