@@ -14,7 +14,7 @@ from matplotlib.backend_bases import MouseEvent, MouseButton
 ax = plt.subplots()
 a = np.arange(0.0, 2.0, 0.01)
 c1 = "1: slope intercept form\n"
-c2 = "2: general form NA\n"
+c2 = "2: general form\n"
 c3 = "3: point-slope form NA\n"
 c4 = "4: pie chart NA\n"
 c5 = "5: scattered plot NA\n"
@@ -24,13 +24,13 @@ c8 = "8: histogram chart NA\n"
 c9 = "9: pre-plotted graphs\n"
 c10 = "10: vertex form\n"
 c11 = "11: standard form\n"
-c12 = "l2: quadradic solver\n"
+c12 = "12: point chart\n"
 
-print("\n",c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 +c12)
+print("\n",c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12)
 
 types = input("graph: ")
 
-if types == '1':
+if types == '1' or types == 'slope-intercept form':
     fig = plt.subplot_mosaic([
         ['main', 'color'],
     ],
@@ -61,9 +61,14 @@ if types == '1':
         fig.canvas.draw()
     radio1.on_clicked(colorfunc)
 
-elif types == '2':
-    print("hello")
-elif types == '9':
+elif types == '2' or types == 'general form':
+    A = input("A value: ")
+    B = input("B value: ")
+    C = input("C value: ")
+
+    Y == A*x**2 + B*y + C
+    plt.plot(x, Y)
+elif types == '9' or types == 'pre-plotted data':
     gr = input("type: ")
     if gr == 'population':
         df_population = pd.read_csv('pre-plotted_graphs/population/world_pop.csv')
@@ -172,6 +177,8 @@ elif types == '9':
                 costco = df['costco_value']
                 boeing = df['boeing_value']
                 target = df['target_value']
+                snap = df['snap_value']
+                uber = df['uber_value']
             elif type == 'vol':
                 apple = df['apple_volume']
                 microsoft = df['microsoft_volume']
@@ -206,6 +213,8 @@ elif types == '9':
                 costco = df['costco_volume']
                 boeing = df['boeing_volume']
                 target = df['target_volume']
+                snap = df['snap_volume']
+                uber = df['uber_volume']
 
             fig, ax = plt.subplots()
 
@@ -242,11 +251,13 @@ elif types == '9':
             l31, = ax.plot(time, costco)
             l32, = ax.plot(time, boeing)
             l33, = ax.plot(time, target)
+            l34, = ax.plot(time, snap)
+            l35, = ax.plot(time, uber)
 
 
-            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, l33)
-            choices_plotted = ('apple', 'microsoft', 'walmart', 'mcdonalds', 'tesla', 'meta', 'bilibili', 'intel', 'amazon', 'nvidia', 'IBM', 'shopify', 'telus', 'honda', 'general motors', 'toyota', 'ford', 'sony', 'dell', 'netflix', 'alphabet', 'spotify', 'disney', 'paramount', 'door dash', 'zoom', 'black rock', 'shell', 'general electric', 'phizer', 'costco', 'boeing', 'target')
-            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)
+            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, l33, l34, l35)
+            choices_plotted = ('apple', 'microsoft', 'walmart', 'mcdonalds', 'tesla', 'meta', 'bilibili', 'intel', 'amazon', 'nvidia', 'IBM', 'shopify', 'telus', 'honda', 'general motors', 'toyota', 'ford', 'sony', 'dell', 'netflix', 'alphabet', 'spotify', 'disney', 'paramount', 'door dash', 'zoom', 'black rock', 'shell', 'general electric', 'phizer', 'costco', 'boeing', 'target', 'snap', 'uber')
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
@@ -297,26 +308,25 @@ elif types == '9':
     for i, line in enumerate(lines):
         line.set_visible(check_state[i])
     ax_checkbox = plt.axes([0.0, 0.0, 0.12, 0.009])
-elif types == '10':
+elif types == '10' or types == 'vertex form':
     x = np.linspace(-30, 30, 300)
     a = input("a: ")
     p = input("p: ")
     q = input("q: ")
     y = int(a)*(x - int(p))**2 + int(q)
     plt.plot(x, y)
-elif types == '11':
+elif types == '11' or types == 'standard form':
     x = np.linspace(-30, 30, 300)
     a = input("A: ")
     b = input("B: ")
     c = input("C: ")
     y = int(a)*x**2 + int(b)*x + int(c)
     plt.plot(x, y)
-elif types == '12':
-    a = input("a: ")
-    b = input("b: ")
-    c = input("c: ")
-    x1 = -int(b) + math.sqrt(int(b)**2 - 4*(int(a)*int(c)))/2*int(a)
-    x2 = -int(-b) - math.sqrt(int(b)**2 - 4*(int(a)*int(c)))/2*int(a)
-    print("\n", x1 + x2)
+elif types == '12' or types == 'point chart':
+    xin = input("")
+    yin = input("")
+    xout = [xin]
+    yout = [yin]
+    plt.plot(xout, yout)
 plt.grid(True)
 plt.show()
