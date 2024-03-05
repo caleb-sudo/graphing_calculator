@@ -179,6 +179,15 @@ elif types == '9' or types == 'pre-plotted data':
                 target = df['target_value']
                 snap = df['snap_value']
                 uber = df['uber_value']
+                pintrest = df['pintrest_value']
+                warner = df['warner-bros_value']
+                old_navy = df['old-navy_value']
+                hudsons = df['hudsons-bay_value']
+                best_buy = df['best-buy_value']
+                cloudflare = df['cloudflare_value']
+                datadag = df['datadog_value']
+                crowdstrike = df['crowdstrike_value']
+                snowflake = df['snowflake_value']
             elif type == 'vol':
                 apple = df['apple_volume']
                 microsoft = df['microsoft_volume']
@@ -215,6 +224,15 @@ elif types == '9' or types == 'pre-plotted data':
                 target = df['target_volume']
                 snap = df['snap_volume']
                 uber = df['uber_volume']
+                pintrest = df['pintrest_volume']
+                warner = df['warner-bros_volume']
+                old_navy = df['old-navy_volume']
+                hudsons = df['hudsons-bay_volume']
+                best_buy = df['best-buy_volue']
+                cloudflare = df['cloudflare_volume']
+                datadag = df['datadog_volume']
+                crowdstrike = df['crowdstrike_volume']
+                snowflake = df['snowflake_volume']
 
             fig, ax = plt.subplots()
 
