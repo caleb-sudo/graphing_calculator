@@ -25,8 +25,10 @@ c9 = "9: pre-plotted graphs\n"
 c10 = "10: vertex form\n"
 c11 = "11: standard form\n"
 c12 = "12: point chart\n"
+c13 = "13: quadradic inequalities\n"
+c14 = "14: linear inequalities\n"
 
-print("\n",c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12)
+print("\n",c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12 + c13 + c14)
 
 types = input("graph: ")
 
@@ -348,11 +350,15 @@ elif types == '11' or types == 'standard form':
     c = input("C: ")
     y = int(a)*x**2 + int(b)*x + int(c)
     plt.plot(x, y)
-elif types == '12' or types == 'point chart':
+elif types == '12' or 'point chart':
     xin = input("")
     yin = input("")
     xout = [xin]
     yout = [yin]
     plt.plot(xout, yout)
+elif types == '13' or 'quadradic inequalities':
+    print("\n")
+elif types == '14' or 'linear inequalities':
+    print("\n")
 plt.grid(True)
 plt.show()
