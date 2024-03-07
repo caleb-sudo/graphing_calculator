@@ -68,6 +68,9 @@ int main(void) {
                 calc = false;
                 graph = true;
             }
+            if (graph == true) {
+                system(python line.py);
+            }
         }
 
         if (graph == true) {
