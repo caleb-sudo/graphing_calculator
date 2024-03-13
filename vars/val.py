@@ -1,3 +1,7 @@
+import pandas as pd
+
+df = pd.read_csv('pre-plotted_graphs/markets/companies.csv')
+
 apple = df['apple_value']
 microsoft = df['microsoft_value']
 walmart = df['walmart_value']
@@ -44,3 +48,10 @@ zscaler = df['zscaler_value']
 fastly = df['fastly_value']
 okta = df['okta_value']
 duolingo = df['duolingo_value']
+nike = df['nike_value']
+visa = df['visa_vale']
+mastercard = df['mastercard_value']
+paypal = df['paypal_value']
+saleforce = df['saleforce_value']
+american_express = df['american-express_value']
+adobe = df['adobe_value']
