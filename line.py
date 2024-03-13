@@ -136,57 +136,12 @@ elif types == '9' or types == 'pre-plotted data':
             df = pd.read_csv('pre-plotted_graphs/markets/companies.csv', index_col='time')
             time = df.index
 
-            type = input("type")
+            type = input("type: ")
 
             if type == 'val':
 
             elif type == 'vol':
-                apple = df['apple_volume']
-                microsoft = df['microsoft_volume']
-                walmart = df['walmart_volume']
-                mcdonalds = df['McDonalds_volume']
-                tesla = df['tesla_volume']
-                meta = df['meta_volume']
-                bilibili = df['bilibili_volume']
-                intel = df['intel_volume']
-                amazon = df['amazon_volume']
-                nvidia = df['nvidia_volume']
-                IBM = df['IBM_volume']
-                shopify = df['shopify_volume']
-                telus = df['telus_volume']
-                honda = df['honda_volume']
-                general_motors = df['general-motors_volume']
-                toyota = df['toyota_volume']
-                ford = df['ford_volume']
-                sony = df['sony_volume']
-                dell = df['dell_volume']
-                netflix = df['netflix_volume']
-                alphabet = df['alphabet_volume']
-                spotify = df['spotify_volume']
-                disney = df['disney_volume']
-                paramount = df['paramount_volume']
-                door_dash = df['door-dash_volume']
-                zoom = df['zoom_volume']
-                black_rock = df['black-rock_value']
-                shell = df['shell_value']
-                general_electric = df['general-electric_volume']
-                phizer = df['phizer_volume']
-                costco = df['costco_volume']
-                boeing = df['boeing_volume']
-                target = df['target_volume']
-                snap = df['snap_volume']
-                pintrest = df['pintrest_volume']
-                warner = df['warner-bros_volume']
-                best_buy = df['best-buy_volue']
-                cloudflare = df['cloudflare_volume']
-                datadog = df['datadog_volume']
-                crowdstrike = df['crowdstrike-holdings_volume']
-                snowflake = df['snowflake_volume']
-                gitlab = df['gitlab_volume']
-                zscaler = df['zscaler_volume']
-                fastly = df['fastly_volume']
-                okta = df['okta_volume']
-                duolingo = df['duolingo_volume']
+
 
             fig, ax = plt.subplots()
 
