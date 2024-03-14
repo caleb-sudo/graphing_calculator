@@ -139,9 +139,10 @@ elif types == '9' or types == 'pre-plotted data':
             type = input("type: ")
 
             if type == 'val':
+                from val import *
 
             elif type == 'vol':
-
+                from vol import *
 
             fig, ax = plt.subplots()
 
@@ -191,11 +192,35 @@ elif types == '9' or types == 'pre-plotted data':
             l44, = ax.plot(time, fastly)
             l45, = ax.plot(time, okta)
             l46, = ax.plot(time, duolingo)
+            l47, = ax.plot(time, nike)
+            l48, = ax.plot(time, visa)
+            l49, = ax.plot(time, mastercard)
+            l50, = ax.plot(time, paypal)
+            l52, = ax.plot(time, saleforce)
+            l51, = ax.plot(time, american_express)
+            l52, = ax.plot(time, adobe)
+            l53, = ax.plot(time, caterpiller)
+            l54, = ax.plot(time, servicenow)
+            l55, = ax.plot(time, workday)
+            l56, = ax.plot(time, autodesk)
+            l57, = ax.plot(time, atlassian)
+            l58, = ax.plot(time, hasbro)
+            l59, = ax.plot(time, mattel)
+            l60, = ax.plot(time, bp)
 
 
-            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, l33, l34, l35, l36, l37, l38, l39, l40, l41, l42, l43, l44, l45, l46)
-            choices_plotted = ('apple', 'microsoft', 'walmart', 'mcdonalds', 'tesla', 'meta', 'bilibili', 'intel', 'amazon', 'nvidia', 'IBM', 'shopify', 'telus', 'honda', 'general motors', 'toyota', 'ford', 'sony', 'dell', 'netflix', 'alphabet', 'spotify', 'disney', 'paramount', 'door dash', 'zoom', 'black rock', 'shell', 'general electric', 'phizer', 'costco', 'boeing', 'target', 'snap', 'pintrest', 'warner bros', 'best buy', 'cloudflare', 'datadog', 'crowdstrike holdings', 'snowflake', 'gitlab', 'zscaler', 'fastly', 'okta', 'duolingo')
-            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,False,False,False, False, False, False, False, False, False, False, False)
+            lines = (l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20, l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, 
+                     l33, l34, l35, l36, l37, l38, l39, l40, l41, l42, l43, l44, l45, l46, l47, l48, l49, l50, l51, l52, l53, l54, l55, l56, l57, l58, l59, l60)
+            choices_plotted = ('apple', 'microsoft', 'walmart', 'mcdonalds', 'tesla', 'meta', 'bilibili', 'intel', 'amazon', 'nvidia', 'IBM', 'shopify', 'telus', 'honda', 
+                               'general motors', 'toyota', 'ford', 'sony', 'dell', 'netflix', 'alphabet', 'spotify', 'disney', 'paramount', 'door dash', 'zoom', 'black rock', 
+                               'shell', 'general electric', 'phizer', 'costco', 'boeing', 'target', 'snap', 'pintrest', 'warner bros', 'best buy', 'cloudflare', 'datadog', 
+                               'crowdstrike holdings', 'snowflake', 'gitlab', 'zscaler', 'fastly', 'okta', 'duolingo', 'nike', 'visa', 'mastercard', 'paypal', 'saleforce',
+                                'american express', 'adobe', 'caterpiller', 'workday', 'autodesk', 'atlassian', 'hasbro', 'mattel', 'bp', 'exxon mobile',
+                                'johnsen and johnsen', 'chevron')
+            check_state = (True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, 
+                           False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,False,False,False, False, False, 
+                           False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
+                           False)
 
         elif type == 'currency':
             df = pd.read_csv('pre-plotted_graphs/markets/currency.csv', index_col='time')
