@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv('pre-plotted_graphs/markets/companies.csv')
+df = pd.read_csv('D://graphing_calculator-main/pre-plotted_graphs/markets/companies.csv')
 
 apple = df['apple_volume']
 microsoft = df['microsoft_volume']
