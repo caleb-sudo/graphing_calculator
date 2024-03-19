@@ -7,7 +7,7 @@ import geodatasets
 import contextily as cx
 import math
 
-from menus import *
+from menus import menu
 from textbox import *
 
 from mpl_toolkits.axes_grid1 import host_subplot
