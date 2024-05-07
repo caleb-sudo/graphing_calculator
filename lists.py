@@ -86,6 +86,13 @@ companies = [
     ""
 ]
 
+comps = [
+    "XOM",
+    "MSFT",
+    "IBM",
+    "NYT"
+]
+
 opts = [
     "emmisions",
     "companies value",
