@@ -9,6 +9,7 @@ from sklearn import datasets
 import tkinter as tk
 from tkinter import ttk
 import yfinance as yf
+from lists import *
 
 import urllib
 import json
@@ -95,16 +96,9 @@ class PageThree(tk.Frame):
         button1 = ttk.Button(self, text="back", command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
-        data = yf.download('XOM', start="1950-01-01", end="2020-12-31")
-        microsoft = yf.download('MSFT', start="1950-01-01", end="2020-12-31")
-        ibm = yf.download('IBM', start="1950-01-01", end="2020-12-31")
-
-    
+        data = yf.download(comps, start="1950-01-01", end="2020-12-31")
         a.clear()
-         
         a.plot(data)
-        a.plot(microsoft)
-        a.plot(ibm)
 
         canvas = FigureCanvasTkAgg(f, self)
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
