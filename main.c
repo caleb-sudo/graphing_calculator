@@ -1,6 +1,4 @@
 #include "raylib.h"
-#include "raymath.h"
-#include "rlgl.h"
 #define MAX_INPUT_CHARS     20
 
 bool start = true;
