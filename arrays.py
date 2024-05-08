@@ -377,7 +377,16 @@ comps = [
     'HIBB',
     'RCKY',
     'CURV',
-    'SNOW'
+    'ZM',
+    'ABNB',
+    'BYND',
+    'SOUN',
+    'SQ',
+    'PTON',
+    'KHC',
+    'HLF',
+    'FRPT',
+    'SOWG'
 ]
 
 crypto = [
