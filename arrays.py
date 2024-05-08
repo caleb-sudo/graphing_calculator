@@ -385,7 +385,15 @@ comps = [
     'KHC',
     'HLF',
     'FRPT',
-    'SOWG'
+    'SOWG',
+    'DOKU',
+    'PINS',
+    'PLNT',
+    'BBIG',
+    'TDOC',
+    'MODG',
+    'RDDT',
+    'DASH'
 ]
 
 crypto = [
