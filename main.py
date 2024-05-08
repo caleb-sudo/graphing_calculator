@@ -88,15 +88,15 @@ class Graph(tk.Frame):
                 a.clear()
                 a.plot(stocksData)
             elif text == opts[1]:
-                data = pd.read_csv('data/em/emmisions.csv')
+                data = pd.read_csv('data/emmisions.csv')
                 a.clear()
                 a.plot(data)
             elif text == opts[2]:
-                data = pd.read_csv('data/temps/average_temps')
+                data = pd.read_csv('data/average_temps')
                 a.clear()
                 a.plot(data)
             elif text == opts[3]:
-                data = pd.read_csv('data/population/world_pop.csv')
+                data = pd.read_csv('data/world_pop.csv')
                 a.clear()
                 a.plot(data)
 
