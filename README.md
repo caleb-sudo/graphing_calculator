@@ -3,7 +3,7 @@ a simple graphing calculator made with python using matplotlib, yfinance, pandas
 
 in development
 
-dependencies:
+### dependencies:
 + matplotlib
 + yfinance
 + pandas
@@ -14,12 +14,12 @@ dependencies:
 + requests
 
 
-how to install
+#### how to install
 ```
 pip install matplotlib yfinance pandas numpy tkinter json urllib requests
 ```
 
-run using
+#### run using
 ```
 python main.py
 ```
