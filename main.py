@@ -81,24 +81,13 @@ class Graph(tk.Frame):
 
         button1 = ttk.Button(self, text="back", command=lambda: controller.show_frame(StartPage))
         button1.pack()
-        stocksData = yf.download(comps, start="1950-01-01", end="2023-12-31", interval="1d")
+        
+        data = yf.download(comps, start="1950-01-01", end="2023-12-31", interval="1d")
+        a.clear()
+        a.plot(data)
+        
         def show():
             text = clicked.get()
-            if text == opts[0]:
-                a.clear()
-                a.plot(stocksData)
-            elif text == opts[1]:
-                data = pd.read_csv('data/emmisions.csv')
-                a.clear()
-                a.plot(data)
-            elif text == opts[2]:
-                data = pd.read_csv('data/average_temps')
-                a.clear()
-                a.plot(data)
-            elif text == opts[3]:
-                data = pd.read_csv('data/world_pop.csv')
-                a.clear()
-                a.plot(data)
 
         clicked = StringVar()
         clicked.set(opts[0])
