@@ -376,7 +376,12 @@ comps = [
     'RADCQ',
     'HIBB',
     'RCKY',
-    'CURV'
+    'CURV',
+    'snow'
+]
+
+crypto = [
+    '',
 ]
 
 opts = [
