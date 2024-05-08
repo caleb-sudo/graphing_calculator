@@ -98,12 +98,12 @@ class Graph(tk.Frame):
         setChart = Button(self, text="set", command=show)
         setChart.pack(padx=10, pady=10) 
 
-        canvas = FigureCanvasTkAgg(f, self)
-        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+canvas = FigureCanvasTkAgg(f, self)
+canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
-        toolbar = NavigationToolbar2Tk(canvas, self)
-        toolbar.update()
-        canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+toolbar = NavigationToolbar2Tk(canvas, self)
+toolbar.update()
+canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 app = grapher()
 app.mainloop()
