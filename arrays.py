@@ -377,7 +377,7 @@ comps = [
     'HIBB',
     'RCKY',
     'CURV',
-    'snow'
+    'SNOW'
 ]
 
 crypto = [
