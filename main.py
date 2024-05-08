@@ -6,17 +6,17 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 from matplotlib.figure import Figure
 from matplotlib import style
 from sklearn import datasets
-import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-import yfinance as yf
 from arrays import *
 
-import urllib
-import json
-import requests
+import urllib as url
+import json as js
+import requests as req
 import pandas as pd
 import numpy as np
+import tkinter as tk
+import yfinace as yf
 
 Large_font = ("verdana", 12)
 style.use("ggplot")
@@ -72,7 +72,6 @@ class PageOne(tk.Frame):
         button1 = ttk.Button(self, text="back", command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
-
 class Graph(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -85,6 +84,10 @@ class Graph(tk.Frame):
         data = yf.download(comps, start="1950-01-01", end="2023-12-31", interval="1d")
         a.clear()
         a.plot(data)
+
+        BTC = yf.download(crypto, start="2000-01-01", end="2023-12-31", interval="1d")
+        a.clear()
+        a.plot(BTC)
         
         def show():
             text = clicked.get()
