@@ -18,3 +18,9 @@ how to install
 ```
 pip install matplotlib yfinance pandas numpy tkinter json urllib requests
 ```
+
+run using
+```
+python main.py
+```
+
