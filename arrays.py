@@ -388,16 +388,14 @@ comps = [
     'SOWG',
     'DOKU',
     'PINS',
-    'PLNT',
     'BBIG',
     'TDOC',
-    'MODG',
     'RDDT',
     'DASH'
 ]
 
 crypto = [
-    '',
+    'BTC'
 ]
 
 opts = [
