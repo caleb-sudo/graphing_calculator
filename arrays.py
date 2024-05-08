@@ -381,7 +381,6 @@ comps = [
     'ABNB',
     'BYND',
     'SOUN',
-    'SQ',
     'PTON',
     'KHC',
     'HLF',
