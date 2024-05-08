@@ -12,3 +12,9 @@ dependencies:
 + json
 + urllib
 + requests
+
+
+how to install
+```
+pip install matplotlib yfinance pandas numpy tkinter json urllib requests
+```
